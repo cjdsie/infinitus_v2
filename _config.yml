@@ -1,0 +1,27 @@
+name: INFINITUS Marketing + Technology
+disqus_shortname: goinfinitus
+search: true
+# Your site's domain goes here. When working locally use localhost server leave blank
+# PS. If you set this wrong stylesheets and scripts won't load and most links will break.
+# PPS. If you leave it blank for local testing home links won't work, they'll be fine for live domains though.
+url: http://localhost:4000
+
+
+# Owner/author information
+owner:
+  name: Chris Da Sie
+  email: chris@chrisdasie.com
+  # Social networking links used in footer. Update and remove as you like.
+  twitter: http://twitter.com/chrisdasie
+
+# Analytics and webmaster tools stuff goes here
+google_analytics: UA-42171791-10
+google_verify: lg4c4FqPQtwIacudJlp_xAol2lGL6n2EgyCA5r-TKwI
+
+
+timezone: America/St_Johns
+markdown: redcarpet
+pygments: true
+
+# https://github.com/mojombo/jekyll/wiki/Permalinks
+permalink: /:categories/:title/

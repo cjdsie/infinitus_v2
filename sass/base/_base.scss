@@ -1,0 +1,155 @@
+
+/* HTML Elements
+================================================== */
+/* apply a natural box layout model to all elements */
+
+/* HTML & Body
+--------------------------------------------------*/
+
+*{
+  @include border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: $body-bg; 
+  height: 100%;
+  font-size: 95%;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: $light-orange;
+  @include vendorize(text-size-adjust, $base-font-size);
+  @media(min-width: 30em) {
+    font-size: 97.5%;
+  }
+  @media(min-width: 72em){
+    font-size: $base-font-size;
+  }
+}
+
+body {
+  width: 100%;
+  font-family: $body-font-family;
+  font-size: 18px;
+  font-size: 1.125em;
+  font-size: 100%;
+  line-height: (27 / $basefont);
+  color: $darkgrey;
+  -webkit-font-smoothing: $font-smoothing;
+  /* Fix for webkit rendering */
+  @include vendorize(text-size-adjust, $base-font-size);
+  -webkit-font-feature-settings: "kern", "liga", "case"; /* No variation */
+  -moz-font-feature-settings: "kern=1", "liga=1", "case=1"; /* Firefox 4.0 to 14.0 */
+  -moz-font-feature-settings: "kern", "liga" , "case"; /* Firefox 15.0 onwards */
+  -moz-font-feature-settings: "kern" 1, "liga" 1, "case" 1; /* Firefox 15.0 onwards explicitly set feature values */
+  font-feature-settings: "kern", "liga", "case"; /* No variation */
+  font-kerning: normal;
+  @include clearfix();
+  
+}
+
+
+h1,h2,h3,h4,h5,h6,hgroup,
+ul,ol,dd,
+p,figure,
+pre,table,fieldset,hr {
+  margin-bottom: $spacing;
+}
+
+/* Containers
+--------------------------------------------------*/
+
+.container {
+  @include container;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+}
+
+.left{
+  float: left;
+}
+
+.right{
+  float: right;
+}
+
+.center{
+  float: none;
+  @include center-block;
+  text-align: center;
+
+  p {
+    @include center-block;
+  }
+}
+
+.matched-height{
+  display: table;
+}
+
+.half{
+  display: block;
+  width:100%;
+  padding: 30px;
+  @media(min-width: 55em){
+    padding: 30px 60px;
+    width: 50%;
+    height: 100%;
+    display:inline-block;
+    float:left;
+  }
+}
+
+.slab{
+  background: url(http://dddb43dxo5lmp.cloudfront.net/work/flow-placehold.jpg) no-repeat center;
+  @include vendorize(background-size, cover);
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  @media(min-width: 55em) {
+    width: 50%;
+  }
+  &:before{
+    content: " ";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba($footergrey,0.85);
+  }
+  h4, p{
+    color: $white;
+    position: relative;
+  }
+  form {
+    position: relative;
+  }
+  ul{
+    position: relative;
+  }
+  &.dark{
+    background: #f6f6f6;
+    &:before{
+      background: none;
+    }
+    h4, p{
+      color: $darkgrey;
+    }
+  }
+}
+
+.slab.half{
+  display:block;
+  float: none;
+
+  @media(min-width: 55em) {
+    display: table-cell;
+  }
+}
+

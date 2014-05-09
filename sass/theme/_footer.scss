@@ -1,0 +1,117 @@
+/************************
+******   Footer    *******
+**** Version: 0.0.1 *****
+*************************/
+
+/* A collection of styles containing the footer information */
+
+
+footer{
+  background: $footergrey;
+  padding: ($base-unit * 5) 0 0;
+  position: relative;
+  .footerFirst{
+    @extend .container;
+    color: $white;
+    margin-bottom: 1em;
+    h4{
+       @include font-size(18);
+       font-weight: $heavy;
+       color: $white;
+       text-align: center;
+       margin-bottom: ($base-unit * 8);
+     }
+     h5{
+       color: $black-20;
+       strong{
+         color: inherit;
+       }
+     }
+    .stats{
+      width: 100%;
+      text-align: left;
+      @media(min-width: 55em){
+        @include column(8);
+      }
+      input[type="text"], input[type="email"]{
+        background: darken($footergrey, 10%);
+        border: none;
+        &:focus{
+          background: $white;
+        }
+      }
+    }
+    .quick-contact{
+      width: 100%;
+      text-align: center;
+      @media(min-width: 55em) {
+        @include column(4);
+      }
+      a{
+        background: $white;
+        padding: ($base-unit * 2);
+        border-radius: 50em;
+        border: 2px solid $white;
+        margin-right: ($base-unit * 2);
+        color: $footergrey; 
+        @include transition(all 100ms cubic-bezier(0.42, 0, 0.58, 1));
+        &:hover{
+          background: transparent;
+          border: 2px solid $green;
+          color: $green;
+        }
+        &:last-of-type{
+          margin:0;
+        }
+      }
+    }
+  }
+  .footerEnd{
+    background: $darkergrey;
+    display: block;
+    position: relative;
+    .footerNav, .findUs{
+      @include font-size(12);
+      font-family: $headline-font;
+      color: $offwhite;
+      text-transform: uppercase;
+      @media(min-width: 55em){
+        @include column(6);
+      }
+    }
+    .footerNav{
+      margin-bottom: $base-unit;
+
+      @media(min-width: 55em){
+        margin-bottom: 0;
+      }
+      a{
+        margin-left: ($base-unit * 2);
+        &:hover{
+          color: $green;
+        }
+        &:visited{
+          color: $white;
+        }
+        &:first-of-type{
+          margin-left: 0;
+        }
+      }
+    }
+    .findUs{
+      p{
+        @include font-size(12);
+        color: $offwhite;
+        @media(min-width: 55em){
+          text-align: right;
+          margin-bottom: 0;
+        }
+        a{
+          &:hover{
+            color: $green;
+          }
+        }
+      }
+    }
+  }
+}
