@@ -1,0 +1,10 @@
+_site
+
+# OS generated files #
+######################
+  .DS_Store
+  .DS_Store?
+  Thumbs.db
+
+.sass-cache/
+node_modules/

@@ -1,0 +1,17 @@
+<div class="callout-posts">
+	   <div class="container">
+	   		<div class="left">
+    			{% for post in site.categories['podcast'] limit:1 %}
+                   {% if site.categories contains 'podcast'  %}
+      				<a href="{{ post.url }}" class="btn btn-sml btn-alt"><strong>Limitless Podcast:</strong> {{ post.title }}</a>
+                   {% else %}
+                    <a href="{{ post.url }}" class="btn btn-sml btn-alt">No Podcasts available</a>
+   				   {% endif %}
+    			{% endfor %}
+        	</div>
+        	<div class="get-hired-guide">
+				<p>Want to get hired? Here's our guide for success</p>
+				<a href="" class="btn btn-sml">See it now</a>
+	    	</div>
+	   </div>
+  </div>

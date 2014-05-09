@@ -1,0 +1,17 @@
+/************************
+******   Links    *******
+**** Version: 0.0.1 *****
+*************************/
+
+a {
+  color: $green;
+  text-decoration: none;
+  outline: 0;
+  &:visited {
+    color: $green;
+    text-decoration: none;
+    outline: 0;
+    @include hoverActiveFocus(color, darken($light-orange, 30%));
+  }
+  @include hoverActiveFocus(color, darken($light-orange, 30%));
+}

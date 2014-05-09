@@ -1,0 +1,162 @@
+/************************
+******   Header    *******
+**** Version: 0.0.1 *****
+*************************/
+
+/* A collection of styles containing the header information */
+
+
+.fixed-background{
+  background: linear-gradient(to bottom right, rgba(211, 131, 18, 0.75), rgba(168, 50, 121, 0.75)), url(../img/polygram-bk.jpg) no-repeat center;
+  @include vendorize(background-size, cover);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* ------------------------------
+  Callout Posts
+-------------------------------*/
+
+.callout-posts{
+  background: $white;
+  border-bottom: 1px solid $offwhite;
+  position: relative;
+  @include vendorize(box-shadow, 0 4px 5px rgba($black-30, .4));
+  display: none;
+  
+  @media(min-width: 55em) {
+    display: block;
+  }
+  .left{
+    @include column(5);
+    .btn{
+      margin-bottom: 0;
+    }
+  }
+  .get-hired-guide{
+	@include column(7);
+    float: right;
+    @media(min-width: 65em){
+      text-align: right;
+    }
+    p{
+      display: inline-block;
+      margin-bottom: 0;
+      @include font-size(14);
+    }
+    .btn{
+      margin-left: 2%;
+      display: inline-block;
+      margin-bottom: 0;
+      border-color: $white;
+      &:hover{
+        background: rgba($black-90, .2);
+     }
+    }
+  }
+}
+
+.header{
+  padding: 0;
+  background: linear-gradient(to bottom right, rgba(211, 131, 18, 0.45), rgba(168, 50, 121, 0.45));
+  @include vendorize(background-size, cover);
+  position: relative;
+  max-height: 647px;
+  width: 100%;
+  height: 100%;
+  .headerInfo{
+    float: left;
+	min-height: 1px;
+	overflow: hidden;
+	display: block;
+	width: 100%;
+    @include clearfix();
+  }
+  .title{
+    display: inline-block;
+    position: relative;
+    float: left;
+    margin:0;
+  }
+  .lead-headline{
+    text-align: center;
+    margin: ($base-unit * 13) auto;
+    position: relative;
+    h2{
+      margin-top: ($base-unit * 5);
+      color: $white;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+    .btn{
+      margin-top: ($base-unit * 3);
+      white-space: nowrap;
+    }
+  }
+}
+
+
+.header-white{
+  border-bottom: 1px solid $offwhite;
+  position: relative;
+  height: auto;
+  box-shadow: none;
+  padding: 0;
+  @media(min-width: 55em){
+    padding-top: ($base-unit * 8);
+    padding-bottom: ($base-unit * 10);
+  }
+  &:before{
+    background: transparent;
+  }
+  .container{
+    padding: 0;
+  }
+  .title{
+    line-height: 1;
+    width: 125px;
+    height: 49px;
+    img{
+      width: 100%;
+    }
+  }
+  .sm-button{
+    top:10px;
+  }
+  .page-title {
+    padding: 5px 0 0 0;
+    color: $white;
+    text-align: center;
+    display: block;
+    position: relative;
+    h1{
+      color: $white;
+      margin: 0;
+    }
+    @media(min-width: 55em){
+      padding-top: ($base-unit * 8); 
+    }
+    @media(min-width: 75em){
+      padding-top: ($base-unit * 10);
+    }
+    .titleborder{
+      display: inline-block;
+	  margin: 0 auto 10px;
+	  border-bottom: 2px solid $white;
+    }
+    .leadcopy{
+      width: 80%;
+      @include center-block;
+    }
+}
+}
+
+.rotate{
+  font-style: italic;
+  font-family: $body-font-family;
+}

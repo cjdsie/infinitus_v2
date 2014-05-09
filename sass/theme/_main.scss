@@ -1,0 +1,476 @@
+/************************
+******  Main    *******
+**** Version: 0.0.1 *****
+*************************/
+
+section{
+  padding: ($base-unit * 5) 0;
+}
+
+section div {
+  padding: ($base-unit * 3) 0;
+}
+
+.hero {
+  height: $vertical-measure * 10;
+  background-color: $black-60;
+}
+
+main, .main{
+  position: relative;
+}
+
+.container{
+  @include container;
+}
+
+/*--------------------------------
+  Header Newsletter Signup
+--------------------------------*/
+
+.newsletter{
+  background: $offwhite;
+  .newsletterText{
+    width: 100%;
+    display: block;
+    text-align: center;
+    @media(min-width: 55em){
+      @include center-block;
+      p{
+        width: 75%;
+        @include center-block;
+      }
+    }
+  }
+  form{
+    width: 100%;
+    display: block;
+    @include clearfix();
+    text-align: center;
+    @media(min-width: 55em){
+      width: 75%;
+      @include center-block;
+    }
+    small{
+      display: block;
+    }
+  }
+}
+
+/*--------------------------------
+  Open Paragraph
+---------------------------------*/
+
+.openingParagraph{
+  padding-top: ($base-unit * 5);
+  background:$white;
+  h3, h5{
+    text-align: center;
+  }
+  h3{
+    line-height: 1;
+    margin-bottom: 0;
+    font-weight: $semi-bold;
+  }
+  h5{
+    color: $darkorange;
+  }
+  .leadcopy{
+    width: 100%;
+    @include font-size(18);
+    text-align: left;
+    @media(min-width: 55em){
+      width: 65%;
+      @include center-block;
+    }
+  }
+}
+
+.interior{
+  background: #f1f1f1;
+  img{
+    width: 100%;
+  }
+  .leadcopy{
+    @include font-size($leadcopy);
+    margin-bottom: ($base-unit * 4);
+    text-align: left;
+    display: block;
+    width:100%;
+    padding: 30px;
+    @media(min-width: 55em){
+      margin: 0;
+      width: 50%;
+      height: 100%;
+      display:inline-block;
+      float:left;
+    }
+    p {
+      font-size: inherit;  
+    }
+  }
+}
+
+
+/*---------------------------------
+  Client logo list
+---------------------------------*/
+
+.clientLogos {
+  background: $white;
+  display: block;
+  padding: ($base-unit * 5) 0;
+  text-align: center;
+  h4{
+    color: $darkorange;
+  }
+  .clientLogos-list {
+    display: block;
+    @include row(8);
+    @include clearfix();
+    li {
+      @include column(4);
+      text-align: center;
+      @media(min-width: 55em) {
+        @include column(1, 8);
+      }
+    }
+  }
+}
+
+.matched-height{
+  padding: 0;
+  @media(min-width: 55em){
+    height: 420px;
+  }
+  h4{
+    padding-bottom: 3px;
+    border-bottom: 1px solid $offwhite;
+  }
+  a{
+    h3{
+      color: $white;
+      position: relative;
+    }
+  }
+  .dark{
+    h3{
+      color: $darkgrey;
+    }
+  }
+}
+
+.featured-posts{
+  .slab{
+    background: $footergrey;
+    &.dark{
+      background: $offwhite;
+      h4{
+        border-color: $darkgrey;
+      }
+    }
+  }
+}
+
+/*-------------------------------
+  Homepage blockquote
+--------------------------------*/
+
+.featured-case-study {
+  background: transparent;
+  position: relative;
+  text-align: center;
+  padding: ($base-unit * 5) 0;
+}
+
+
+/*-------------------------------
+  What to expect - New Here Page
+--------------------------------*/
+
+.what-not-to{
+  background: $white;
+  h3{
+    text-align: center;
+  }
+  .align-middle{
+    display: table-cell;
+    padding-top: ($base-unit * 14);
+  }
+  
+}
+
+ul.popular-posts{
+  width: 100%;
+  margin-bottom: ($base-unit * 4);
+  @include row();
+  li{
+    @include column(4);
+    padding: ($base-unit * 3);
+    border: 1px solid $green;
+    text-align: center;
+    a{
+      color: $green;
+    }
+  }
+}
+
+
+/*--------------------------------
+  Blog Grid Style
+--------------------------------*/
+
+.og-grid {
+	@extend .container;
+	padding: 0;
+	margin: ($base-unit * 4) auto;
+	text-align: center;
+	display: block;
+	position: relative;
+	@include clearfix();
+}
+
+.og-grid article {
+	background: #fff;
+    padding: 10px;
+	overflow: hidden;
+	margin-left: -1px;
+	margin-top: -1px;
+	&.featured{
+	  width: 60%;
+	}
+	&.audio{
+	  width: 40%;
+	}
+	&.fullpage-post{
+	  width: 100%;
+	}
+	&.doublewide-right-post {
+	  width: 60%;
+	}
+	&.doubletall-post {
+	  width: 40%;
+	}
+}
+
+
+
+
+.og-grid article > a,
+.og-grid article > a img {
+	border: none;
+	outline: none;
+	display: block;
+	position: relative;
+	width: 100%;
+}
+
+.og-grid article .img-container{
+  overflow: hidden;
+}
+
+.og-grid article .title-container{
+  background: rgba($light-orange, .2);
+  padding: $base-unit ($base-unit * 5);
+  max-height: 264px;
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
+  font-weight: 200;
+  font-size: 60px;
+  overflow: hidden;
+  z-index: 2;
+  h5{
+    color: $white;
+    font-weight: $semi-bold;
+  }
+}
+
+.og-grid article.og-expanded > a::after {
+	top: auto;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-bottom-color: #f1f1f1;
+	border-width: 45px;
+	left: 50%;
+	margin: -40px 0 0 -45px;
+}
+
+.og-expander {
+	position: absolute;
+	background: #f1f1f1;
+	top: auto;
+	left: 0;
+	width: 100%;
+	margin-top: 10px;
+	text-align: left;
+	height: 0;
+	overflow: hidden;
+}
+
+.og-expander-inner {
+	padding: 50px 30px;
+	height: 100%;
+}
+
+.og-close {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+}
+
+.og-close::before,
+.og-close::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	height: 1px;
+	background: #888;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.og-close::after {
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.og-close:hover::before,
+.og-close:hover::after {
+	background: #333;
+}
+
+.og-fullimg,
+.og-details {
+	width: 50%;
+	float: left;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.og-details {
+	padding: 0 40px 0 20px;
+}
+
+.og-fullimg {
+	text-align: center;
+}
+
+.og-fullimg img {
+	display: inline-block;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.og-details h3 {
+	font-weight: 300;
+	font-size: 52px;
+	padding: 40px 0 10px;
+	margin-bottom: 10px;
+}
+
+.og-details p {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 22px;
+	color: #999;
+}
+
+.og-details a {
+	font-weight: 700;
+	font-size: 16px;
+	color: #333;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 10px 20px;
+	border: 3px solid #333;
+	display: inline-block;
+	margin: 30px 0 0;
+	outline: none;
+}
+
+.og-details a::before {
+	content: '\2192';
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.og-details a:hover {
+	border-color: #999;
+	color: #999;
+}
+
+.og-loading {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #ddd;
+	box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ccc;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -25px 0 0 -25px;
+	-webkit-animation: loader 0.5s infinite ease-in-out both;
+	-moz-animation: loader 0.5s infinite ease-in-out both;
+	animation: loader 0.5s infinite ease-in-out both;
+}
+
+@-webkit-keyframes loader {
+	0% { background: #ddd; }
+	33% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd; }
+	66% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc; }
+}
+
+@-moz-keyframes loader {
+	0% { background: #ddd; }
+	33% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd; }
+	66% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc; }
+}
+
+@keyframes loader {
+	0% { background: #ddd; }
+	33% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd; }
+	66% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc; }
+}
+
+@media screen and (max-width: 830px) {
+
+	.og-expander h3 { font-size: 32px; }
+	.og-expander p { font-size: 13px; }
+	.og-expander a { font-size: 12px; }
+
+}
+
+@media screen and (max-width: 650px) {
+
+	.og-fullimg { display: none; }
+	.og-details { float: none; width: 100%; }
+	
+}
+
+/* --------------------------------
+   Newsletter Lightbox form
+--------------------------------- */
+
+#sign_up {
+  @include vendorize(border-radius, 6px);
+  background: #f1f1f1;
+  border: 1px solid $offwhite;
+  @include vendorize(box-shadow, rgba(0,0,0,.6) 0px 2px 12px);
+  padding: 14px 22px;
+  width: 50%;
+  position: relative;
+  display: none;
+}
+

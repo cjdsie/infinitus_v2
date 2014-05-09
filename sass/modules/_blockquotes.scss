@@ -1,0 +1,78 @@
+/************************
+****** Blockquotes *******
+**** Version: 0.0.1 *****
+*************************/
+
+
+blockquote {
+  font-size: inherit;
+  line-height: inherit;
+  color: #777;
+  font-style: italic;
+  p {
+    font-size: inherit;
+    line-height: $line-height;
+    color: #777;
+    font-style: italic;
+  }
+  margin: 0 0 ($base-unit * 3);
+  padding: $base-unit ($base-unit * 2) 0 ($base-unit * 4);
+  cite {
+    display: block;
+    font-size: em(12);
+    color: $black-50;
+    &:before {
+      content: "\2014 \0020";
+    }
+    a {
+      color: $black-50;
+      &:visited {
+        color: $black-50;
+      }
+    }
+  }
+}
+
+blockquote {
+  font-style: italic;
+  position: relative;
+  display: block;
+  height: auto;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 2% 5% 2%;
+  font-weight: $heavy;
+  border: 1px solid #E3E5E4;
+  border-right: none;
+  border-left: none;
+  background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJgAAACBCAMAAAALxYNAAAAANlBMVEXk5OT////k5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTVKuAHAAAAEnRSTlMAAAgQGCAoMDhASFBYYGhweIDXCXkbAAADEElEQVR4XtTZDZKbMAyGYVW2wWD8893/sp3NzM40jUBBkXfa9wI84ERgoF//aP8PjOQi0/04EM2FpYpyn7WNEafCwgHgtiwPAIPnwXjDI6x0o9TwqPEsWOr4LtK78Y7viiNMPgIwWPEIJwOsM2Cx4c8qvdWOp6I/bMVfbaQXGp7r7A0reCmSVhr4u+IL44bXOiuuFUKLJyx2SO10WYHUYD9YHJCLikusOMCuXSNbXDU4wC5dLRhcI7uMiyvXRgZXCz5z7Nw1ksW1e92STl2NDa6x+j1dcINUMcwvdM/nsQqpTJels4vsB9shtdJlYZy4/GCLxUXtxOUHC8Pi2k9cjrBqcaUTlyMsG+7bxF28b5MfTF7IgywLGckTdsinfl2Up4snLEEokVIVXJVcYV0e+IaRH1xhq2UhqYtPIa4w+RBK8tm4wlYIGS+YD8z/F+YKW+RpZLhJHuQIk2dYJ8sMW11hAZaVLBAKrrBsuXvTEC+zK6xZpv4CoeoKC5AyreTmCssm2JgPOyA0LP9JZFcYpKoC2yCVPGEJlqWsmL6UGTDcKcd8WIHYQlcFYPq4qBAr6uZo9uSHcgyxDXLbfBiqBYbgBks4a1P+lGKN58OQDTA0ng9D4fswtDAfhr7ch2Hk+TCgrgpMqq/zYUDfowITGnt0gKmNI7MA004oOcDUsgBTq5/AIoTUoVbwTsN78uuwDW/1EaxZYMsPwIoFxj8AWy0wavNhbILtBpjDLknfmMe54+L9tUzC7Fc77LBHHXrC2zG9/CFshVqllzrUohn29iXL9NICrT7ljaK+M6lQ2j6F6X/MQ/lQKRc+h7GymJGklNFcPN7zx4GLdhLSpuzgD2H6MOusvL0TW+gzmC4bkei+bHf7kJqG4rolK46fnmNTXGLryTtPL9ij7fUglUkpVGk76gujUPBUS6RH6Zk2NiZvGBHnQ9hQasW9fauOlYn8YY9i+orpVpy+Ck/e3+3aMQ0AAAzDsI0/6bLoUfnIbwAZ3eb7gYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgQXcRSkXBIs8agAAAABJRU5ErkJggg==') no-repeat 0px 10px;
+  p {
+   text-align: center;
+   margin: 1em 0;
+  }
+}
+
+
+.featured-case-study-quote {
+  @extend .container;
+  @include font-size(16);
+  width: 65%;
+  position: relative;
+  border: none;
+  background: transparent;
+  h3{
+    text-align: center;
+    font-family: $body-font-family;
+    color: $white;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+  cite{
+    @include font-size(16);
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $headline-font;
+    letter-spacing: 0.2em;
+  }
+}
