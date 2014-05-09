@@ -504,6 +504,8 @@ pre, table, fieldset, hr {
       background: none; }
     .slab.dark h4, .slab.dark p {
       color: #5d6266; }
+    .slab.dark a, .slab.dark a:visited {
+      color: #9fbb58; }
 
 .slab.half {
   display: block;

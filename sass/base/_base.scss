@@ -141,6 +141,10 @@ pre,table,fieldset,hr {
     h4, p{
       color: $darkgrey;
     }
+
+    a, a:visited{
+      color: $green;
+    }
   }
 }
 

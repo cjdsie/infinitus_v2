@@ -3,8 +3,6 @@ $(function() {
 });
 
 
-  $.typer.options.typerInterval = 4000;
-  $.typer.options.typeSpeed = 200;
   $('[data-typer-targets]').typer();
 
 
