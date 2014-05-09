@@ -3567,6 +3567,8 @@ main, .main {
   .what-not-to .align-middle {
     display: table-cell;
     padding-top: 84px; }
+  .what-not-to a, .what-not-to a:visited {
+    color: #9fbb58; }
 
 ul.popular-posts {
   width: 100%;

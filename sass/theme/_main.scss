@@ -197,6 +197,10 @@ main, .main{
     display: table-cell;
     padding-top: ($base-unit * 14);
   }
+
+  a, a:visited{
+    color: $green;
+  }
   
 }
 
