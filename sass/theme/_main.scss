@@ -18,6 +18,7 @@ section div {
 
 main, .main{
   position: relative;
+  height: 100%;
 }
 
 .container{
@@ -262,34 +263,24 @@ ul.popular-posts{
 --------------------------------*/
 
 .og-grid {
-	@extend .container;
-	padding: 0;
-	margin: ($base-unit * 4) auto;
-	text-align: center;
+	width:100%;
+	background: $white;
+	padding: ($base-unit * 4) 0;
+	margin: 0;
 	display: block;
 	position: relative;
 	@include clearfix();
 }
 
 .og-grid article {
+    display: inline-block;
 	background: #fff;
-    padding: 10px;
+    margin: 10px 5px 0;
+	vertical-align: top;
 	overflow: hidden;
-	margin-left: -1px;
-	margin-top: -1px;
-	&.featured{
-	  width: 60%;
-	}
+	height: auto;
+	width: 32.5%;
 	&.audio{
-	  width: 40%;
-	}
-	&.fullpage-post{
-	  width: 100%;
-	}
-	&.doublewide-right-post {
-	  width: 60%;
-	}
-	&.doubletall-post {
 	  width: 40%;
 	}
 }
@@ -308,10 +299,18 @@ ul.popular-posts{
 
 .og-grid article .img-container{
   overflow: hidden;
+  background: $offwhite;
+  min-height: 350px;
+  padding: 0;
+  img{
+    background: $offwhite;
+  }
 }
 
+
+
 .og-grid article .title-container{
-  background: rgba($light-orange, .2);
+  background: $black-90;
   padding: $base-unit ($base-unit * 5);
   max-height: 264px;
   bottom: 0px;
@@ -324,7 +323,12 @@ ul.popular-posts{
   h5{
     color: $white;
     font-weight: $semi-bold;
+    margin:0;
   }
+}
+
+.og-grid article.audio .title-container{
+  display: none;
 }
 
 .og-grid article.og-expanded > a::after {
@@ -351,6 +355,7 @@ ul.popular-posts{
 	text-align: left;
 	height: 0;
 	overflow: hidden;
+	z-index: 1000;
 }
 
 .og-expander-inner {

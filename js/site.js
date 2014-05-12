@@ -28,86 +28,6 @@ $(function() {
 // Create a new instance of Headhesive
 var headhesive = new Headhesive('.banner', options);
 
-
-
-function setPostHeights() {
-  var fullPagePostRatio = 1/2;
-  var featureRatio = 2/3;
-  var doubleTallRatio = 2/3;
-  var doubleWideRatio = 2/3;
-  var doubleWideRightRatio = 2/3;
-
-  var fullPagePost =$('.fullpage-post')
-  var featurePost = $(".feature");
-  var doubleTallPost = $(".doubletall-post");
-  var doubleWidePost = $(".audio");
-  var doubleWideRightPost = $(".doublewide-right-post");
-
-  var fullPagePostWidth = fullPagePost.width();
-  var featurePostWidth = featurePost.width();
-  var doubleTallPostWidth = doubleTallPost.width();
-  var doubleWidePostWidth = doubleWidePost.width();
-  var doubleWideRightPostWidth = doubleWideRightPost.width();
-
-  var fullPagePostHeight = fullPagePostWidth * fullPagePostRatio;
-  var featurePostHeight = featurePostWidth * featureRatio;
-  var doubleTallPostHeight = featurePostHeight;
-  var doubleWidePostHeight = featurePostHeight/2;
-  var doubleWideRightPostHeight =  doubleWidePostHeight;
-
-
-//    alert(doubleWidePostHeight);
-
-  if($(window).width()>767){
-    featurePost.css({'height': featurePostHeight});
-    fullPagePost.css({'height': fullPagePostHeight});
-    doubleTallPost.css({'height': doubleTallPostHeight});
-    doubleWidePost.css({'height': doubleWidePostHeight});
-    doubleWideRightPost.css({'height': doubleWideRightPostHeight});
-  } else {
-    featurePost.css({'height': ''});
-    fullPagePost.css({'height': ''});
-    doubleTallPost.css({'height': ''});
-    doubleWidePost.css({'height': ''});
-    doubleWideRightPost.css({'height': ''});
-  }
-}
-
-
-// bg mask width
-  function compareWidth() {
-    var baMaskWidth = $(".compare").width();
-
-    $(".ba-mask").css("background-size", baMaskWidth);
-  }
-  compareWidth();
-
-$(window).on("resize",function(){
-    setPostHeights();
-});
-
-
-// Screen Resize functions
-
-$(window).resize(function() {
-  positionGallery();
-  compareWidth();
- });
-
-
-setPostHeights();
-var $container = $('#og-grid');
-// initialize
-$container.masonry({
-  "containerStyle": null,
-  "gutter": 0,
-  "itemSelector": 'article',
-  "columnWidth":1,
-  "transitionDuration": 0
-});
-
-
-
 $('#signup_btn').click(function(e) {
     $('#sign_up').lightbox_me({
         centered: true, 
@@ -116,4 +36,40 @@ $('#signup_btn').click(function(e) {
             }
         });
     e.preventDefault();
+});
+
+
+
+/*----------------------------------------------*/
+/* 9 - WOOKMARK -------------------------------*/
+/*---------------------------------------------*/
+
+function applyLayout( $container ){
+	if( undefined === $container ) {
+		var $container = jQuery( '.og-grid .item' );
+	}
+	$container.find('script').remove();
+	$container.wookmark({
+		align: 'left',
+		autoResize: true, // This will auto-update the layout when the browser window is resized.
+		container: jQuery('.og-grid'), // Optional, used for some extra CSS styling
+		// offset: 16, Optional, the distance between grid items
+		flexibleWidth: true, // Optional, the maximum width of a grid item,
+		itemWidth: '32.7%'
+	});
+
+	jQuery( '.og-grid article' ).imagesLoaded( function() { jQuery( '.og-grid' ).animate({ opacity: 1.0 }, 750); } );
+}
+
+jQuery(window).load(function(){
+	if( jQuery( window ).width() > 600 && !jQuery("body").hasClass( 'single' ) && !jQuery("body").hasClass( 'page' ) ){
+		jQuery( '.og-grid article' ).imagesLoaded( function() { applyLayout(); } );
+	} else if( undefined !== jQuery( '.og-grid article' ) ) {
+		jQuery( '.og-grid' ).css('opacity', 1.0);
+		if( jQuery( window ).width() > 600 ) {
+			jQuery( '.og-grid article' ).imagesLoaded( function() { applyLayout(); } );
+		}
+	} else {
+		jQuery( '.og-grid' ).css('opacity', 1.0);
+	}
 });

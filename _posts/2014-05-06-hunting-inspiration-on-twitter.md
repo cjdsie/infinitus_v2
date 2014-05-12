@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "Hunting Inspiration on Twitter: 185 Accounts for Business Leaders"
+image: "//dddb43dxo5lmp.cloudfront.net/podcast/podcast-akelapeoples.jpg"
 date: 2014-05-8
+class: "doublewide-right-post"
 categories: blog update
 ---
 

@@ -45,7 +45,6 @@ description: Infinitus Marketing + Technology is a Newfoundland Web Development 
 		{% for post in site.categories['blog'] limit:1 %}
 		{% if site.categories contains 'blog' %}
              <a href="{{ post.url }}"> 
-				<img src="{{ post.image }}">
 			<h3>{{ post.title }}</h3>
             </a>
             {{post.excerpt}}

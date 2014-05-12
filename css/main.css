@@ -420,17 +420,17 @@ pre, table, fieldset, hr {
 
 /* Containers
 --------------------------------------------------*/
-.container, .featured-case-study-quote, .og-grid, footer .footerFirst {
+.container, .featured-case-study-quote, footer .footerFirst {
   margin: 0 auto;
   padding: 1em 0;
   max-width: 90em;
   width: 90%; }
-  .container, .featured-case-study-quote, .og-grid, footer .footerFirst {
+  .container, .featured-case-study-quote, footer .footerFirst {
     *zoom: 1; }
-  .container:before, .featured-case-study-quote:before, .og-grid:before, footer .footerFirst:before, .container:after, .featured-case-study-quote:after, .og-grid:after, footer .footerFirst:after {
+  .container:before, .featured-case-study-quote:before, footer .footerFirst:before, .container:after, .featured-case-study-quote:after, footer .footerFirst:after {
     content: "";
     display: table; }
-  .container:after, .featured-case-study-quote:after, .og-grid:after, footer .footerFirst:after {
+  .container:after, .featured-case-study-quote:after, footer .footerFirst:after {
     clear: both; }
 
 .content {
@@ -2784,7 +2784,7 @@ ul.tabs {
       padding-bottom: 60px; } }
   .header-white:before {
     background: transparent; }
-  .header-white .container, .header-white .featured-case-study-quote, .header-white .og-grid, .header-white footer .footerFirst, footer .header-white .footerFirst {
+  .header-white .container, .header-white .featured-case-study-quote, .header-white footer .footerFirst, footer .header-white .footerFirst {
     padding: 0; }
   .header-white .title {
     line-height: 1;
@@ -3488,19 +3488,20 @@ section div {
   background-color: #666666; }
 
 main, .main {
-  position: relative; }
+  position: relative;
+  height: 100%; }
 
-.container, .featured-case-study-quote, .og-grid, footer .footerFirst {
+.container, .featured-case-study-quote, footer .footerFirst {
   margin: 0 auto;
   padding: 1em 0;
   max-width: 90em;
   width: 90%; }
-  .container, .featured-case-study-quote, .og-grid, footer .footerFirst {
+  .container, .featured-case-study-quote, footer .footerFirst {
     *zoom: 1; }
-  .container:before, .featured-case-study-quote:before, .og-grid:before, footer .footerFirst:before, .container:after, .featured-case-study-quote:after, .og-grid:after, footer .footerFirst:after {
+  .container:before, .featured-case-study-quote:before, footer .footerFirst:before, .container:after, .featured-case-study-quote:after, footer .footerFirst:after {
     content: "";
     display: table; }
-  .container:after, .featured-case-study-quote:after, .og-grid:after, footer .footerFirst:after {
+  .container:after, .featured-case-study-quote:after, footer .footerFirst:after {
     clear: both; }
 
 /*--------------------------------
@@ -3740,9 +3741,10 @@ ul.popular-posts {
   Blog Grid Style
 --------------------------------*/
 .og-grid {
-  padding: 0;
-  margin: 24px auto;
-  text-align: center;
+  width: 100%;
+  background: white;
+  padding: 24px 0;
+  margin: 0;
   display: block;
   position: relative; }
   .og-grid {
@@ -3754,20 +3756,14 @@ ul.popular-posts {
     clear: both; }
 
 .og-grid article {
+  display: inline-block;
   background: #fff;
-  padding: 10px;
+  margin: 10px 5px 0;
+  vertical-align: top;
   overflow: hidden;
-  margin-left: -1px;
-  margin-top: -1px; }
-  .og-grid article.featured {
-    width: 60%; }
+  height: auto;
+  width: 32.5%; }
   .og-grid article.audio {
-    width: 40%; }
-  .og-grid article.fullpage-post {
-    width: 100%; }
-  .og-grid article.doublewide-right-post {
-    width: 60%; }
-  .og-grid article.doubletall-post {
     width: 40%; }
 
 .og-grid article > a,
@@ -3779,10 +3775,15 @@ ul.popular-posts {
   width: 100%; }
 
 .og-grid article .img-container {
-  overflow: hidden; }
+  overflow: hidden;
+  background: #edece4;
+  min-height: 350px;
+  padding: 0; }
+  .og-grid article .img-container img {
+    background: #edece4; }
 
 .og-grid article .title-container {
-  background: rgba(228, 106, 63, 0.2);
+  background: #1a1a1a;
   padding: 6px 30px;
   max-height: 264px;
   bottom: 0px;
@@ -3794,7 +3795,11 @@ ul.popular-posts {
   z-index: 2; }
   .og-grid article .title-container h5 {
     color: white;
-    font-weight: 400; }
+    font-weight: 400;
+    margin: 0; }
+
+.og-grid article.audio .title-container {
+  display: none; }
 
 .og-grid article.og-expanded > a::after {
   top: auto;
@@ -3818,7 +3823,8 @@ ul.popular-posts {
   margin-top: 10px;
   text-align: left;
   height: 0;
-  overflow: hidden; }
+  overflow: hidden;
+  z-index: 1000; }
 
 .og-expander-inner {
   padding: 50px 30px;

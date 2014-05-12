@@ -53,9 +53,7 @@ grunt.initConfig({
 	      'js/vendor/raphael.js',
 	      'js/vendor/jquery.lightbox_me.js',
 	      'js/vendor/grid.js',
-	      'js/vendor/jquery.easing.1.3.js',
-	      'js/vendor/jquery.jscrollpane.min.js',
-	      'js/vendor/jquery.masonry.min.js'
+	      'js/vendor/wookmark.js'
 	    ],
 	    dest: 'js/application.min.js'
 	  }

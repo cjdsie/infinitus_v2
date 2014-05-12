@@ -166,12 +166,12 @@ var Grid = (function() {
 		// list of items
 	var $grid = $( '#og-grid' ),
 		// the items
-		$items = $grid.children( 'li' ),
+		$items = $grid.children( 'article' ),
 		// current expanded item's index
 		current = -1,
 		// position (top) of the expanded item
 		// used to know if the preview will expand in a different row
-		previewPos = -1,
+		previewPos = 1,
 		// extra amount of pixels to scroll the window
 		scrollExtra = 0,
 		// extra margin when expanded (between preview overlay and the next items)
