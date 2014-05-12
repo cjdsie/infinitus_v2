@@ -30,6 +30,7 @@ main, .main{
 
 .newsletter{
   background: $offwhite;
+  padding-bottom: 0;
   .newsletterText{
     width: 100%;
     display: block;
@@ -60,14 +61,14 @@ main, .main{
 .newsletter-wrapper{
   position: relative;
   overflow: hidden;
-  margin-top: -140px;
-  margin-left: -20px;
-  margin-bottom: 20px;
-  padding: 0 30px 4px;
+  @include center-block;
+  padding: 0 0 4px;
   height: 180px;
+  width: 80%;
+  text-align: center;
   z-index: 2;
   img{
-    width: 284px;
+    width: 180px;
 	margin-right: -8px;
 	position: relative;
 	-webkit-border-radius: 3px 3px 0 0;
@@ -87,6 +88,7 @@ main, .main{
 	}
 	&.two{
 	  bottom: -5px;
+	  z-index: 10;
 	}
   }
 }

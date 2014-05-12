@@ -3402,7 +3402,8 @@ main, .main {
   Header Newsletter Signup
 --------------------------------*/
 .newsletter {
-  background: #edece4; }
+  background: #edece4;
+  padding-bottom: 0; }
   .newsletter .newsletterText {
     width: 100%;
     display: block;
@@ -3440,14 +3441,16 @@ main, .main {
 .newsletter-wrapper {
   position: relative;
   overflow: hidden;
-  margin-top: -140px;
-  margin-left: -20px;
-  margin-bottom: 20px;
-  padding: 0 30px 4px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 0 4px;
   height: 180px;
+  width: 80%;
+  text-align: center;
   z-index: 2; }
   .newsletter-wrapper img {
-    width: 284px;
+    width: 180px;
     margin-right: -8px;
     position: relative;
     -webkit-border-radius: 3px 3px 0 0;
@@ -3465,7 +3468,8 @@ main, .main {
     .newsletter-wrapper img.one, .newsletter-wrapper img.three {
       bottom: -10px; }
     .newsletter-wrapper img.two {
-      bottom: -5px; }
+      bottom: -5px;
+      z-index: 10; }
 
 /*--------------------------------
   Open Paragraph
