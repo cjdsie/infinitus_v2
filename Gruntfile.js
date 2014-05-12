@@ -49,6 +49,7 @@ grunt.initConfig({
 	      'js/classie.js',
 	      'js/vendor/jquery.menu.js',
 	      'js/vendor/jquery.typer.js',
+	      'js/vendor/headhesive.min.js',
 	      'js/vendor/raphael.js',
 	      'js/vendor/jquery.lightbox_me.js',
 	      'js/vendor/grid.js',

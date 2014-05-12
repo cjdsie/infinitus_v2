@@ -14,6 +14,21 @@ $(function() {
   });
 
 
+// Set options
+        var options = {
+            offset: 500,
+            classes: {
+                clone:   'banner--clone',
+                stick:   'banner--stick',
+                unstick: 'banner--unstick'
+            }
+        };
+
+
+// Create a new instance of Headhesive
+var headhesive = new Headhesive('.banner', options);
+
+
 
 function setPostHeights() {
   var fullPagePostRatio = 1/2;

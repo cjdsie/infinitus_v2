@@ -2818,6 +2818,96 @@ ul.tabs {
   font-style: italic;
   font-family: "chaparral-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
 
+/*----------------------------------------------------------------------------*\
+    Headhesive Specific Styles
+/*----------------------------------------------------------------------------*/
+/**
+ * Headhesive element clone
+ * > `clone` class for the cloned element:
+ *
+ |  var options = {
+ |      classes {
+ |          clone: 'banner--clone';
+ |      }
+ |  }
+ *
+ */
+.banner--clone {
+  /* Required styles */
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  display: block;
+  width: 100% !important;
+  margin: 0;
+  max-width: 100% !important;
+  /* Additional styles */
+  background: linear-gradient(to bottom right, #d38312, #a83279);
+  z-index: 10;
+  /* Translate -100% to move off screen */
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+  /* Animations */
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out; }
+  .banner--clone {
+    *zoom: 1; }
+  .banner--clone:before, .banner--clone:after {
+    content: "";
+    display: table; }
+  .banner--clone:after {
+    clear: both; }
+  .banner--clone .headerInfo {
+    width: 90%;
+    max-width: 90em;
+    margin: 0 auto;
+    position: relative;
+    display: block; }
+    .banner--clone .headerInfo .title {
+      line-height: 1;
+      display: inline-block;
+      position: relative;
+      float: left;
+      margin: 0; }
+      .banner--clone .headerInfo .title img {
+        width: 100%; }
+    .banner--clone .headerInfo .sm-button {
+      top: 10px; }
+
+/**
+ * Headhesive stick
+ * > `stick` class for the cloned element:
+ *
+ |  var options = {
+ |      classes {
+ |          stick: 'banner--stick';
+ |      }
+ |  }
+ *
+ */
+.banner--stick {
+  /* Translate back to 0%; */
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%); }
+
+/**
+ * Headhesive unstick
+ * > `unstick` class for the cloned element:
+ *
+ |  var options = {
+ |      classes {
+ |          unstick: 'banner--unstick';
+ |      }
+ |  }
+ *
+ */
+.banner--unstick {
+  /* Not required to use, but could be useful to have */ }
+
 /************************
 ******   Menus    *******
 **** Version: 0.0.1 *****
