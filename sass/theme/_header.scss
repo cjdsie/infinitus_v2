@@ -80,8 +80,13 @@
   .title{
     display: inline-block;
     position: relative;
+    background: url(../img/infinituslogofull.png) no-repeat center;
+    background: url(../img/infinituslogofull.svg) no-repeat center;
     float: left;
     margin:0;
+    width: 200px;
+    height: 79px;
+    text-indent: -99999em;
   }
   .lead-headline{
     text-align: center;
@@ -121,9 +126,9 @@
     line-height: 1;
     width: 125px;
     height: 49px;
-    img{
-      width: 100%;
-    }
+    background: url(../img/infinitus-icon.png) no-repeat center;
+    background: url(../img/infinitus-icon.svg) no-repeat center;
+    text-indent: -99999em;
   }
   .sm-button{
     top:10px;
@@ -192,7 +197,7 @@
     @include clearfix();
 
     /* Additional styles */
-    background: linear-gradient(to bottom right, rgba(211, 131, 18, 1), rgba(168, 50, 121, 1));
+    background: $white;
     z-index:10;
 
     /* Translate -100% to move off screen */
@@ -216,12 +221,16 @@
        position: relative;
        float: left;
        margin:0;
-       img{
-        width: 100%;
-       }
+       background: url(../img/infinitus-icon-dark.png) no-repeat center;
+       background: url(../img/infinitus-icon-dark.svg) no-repeat center;
+       @include vendorize(background-size, contain);
+       text-indent: -99999em;
+       width: 125px;
+       height: 49px;
      }
      .sm-button{
         top:10px;
+        color: $light-orange;
      }
    }
 

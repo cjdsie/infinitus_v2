@@ -249,6 +249,7 @@ ul.popular-posts{
     padding: ($base-unit * 3);
     border: 1px solid $green;
     text-align: center;
+    min-height: 120px;
     a{
       color: $green;
     }
