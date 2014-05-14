@@ -46,3 +46,19 @@ iframe, embed, object {
 .unsupported {
   background:#fddfde;
 }
+
+
+// circle images
+
+.img-thumbnail-circle{
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  display: block;
+  @include vendorize(border-radius, 50em);
+  border: 2px solid $white;
+  img{
+    @include vendorize(border-radius, 50em);
+  }
+}

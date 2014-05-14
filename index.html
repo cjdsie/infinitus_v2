@@ -10,13 +10,12 @@ description: Infinitus Marketing + Technology is a Newfoundland Web Development 
 	<!-- Opening paragraph -->
 	<section class="openingParagraph">
 		<div class="container">
-			<h3>You use relationships to grow your organization.</h3>
-			<h5>Now, build a community.</h5>
+			<h3>Augment your team with our experts.</h3>
 			<div class="center">
-				<p>Even if you don’t consider yourself “tech savvy,” you know that there are opportunities to grow your organization’s impact in a record-setting way. You’ve never let anything get in the way of your goals before. (Some call you lucky, but you know better.)</p>
-				<p>You know that great work takes a great team. Since you don’t have an army of marketers, programmers and designers - that’s where we come in. If you have a big idea for a new website, mobile app, online marketing strategy, content creation or other digital asset, we can help you make it happen.</p>
+				<p>You know that great work takes great people. When you have a big idea for a new website, mobile app, online marketing strategy or other digital project, we can help you make it happen. Since you don’t have an army of strategists, marketers, engineers and designers, that’s where we come in. </p>
+				<p>You might not consider yourself tech savvy, but you know what you want. You know that there are opportunities to grow your organization’s impact in a record-setting way. You’ve never let anything get in the way of your goals before. Let’s make those goals a reality.</p>
 				
-					<a href="" class="btn">How it works</a>
+					<a href="{{ site.baseurl }}how-we-help" class="btn">How We Help</a>
 				
 			</div>
 		</div>
@@ -32,7 +31,7 @@ description: Infinitus Marketing + Technology is a Newfoundland Web Development 
   				<h3>{{ post.title }}</h3>
                 </a>
                 <p>{{post.excerpt}}</p>
-				<a href="{{post.url}}" class="btn btn-transparent">Listen to more</a>
+				<a href="{{post.url}}" class="btn btn-transparent">Listen</a>
 		</div>		
                {% else %}
 		<div class="half slab">
@@ -60,8 +59,12 @@ description: Infinitus Marketing + Technology is a Newfoundland Web Development 
 	<!-- Featured Case Study -->
 	<section class="featured-case-study">
 		<blockquote class="featured-case-study-quote">
-			<h3>He’s helped shape our strategy on how to attract people online and engage our audience.</h3>
-			<cite>Ron Ellsworth, Owner - Ellsworth Group of Companies</cite>
+			{% for client in site.data.casestudies %}
+			  {% if client.id == 'ronellsworth' %}
+				<h3>{{ client.quote }}</h3>
+				<cite><div class="img-thumbnail-circle"><img src="{{client.clientimage}}"></div>{{client.author}}</cite>
+				{% endif %} 
+			{% endfor %}
 		</blockquote>
 		<a href="" class="btn btn-transparent">Read the Case Study</a>	
 	</section>	
@@ -69,16 +72,16 @@ description: Infinitus Marketing + Technology is a Newfoundland Web Development 
 	
 	{% include clientlogos.html %}
 
-	<section class="what-not-to">
+	<!--<section class="what-not-to">
 		<div class="container center">
 			<h3>Want more?</h3>
 			<p>We believe that by sharing knowledge, everyone benefits. This is why we've included a series of information in various formats for you to discover, learn and benefit from.</p>
 			<ul class="inline-list">
-				<li><span class="icon-bookmarks"></span></li>
-				<li><span class="icon-book"></span></li>
-				<li><span class="icon-film"></span></li>
-				<li><span class="icon-podcast"></span></li>
+				<li><span class="icon-bookmarks"></span><h6>eBooks</h6></li>
+				<li><span class="icon-book"></span><h6>Guides</h6></li>
+				<li><span class="icon-film"></span><h6>Video</h6></li>
+				<li><span class="icon-podcast"></span><h6>Podcast</h6></li>
 			</ul>	
 		</div>	
-	</section>
+	</section>-->
 

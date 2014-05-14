@@ -1050,6 +1050,80 @@ ul.large li, li p {
       border: 2px solid #a9c26a;
       padding: 24px;
       border-radius: 50em; }
+    .inline-list li h6 {
+      margin-top: 13%;
+      font-weight: 700;
+      text-align: center; }
+
+.team-list {
+  display: block;
+  margin-top: 24px;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left; }
+  .team-list {
+    *zoom: 1; }
+  .team-list:before, .team-list:after {
+    content: "";
+    display: table; }
+  .team-list:after {
+    clear: both; }
+  .team-list div {
+    width: 100%;
+    padding: 12px 0 0;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    display: inline-block;
+    margin-right: 0; }
+    @media (min-width: 45em) {
+      .team-list div {
+        width: 48%;
+        margin: 0 1.1% 0 0; } }
+    @media (min-width: 65em) {
+      .team-list div {
+        width: 32%;
+        display: inline-block; } }
+    .team-list div .portrait {
+      float: left;
+      padding: 0;
+      width: 80px;
+      height: 80px;
+      margin-right: 10px;
+      margin-bottom: 5px;
+      -webkit-border-radius: 50em;
+      -moz-border-radius: 50em;
+      -ms-border-radius: 50em;
+      -o-border-radius: 50em;
+      border-radius: 50em;
+      border: 1px solid #edece4;
+      overflow: hidden; }
+      .team-list div .portrait img {
+        -webkit-border-radius: 50em;
+        -moz-border-radius: 50em;
+        -ms-border-radius: 50em;
+        -o-border-radius: 50em;
+        border-radius: 50em; }
+    .team-list div h5, .team-list div h6, .team-list div p {
+      text-align: left; }
+    .team-list div h5 {
+      margin-bottom: 4px;
+      font-weight: 700; }
+    .team-list div h6 {
+      font-size: 60%; }
+    .team-list div span {
+      display: block; }
+    .team-list div .location {
+      color: #db612e;
+      margin-top: 4px; }
+      .team-list div .location:before {
+        font-family: icomoon;
+        content: "\e643";
+        margin-right: 3px; }
+    .team-list div .bio {
+      clear: both;
+      padding: 0 10px 20px 0; }
 
 /************************
 ******   Links    *******
@@ -1334,6 +1408,25 @@ iframe, embed, object {
 
 .unsupported {
   background: #fddfde; }
+
+.img-thumbnail-circle {
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  display: block;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  -ms-border-radius: 50em;
+  -o-border-radius: 50em;
+  border-radius: 50em;
+  border: 2px solid white; }
+  .img-thumbnail-circle img {
+    -webkit-border-radius: 50em;
+    -moz-border-radius: 50em;
+    -ms-border-radius: 50em;
+    -o-border-radius: 50em;
+    border-radius: 50em; }
 
 /************************
 ******* Slideshow *******
@@ -1935,6 +2028,8 @@ hr {
 *************************/
 form {
   margin: 0 0 1.25em; }
+  form small {
+    display: block; }
 
 fieldset {
   padding: 0;
@@ -1991,7 +2086,7 @@ select, textarea {
 input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
   display: inline-block;
   height: auto;
-  padding: 0.45em .375em .5625em;
+  padding: 0.15em .375em .3625em;
   margin-bottom: .5625em;
   font-size: 18px;
   font-size: 1em;
@@ -2701,6 +2796,8 @@ ul.tabs {
     margin: 0 1.04167%; }
     .callout-posts .left .btn {
       margin-bottom: 0; }
+    .callout-posts .left small {
+      display: block; }
   .callout-posts .get-hired-guide {
     display: inline;
     float: left;
@@ -2850,6 +2947,7 @@ ul.tabs {
   max-width: 100% !important;
   /* Additional styles */
   background: white;
+  border-bottom: 1px solid #e6e6e6;
   z-index: 10;
   /* Translate -100% to move off screen */
   -webkit-transform: translateY(-100%);
@@ -3297,7 +3395,8 @@ body.sm-activate {
   animation-fill-mode: both;
   vertical-align: middle;
   white-space: normal;
-  text-align: left; }
+  text-align: left;
+  color: white; }
 
 .sm-menu .sm-nav .nav-inner.animated {
   display: inline-block; }
@@ -3689,6 +3788,8 @@ main, .main {
     background: #edece4; }
     .featured-posts .slab.dark h4 {
       border-color: #5d6266; }
+    .featured-posts .slab.dark a.btn {
+      color: white; }
 
 /*-------------------------------
   Homepage blockquote
@@ -3698,6 +3799,11 @@ main, .main {
   position: relative;
   text-align: center;
   padding: 30px 0; }
+  .featured-case-study .img-thumbnail-circle {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: -10px;
+    margin-right: 12px; }
 
 /*-------------------------------
   What to expect - New Here Page
@@ -3995,6 +4101,12 @@ ul.popular-posts {
   position: relative;
   display: none; }
 
+/*--------------------------------
+  Team
+--------------------------------*/
+.team {
+  background: white; }
+
 /************************
 ******   Footer    *******
 **** Version: 0.0.1 *****
@@ -4033,15 +4145,18 @@ footer {
         border: none; }
         footer .footerFirst .stats input[type="text"]:focus, footer .footerFirst .stats input[type="email"]:focus {
           background: white; }
+      footer .footerFirst .stats small {
+        display: block; }
     footer .footerFirst .quick-contact {
       width: 100%;
-      text-align: center; }
+      text-align: left; }
       @media (min-width: 55em) {
         footer .footerFirst .quick-contact {
           display: inline;
           float: left;
           width: 31.25%;
-          margin: 0 1.04167%; } }
+          margin: 0 1.04167%;
+          text-align: center; } }
       footer .footerFirst .quick-contact a {
         background: white;
         padding: 12px;
@@ -4049,6 +4164,8 @@ footer {
         border: 2px solid white;
         margin-right: 12px;
         color: #363839;
+        display: inline-block;
+        margin-bottom: 24px;
         -webkit-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1);
         -moz-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1);
         -ms-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1);

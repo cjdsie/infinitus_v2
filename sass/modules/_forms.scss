@@ -5,6 +5,9 @@
 
 form {
   margin: 0 0 1.25em;
+  small{
+    display: block;
+  }
 }
 
 fieldset {
@@ -62,7 +65,7 @@ input {
   &[type="text"], &[type="password"], &[type="datetime"], &[type="datetime-local"], &[type="date"], &[type="month"], &[type="time"], &[type="week"], &[type="number"], &[type="email"], &[type="url"], &[type="search"], &[type="tel"], &[type="color"] {
     display: inline-block;
     height: auto;
-    padding: 0.45em .375em .5625em;
+    padding: 0.15em .375em .3625em;
     margin-bottom: .5625em;
     @include font-size(18);
     line-height: 1.25;

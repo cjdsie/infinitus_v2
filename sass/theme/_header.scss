@@ -37,6 +37,9 @@
     .btn{
       margin-bottom: 0;
     }
+    small {
+      display: block;
+    }
   }
   .get-hired-guide{
 	@include column(7);
@@ -198,6 +201,7 @@
 
     /* Additional styles */
     background: $white;
+    border-bottom: 1px solid $black-10;
     z-index:10;
 
     /* Translate -100% to move off screen */

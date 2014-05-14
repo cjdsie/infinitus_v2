@@ -40,12 +40,16 @@ footer{
           background: $white;
         }
       }
+      small {
+        display: block;
+      }
     }
     .quick-contact{
       width: 100%;
-      text-align: center;
+      text-align: left;
       @media(min-width: 55em) {
         @include column(4);
+        text-align: center;
       }
       a{
         background: $white;
@@ -54,6 +58,8 @@ footer{
         border: 2px solid $white;
         margin-right: ($base-unit * 2);
         color: $footergrey; 
+        display: inline-block;
+        margin-bottom: $gutter;
         @include transition(all 100ms cubic-bezier(0.42, 0, 0.58, 1));
         &:hover{
           background: transparent;

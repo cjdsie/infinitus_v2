@@ -113,5 +113,79 @@ ul.large li, li p {
 	   padding: $gutter;
 	   border-radius: 50em; 
 	  }
+	
+	  h6{
+	    margin-top: 13%;
+	    font-weight: $heavy;
+	    text-align: center;
+	  }
   }	
+}
+
+// Team list
+
+.team-list{
+  display: block;
+  margin-top: $gutter;
+  width: 100%;
+  @include center-block;
+  text-align: left;
+  @include clearfix();
+  div{
+    width: 100%;
+    padding: ($base-unit * 2) 0 0;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    display: inline-block;
+    margin-right: 0;
+    @media(min-width: 45em){
+      width: 48%;
+      margin: 0 1.1% 0 0;
+    }
+    @media(min-width: 65em){
+      width: 32%;
+      display: inline-block;
+    }
+    
+    .portrait{
+      float: left;
+      padding: 0;
+      width: 80px;
+      height: 80px;
+      margin-right: 10px;
+      margin-bottom: 5px;
+      @include vendorize(border-radius, 50em);
+      border: 1px solid $offwhite;
+      overflow: hidden;
+      img{
+        @include vendorize(border-radius, 50em);
+      }
+    }
+    h5, h6, p{
+      text-align: left;
+    }
+    h5 {
+      margin-bottom: 4px;
+      font-weight: $heavy;
+    }
+    h6{
+      font-size: 60%;
+    }
+    span{
+      display: block;
+    }
+    .location{
+      color: $darkorange;
+      margin-top: 4px;
+      &:before{
+        font-family: icomoon;
+        content: "\e643";
+        margin-right: ($base-unit - 3);
+      }
+    }
+    .bio {
+      clear: both;
+	  padding: 0 10px 20px 0;
+    }
+  }
 }	

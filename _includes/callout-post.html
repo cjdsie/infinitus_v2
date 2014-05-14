@@ -3,7 +3,7 @@
 	   		<div class="left">
     			{% for post in site.categories['podcast'] limit:1 %}
                    {% if site.categories contains 'podcast'  %}
-      				<a href="{{ post.url }}" class="btn btn-sml btn-alt"><strong>Limitless Podcast:</strong> {{ post.title }}</a>
+      				<a href="{{ post.url }}" class="btn btn-sml btn-alt"><strong>Podcast:</strong> {{ post.title }}</a>
                    {% else %}
                     <a href="{{ post.url }}" class="btn btn-sml btn-alt">No Podcasts available</a>
    				   {% endif %}

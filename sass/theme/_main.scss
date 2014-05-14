@@ -205,6 +205,9 @@ main, .main{
       h4{
         border-color: $darkgrey;
       }
+      a.btn{
+        color: $white;
+      }
     }
   }
 }
@@ -218,6 +221,12 @@ main, .main{
   position: relative;
   text-align: center;
   padding: ($base-unit * 5) 0;
+  .img-thumbnail-circle{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: -10px;
+    margin-right: ($base-unit * 2);
+  }
 }
 
 
@@ -518,5 +527,14 @@ ul.popular-posts{
   width: 50%;
   position: relative;
   display: none;
+}
+
+
+/*--------------------------------
+  Team
+--------------------------------*/
+
+.team{
+  background: $white;
 }
 

@@ -3,7 +3,12 @@ $(function() {
 });
 
 
-  $('[data-typer-targets]').typer();
+		      $(".poemline").typed({
+		        strings: ["magnify your unfair advantage.", "get people talking.", "grow faster.", "build influence.", "make a bigger impact."],
+		        typeSpeed: 50,
+		        backDelay: 400,
+        			loop: true
+		      });
 
 
   $(".sidemenu").square_menu({

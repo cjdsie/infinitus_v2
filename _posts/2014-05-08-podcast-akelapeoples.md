@@ -2,8 +2,8 @@
 layout: post
 title:  "Innovating a Successful Nonprofit with Technology: CEO Akela Peoples"
 image: "//dddb43dxo5lmp.cloudfront.net/podcast/podcast-akelapeoples.jpg"
-description: "In this edition of the Limitless Business Podcast, Scott Oldford and Kaye Putnam from @GoInfinitus chat to experienced leader Akela Peoples. Since taking the helm at The Learning Partnership, she has set her eyes on revolutionizing the way they use digital technology to drive forward their educational programmes both in delivery and the marketing of them. She’s a strong believer that all organizations must be in the social media sphere, that training is essential and that it’s okay not to have all the answers. Akela’s happy to admit she’s ‘average’ in terms of technology but has found partnering firms and in-house employees with whom to map out and implement her vision." 
-excerpt: "In this edition of the Limitless Business Podcast, Scott Oldford and Kaye Putnam from @GoInfinitus chat to experienced leader Akela Peoples."
+description: "In this edition of the Limitless Business Podcast, INFINITUS chat to experienced leader Akela Peoples. Since taking the helm at The Learning Partnership, she has set her eyes on revolutionizing the way they use digital technology to drive forward their educational programmes both in delivery and the marketing of them. She’s a strong believer that all organizations must be in the social media sphere, that training is essential and that it’s okay not to have all the answers. Akela’s happy to admit she’s ‘average’ in terms of technology but has found partnering firms and in-house employees with whom to map out and implement her vision." 
+excerpt: "In this edition of the Limitless Business Podcast, INFINITUS chat to experienced leader Akela Peoples."
 class: "audio"
 date:   2014-05-6
 categories: podcast update

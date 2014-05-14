@@ -19,8 +19,12 @@ intro: "This isn’t a jargon-filled monologue about why marketing and technolog
 </section>
 	<section class="featured-case-study">
 		<blockquote class="featured-case-study-quote">
-			<h3>I highly recommend him if you are looking to enhance a current site, or build a new one.</h3>
-			<cite>Gary Hennessey Economic Development - Town of Grand Falls-Windsor</cite>
+				{% for client in site.data.casestudies %}
+				  {% if client.id == 'tlp' %}
+					<h3>{{ client.quote }}</h3>
+					<cite><div class="img-thumbnail-circle"><img src="{{client.clientimage}}"></div>{{client.author}}</cite>
+					{% endif %} 
+				{% endfor %}
 		</blockquote>
 		<a href="" class="btn btn-transparent">Read the Case Study</a>	
 	</section>
