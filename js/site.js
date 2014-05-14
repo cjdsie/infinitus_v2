@@ -1,6 +1,6 @@
-$(function() {
-	Grid.init();
-});
+//$(function() {
+	//Grid.init();
+//});
 
 
 		      $(".poemline").typed({

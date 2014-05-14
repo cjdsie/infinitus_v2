@@ -2898,7 +2898,7 @@ ul.tabs {
     text-align: center;
     display: block;
     position: relative; }
-    .header-white .page-title h1 {
+    .header-white .page-title h2 {
       color: white;
       margin: 0; }
     @media (min-width: 55em) {
@@ -3773,21 +3773,42 @@ main, .main {
   @media (min-width: 55em) {
     .matched-height {
       height: 420px; } }
-  .matched-height h4 {
+  .matched-height h5 {
     padding-bottom: 3px;
-    border-bottom: 1px solid #edece4; }
-  .matched-height a h3 {
+    border-bottom: 1px solid #edece4;
     color: white;
     position: relative; }
-  .matched-height .dark h3 {
+  .matched-height a h4 {
+    color: white;
+    position: relative; }
+  .matched-height .dark h4 {
     color: #5d6266; }
 
 .featured-posts .slab {
-  background: #363839; }
+  background: linear-gradient(to bottom right, rgba(211, 131, 18, 0.45), rgba(168, 50, 121, 0.45)), url("//dddb43dxo5lmp.cloudfront.net/images/podcasting.jpg") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+  .featured-posts .slab .imgContainer {
+    width: 120px;
+    float: left;
+    margin-right: 24px;
+    margin-bottom: 6px;
+    position: relative;
+    padding: 0; }
+  .featured-posts .slab .imgContainerSecondary {
+    width: auto;
+    float: none;
+    margin: 0;
+    padding: 0;
+    position: relative; }
   .featured-posts .slab.dark {
     background: #edece4; }
-    .featured-posts .slab.dark h4 {
-      border-color: #5d6266; }
+    .featured-posts .slab.dark h5 {
+      border-color: #5d6266;
+      color: #5d6266; }
     .featured-posts .slab.dark a.btn {
       color: white; }
 

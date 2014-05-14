@@ -180,18 +180,20 @@ main, .main{
   @media(min-width: 55em){
     height: 420px;
   }
-  h4{
+  h5{
     padding-bottom: 3px;
     border-bottom: 1px solid $offwhite;
+    color: $white;
+    position: relative;
   }
   a{
-    h3{
+    h4{
       color: $white;
       position: relative;
     }
   }
   .dark{
-    h3{
+    h4{
       color: $darkgrey;
     }
   }
@@ -199,11 +201,28 @@ main, .main{
 
 .featured-posts{
   .slab{
-    background: $footergrey;
+    background: linear-gradient(to bottom right, rgba(211, 131, 18, 0.45), rgba(168, 50, 121, 0.45)), url('//dddb43dxo5lmp.cloudfront.net/images/podcasting.jpg') no-repeat center;
+    @include vendorize(background-size, cover);
+    .imgContainer {
+      width: 120px;
+      float: left;
+      margin-right: $gutter;
+      margin-bottom: $base-unit;
+      position: relative;
+      padding: 0;
+     }
+     .imgContainerSecondary{
+       width: auto;
+       float: none;
+       margin: 0;
+       padding: 0;
+       position: relative;
+     }
     &.dark{
       background: $offwhite;
-      h4{
+      h5{
         border-color: $darkgrey;
+        color: $darkgrey;
       }
       a.btn{
         color: $white;
