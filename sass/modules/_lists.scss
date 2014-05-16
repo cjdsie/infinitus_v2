@@ -249,7 +249,82 @@ ul.large li, li p {
       }
     }
   }
-}	
+}
+
+
+.results-list{
+  width: 100%;
+  display: block;
+  margin-top: $gutter * 7;
+  width: 100%;
+  @include center-block;
+  text-align: center;
+  @include clearfix();
+  div{
+    padding: 0; 
+  }
+  .results-list-item{
+    width: 100%;
+    display: block;
+    position: relative;
+    border-top: 1px solid rgba(211, 131, 18, 0.75);
+	border-bottom: 1px solid rgba(168, 50, 121, 0.75);
+	border-radius: 5px;
+	&:before, &:after{
+	  content: "";
+	  position: absolute;
+	  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(211, 131, 18, 0.75)), to(rgba(168, 50, 121, 0.75)));
+	  background-image: -webkit-linear-gradient(rgba(211, 131, 18, 0.75), rgba(168, 50, 121, 0.75));
+	  background-image: -moz-linear-gradient(rgba(211, 131, 18, 0.75), rgba(168, 50, 121, 0.75));
+	  background-image: -o-linear-gradient(rgba(211, 131, 18, 0.75), rgba(168, 50, 121, 0.75));
+	  background-image: linear-gradient(rgba(211, 131, 18, 0.75), rgba(168, 50, 121, 0.75));
+	  top: 2px;
+	  bottom: 8px;
+	  width: 1px;
+	  border-radius: 10px;
+	}
+	&:before{
+	  left: 0px;
+	}
+	&:after{
+	  right: 0px;
+	}
+    @media(min-width: 55em){
+      @include column(4);
+      padding: 0;
+      &.padded{
+        margin-top: -100px;
+      }
+    }
+    .top-portion{
+      position: relative;
+      margin-top: -15px;
+      margin-bottom: 30px;
+      span{
+        @include font-size($baseh3);
+        color: rgba(211, 131, 18, 0.75);
+        border: 2px solid rgba(211, 131, 18, 0.75);
+        border-radius: 50em;
+        padding: ($base-unit * 2);
+        background: $white;
+      }
+      
+    }
+    .mid-portion{
+      padding: 10px 30px;
+    }
+    .bottom-portion {
+      background: rgba(168, 50, 121, 0.75);
+      padding: 10px 0;
+      	border-radius: 0 0 5px 5px;
+      h5{
+        color: $white;
+        margin-bottom: 0;
+        font-weight: $heavy;
+      } 
+    }
+  }
+}
 
 
 .podcast-list{

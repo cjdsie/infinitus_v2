@@ -146,7 +146,7 @@ main, .main{
   }
 }
 
-.newhere{
+.newhere, .company{
   .openingParagraph {
     .leadcopy{
       text-align: center;
@@ -271,6 +271,11 @@ main, .main{
       width: 60%;
     }
   }
+  .container.center{
+    h3{
+      text-align: center;
+    }
+  }
   .less-half{
     @extend .half;
     @media(min-width: 55em) {
@@ -310,6 +315,17 @@ main, .main{
   .block-heading--numbered {
     color: $white;
   }
+  &.bg-sampled {
+    background: url('//dddb43dxo5lmp.cloudfront.net/images/amplified.jpg') no-repeat center;
+    @include vendorize(background-size, cover);
+    h3{
+      color: $white;
+    } 
+  }
+}
+
+.bg-offwhite {
+  background: #f5f6f8;
 }
 
 
