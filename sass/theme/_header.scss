@@ -155,7 +155,6 @@
     .titleborder{
       display: inline-block;
 	  margin: 0 auto 10px;
-	  border-bottom: 2px solid $white;
     }
     .leadcopy{
       width: 80%;
@@ -168,6 +167,26 @@
   font-style: italic;
   font-family: $body-font-family;
 }
+
+
+
+/*.newhere{
+  .header{
+    background-color: #5fd9ad;
+	background: -moz-linear-gradient(rgba(95, 217, 173, 0.45),rgba(42, 212, 233, 0.45)),rgba(95, 217, 173, 0.45);
+	background: -webkit-linear-gradient(rgba(95, 217, 173, 0.45),rgba(42, 212, 233, 0.45)),rgba(95, 217, 173, 0.45);
+	background: linear-gradient(rgba(95, 217, 173, 0.45),rgba(42, 212, 233, 0.45)),rgba(95, 217, 173, 0.45);
+  }
+}
+
+.blog{
+  .header{
+    background-color: #f5756c;
+	background: -moz-linear-gradient(rgba(245, 117, 108, 0.45),rgba(253, 84, 128, 0.45)),rgba(245, 117, 108, 0.45);
+	background: -webkit-linear-gradient(rgba(245, 117, 108, 0.45),rgba(253, 84, 128, 0.45)),rgba(245, 117, 108, 0.45);
+	background: linear-gradient(rgba(245, 117, 108, 0.45),rgba(253, 84, 128, 0.45)),rgba(245, 117, 108, 0.45);
+  }
+}*/
 
 
 

@@ -157,3 +157,13 @@ pre,table,fieldset,hr {
   }
 }
 
+.slab.full {
+ background: $darkergrey;
+ &:before{
+   background: none;
+ }
+ @media(min-width: 55em) {
+   width: 100%;
+ } 
+}
+

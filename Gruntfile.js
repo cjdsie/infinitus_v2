@@ -53,6 +53,7 @@ grunt.initConfig({
 	      'js/vendor/raphael.js',
 	      'js/vendor/jquery.lightbox_me.js',
 	      'js/vendor/grid.js',
+	      'js/vendor/appear.js',
 	      'js/vendor/wookmark.js'
 	    ],
 	    dest: 'js/application.min.js'

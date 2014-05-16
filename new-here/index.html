@@ -1,22 +1,103 @@
 ---
 layout: blog
-class: "blog"
+class: "newhere"
 title: New Here
-description: Infinitus Marketing + Technology is a Newfoundland Web Development Marketing Agency. We offer custom, strategic web design and production services, SEO, social media marketing, and mobile marketing solutions to clients in Newfoundland, Canada, and globally. 
-intro: "This isn’t a jargon-filled monologue about why marketing and technology are important. Because those aren’t the most important things." 
+description: Infinitus Marketing + Technology is a Newfoundland Web Development Marketing Agency. We offer custom, strategic web design and production services, SEO, social media marketing, and mobile marketing solutions to clients in Newfoundland, Canada, and globally.
 ---
-<section class="openingParagraph interior">
-	<div class="container">
-		<div class="half">
-			<img src="http://dddb43dxo5lmp.cloudfront.net/images/change.png">
-		</div>	
-		<div class="half leadcopy">
-			<p>Since you’re here, you’re likely a leader of an organization who has big ideas (we love big ideas!) but that’s not the most important thing, either. You got where you are today because you care about people. You care about the people your organization impacts, the employees who work tirelessly for you and the strategic relationships you’ve built along the way.</p> 
-
-			<p>Compared to those relationships, the digital marketing and technology world can seem like a cold, transactional place.</p>
+<section class="openingParagraph">
+		<div class="leadcopy center">
+			<h3>You do great work. With a fantastic team. Isn’t it time more people knew?</h3>
+			<p>Whether you know it or not, you’re in the business of serving a community. As the mayor (G’day Gov’na!), your job is to win people’s hearts and improve their lives.</p> 
 		</div>
-	</div>
-</section>
+	</section>	
+			<section class="page animated">
+				<div class="container">
+					
+					
+					<figure class="browsers">
+					  <div class="iphone">
+					      <div class="iphone-camera"></div>
+					      <div class="iphone-sensor"></div>
+					      <div class="iphone-earpiece"></div>
+					      <div class="iphone-content">
+					        
+					      </div>
+
+				          <div class="iphone-home"></div>
+				  	  </div>
+				      <div class="macbook">
+					      <div class="browser-bar">
+					  	  <div class="browser-button"></div>
+					  	  <div class="browser-button"></div>
+					  	  <div class="browser-button"></div>
+					  	</div>
+					  	<div class="browser-content">
+					  	</div>
+				      </figure>
+					
+						<div class="feature">
+					<h3 data-numbered="01/" class="block-heading--numbered">That’s<br>your website</h3>
+				<p>To serve your community online, you’ll need to have the right buildings. First, you’ll build town hall where people can congregate.</p>	
+					</div>
+					
+				</div>
+			</section>
+			<section class="featured-case-study">
+				<blockquote class="featured-case-study-quote">
+						{% for client in site.data.casestudies %}
+						  {% if client.id == 'vigilant' %}
+							<h3>{{ client.quote }}</h3>
+							<cite><div class="img-thumbnail-circle"><img src="{{client.clientimage}}"></div>{{client.author}}</cite>
+							{% endif %} 
+						{% endfor %}
+				</blockquote>
+				<a href="" class="btn btn-transparent">Read the Case Study</a>	
+			</section>
+			<section class="page animated">
+				<div class="container">
+					<div class="half">
+				<h3 data-numbered="02/" class="block-heading--numbered">That’s your social<br>media strategy</h3>
+			<p>It’s the hub of all of your most important activity. Great communities need parks and recreational areas, too. The serious business doesn’t happen there, but it’s where friendships are formed.</p>
+			</div>
+			   <div class="less-half with-animation" data-delay="0" data-animation="fade-in">
+				<ul class="social">
+
+							<li class="facebook animated fadeIn"><a href="" class="icon-facebook"></a></li>
+							<li class="twitter animated fadeIn delay03"><a href="" class="icon-twitter"></a></li>
+							<li class="dribbble animated fadeIn delay05"><a href="" class="icon-dribbble"></a></li>
+							<li class="behance animated fadeIn delay03"><a href="" class="icon-tumblr"></a></li>
+							<li class="linked-in animated fadeIn delay05"><a href="" class="icon-linkedin"></a></li>
+
+						</ul>
+			</div>	
+			</section>	
+			
+			<section class="page bg-photo animated">
+				<div class="container">
+					<div class="half right">
+				<h3 data-numbered="03/" class="block-heading--numbered">That’s your<br>content strategy</h3>
+			<p>A library enriches the minds of your community. It educates, entertains and keeps people coming back.</p>
+				</div>
+				</div>
+			</section>
+			
+			<section class="page animated">
+				<div class="container">
+					<div class="feature">
+				<h3 data-numbered="04/" class="block-heading--numbered">Those are your measurable results</h3>
+			<p>The stores and industry are how your community makes a living.</p>
+			</div>
+
+			<div class="browsers">
+			     <ul class="graphs stats-container centered biggie">			
+							        <li class="animated" data-provide="circular" data-fill-color="#e46a3f" data-percent="true" data-initial-value="25" data-max-value="100" data-label="Increased Engagment" style="width: 250px; height: 250px;">
+							        </li> 
+
+							       <li class="animated" data-provide="circular" data-fill-color="#e46a3f" data-percent="true" data-initial-value="3" data-max-value="5" data-label="Returning Visitors" style="width: 250px; height: 250px;"></li>                      
+							</ul>
+						</div>
+				</div>
+			</section>
 	<section class="featured-case-study">
 		<blockquote class="featured-case-study-quote">
 				{% for client in site.data.casestudies %}
@@ -30,47 +111,81 @@ intro: "This isn’t a jargon-filled monologue about why marketing and technolog
 	</section>
 <section class="what-not-to">
 	<div class="container">
-		<h3>It’s not about marketing <span>+</span> technology</h3>
-		<div class="half">
-			<div class="align-middle">
-				<p>We don’t want you to build a website, mobile app or content marketing strategy. We want you to build a <a href="/community">community</a>.</p>
-				<p>Your community is where your best work is <em>amplified</em>. It’s a digital space where people congregate around your product or cause. It’s where like-minded customers, clients and partners rally together around your mission.<p> 
+		<div class="center">
+		<h3>Join Us</h3>
+				<p>This community is here to help you bring innovative marketing and technology projects to life in your organization. You’ve never been afraid of accepting new challenges. Working smart has gotten you this far and it’ll take you to the next phase, too. 
 
-					<h6>Building digital products are <em><strong>always</strong></em> about the people.</h6>
-			 </div>
-		</div>
-		<div class="half community">
-			<img src="//dddb43dxo5lmp.cloudfront.net/images/openmind.png">
+				The best insights are shared in our weekly emails, so before you do anything else, get access to the list:</h6>
+				
+				<form action="http://essentialcodinginc.createsend.com/t/y/s/cidhjt/" method="post">
+						<input type="text" id="fieldName" name="cm-name" class="input-medium" required placeholder="First Name" autocorrect="off" autocaptialize="off">
+						<input type="email" id="fieldEmail" name="cm-cidhjt-cidhjt" class="input-medium" required placeholder="name@example.com" autocorrect="off" autocaptialize="off">
+						<input type="submit" class="btn input-full" value="Get Access">
+						<small>We respect your inbox. Unsubscribe at any time.</small>
+				</form>
 		</div>	
 	</div>
 </section>	
-<section class="matched-height">
-		<div class="half slab">
-			<h4>What to expect</h4>
-			<p>Our community - <em>this</em> community - is here to help you bring innovative marketing and technology projects to life in your organization.</p>
+<section class="slab full featured-posts">
+		<div class="container">
+			<div class="center">
+			<h3>Learn More</h3>
+			<p>Our blog is full of articles to help you innovate and grow your organization. To get you started, read our most popular posts. Next, subscribe to the Limitless Business podcast. Every week we publish a chat with an industry leader or CEO about a topic to help you grow. If you want to see what working together could do for your organization, see our <a href="/case-studies">case studies</a> or <a href="mailto: getstarted@goinfinitus.com">let’s start talking</a>.</p>
+			</div>
+			<div class="content">
+				<div class="featured-list">
+					<div class="featured-list-item">
+						<a href="/stop-worrying-about-seo">
+							<div class="panel__header">
+								<h5>Stop Worrying about SEO</h5>
+							</div>
+							</a>
+							<div class="panel">
+								
+							</div>	
+							</div>
+					<div class="featured-list-item">
+						<a href="/doggy-paddling-in-a-sea-of-competitors">
+							<div class="panel__header">
+								<h5>Doggy Paddling in a Sea of Competitors</h5>
+							</div>
+						</a>
+						<div class="panel">
+							
+						</div>
+					</div>
+					<div class="featured-list-item">
+						<a href="/the-3-es-of-content-marketing">
+							<div class="panel__header">
+								<h5>The 3Es of content marketing</h5>
+							</div>
+							<div class="panel">
 
-			<p>The best insights are shared in our weekly emails, so before you do anything else - get access to the list:</p>
-			<form action="http://essentialcodinginc.createsend.com/t/y/s/cidhjt/" method="post">
-
-				<input type="email" id="fieldEmail" name="cm-cidhjt-cidhjt" class="input-large" required placeholder="name@example.com" autocorrect="off" autocaptialize="off">
-				<input type="submit" class="btn input-full" value="Subscribe">
-			</form>
-		</div>
-		<div class="half slab dark">
-		<h4>Curious to learn more</h4>
-		<p>Our <a href="/community">blog</a> is full of articles to help you innovate your organization to see more growth, connections and revenue. To get you started, read our most popular posts:
-			<ul class="popular-posts inline-list">
-				<li><a href="/stop-worrying-about-seo">Stop Worrying about SEO</a></li>
-				<li><a href="/doggy-paddling-in-a-sea-of-competitors">Doggy Paddling in a Sea of Competitors</a></li>
-				<li><a href="/the-3-es-of-content-marketing">The 3Es of content marketing</a></li>
-			</ul>	
-		</p>
-		<p>If you want to see what working together could do for your organization, see our <a href="/case-studies">case studies</a>.</p>
+							</div>
+						</a>
+						
+					</div>
+			{% if site.categories contains 'podcast'  %}
+				{% for post in site.categories['podcast'] limit:3 %}
+				<div class="featured-list-item">
+				<a href="{{ post.url }}">
+					<div class="panel__header">
+					<h5>{{post.title}}</h5>
+					</div>
+				</a>
+					<div class="panel">
+						{{post.excerpt}}
+					</div>
+				</div>	
+				{% endfor %}
+			
+			{% endif %}	
+			</div>
 		</div>
 </section>
 <section class="what-not-to">
 	<div class="container center">
 		<h3>We appreciate you</h3>
-		<p>We want to help grow your organization… if there’s anything we can help you with or any topic you’d like us to cover in a future podcast or blog post, don’t keep quiet! <a href="mailto:getstarted@infinitus.com">Send us an email</a>.</p>
+		<p>We want to help grow your organization… if there’s anything we can help you with or any topic you’d like us to cover in a future podcast or blog post, don’t keep quiet! <a href="mailto:getstarted@goinfinitus.com">Send us an email</a>.</p>
 	</div>	
 </section>	

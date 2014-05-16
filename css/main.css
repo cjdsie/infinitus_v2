@@ -457,12 +457,12 @@ pre, table, fieldset, hr {
 .matched-height {
   display: table; }
 
-.half {
+.half, .page .less-half {
   display: block;
   width: 100%;
   padding: 30px; }
   @media (min-width: 55em) {
-    .half {
+    .half, .page .less-half {
       padding: 30px 60px;
       width: 50%;
       height: 100%;
@@ -507,12 +507,20 @@ pre, table, fieldset, hr {
     .slab.dark a, .slab.dark a:visited {
       color: #9fbb58; }
 
-.slab.half {
+.slab.half, .page .slab.less-half {
   display: block;
   float: none; }
   @media (min-width: 55em) {
-    .slab.half {
+    .slab.half, .page .slab.less-half {
       display: table-cell; } }
+
+.slab.full {
+  background: #222222; }
+  .slab.full:before {
+    background: none; }
+  @media (min-width: 55em) {
+    .slab.full {
+      width: 100%; } }
 
 /* FRAMEWORK - Structure & layout files including the grid function. ========================================================================== */
 /*************************
@@ -911,8 +919,6 @@ blockquote {
     display: block;
     font-size: 0.66667em;
     color: gray; }
-    blockquote cite:before {
-      content: "\2014 \0020"; }
     blockquote cite a {
       color: gray; }
       blockquote cite a:visited {
@@ -1036,7 +1042,8 @@ ul.large li, li p {
     text-align: center;
     color: #a9c26a;
     margin-top: 26px;
-    margin-bottom: 48px; }
+    margin-bottom: 48px;
+    background: white; }
     @media (min-width: 55em) {
       .inline-list li {
         float: none;
@@ -1124,6 +1131,83 @@ ul.large li, li p {
     .team-list div .bio {
       clear: both;
       padding: 0 10px 20px 0; }
+
+.featured-list {
+  display: block;
+  margin-top: 24px;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: white; }
+  .featured-list {
+    *zoom: 1; }
+  .featured-list:before, .featured-list:after {
+    content: "";
+    display: table; }
+  .featured-list:after {
+    clear: both; }
+  .featured-list .featured-list-item {
+    width: 100%;
+    padding: 12px 0 0;
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 0; }
+    @media (min-width: 45em) {
+      .featured-list .featured-list-item {
+        width: 48%;
+        margin: 0 1.1% 0 0; } }
+    @media (min-width: 65em) {
+      .featured-list .featured-list-item {
+        width: 32%;
+        display: inline-block; } }
+    .featured-list .featured-list-item a {
+      color: white; }
+    .featured-list .featured-list-item h5, .featured-list .featured-list-item p {
+      text-align: center; }
+    .featured-list .featured-list-item .panel {
+      margin-bottom: 4em; }
+    .featured-list .featured-list-item .panel__header {
+      padding-bottom: .8em;
+      position: relative;
+      margin-bottom: 1em; }
+      .featured-list .featured-list-item .panel__header:after {
+        display: block;
+        content: "";
+        width: 80px;
+        height: 5px;
+        background-color: rgba(204, 204, 204, 0.3);
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin-left: -40px; }
+      .featured-list .featured-list-item .panel__header h5 {
+        margin-bottom: 4px;
+        font-weight: 700;
+        color: white; }
+
+.podcast-list {
+  width: 100%;
+  display: block; }
+  .podcast-list {
+    *zoom: 1; }
+  .podcast-list:before, .podcast-list:after {
+    content: "";
+    display: table; }
+  .podcast-list:after {
+    clear: both; }
+  .podcast-list li {
+    display: inline;
+    float: left;
+    width: 97.91667%;
+    margin: 0 1.04167%; }
+    @media (min-width: 55em) {
+      .podcast-list li {
+        display: inline;
+        float: left;
+        width: 31.25%;
+        margin: 0 1.04167%; } }
 
 /************************
 ******   Links    *******
@@ -2909,8 +2993,7 @@ ul.tabs {
         padding-top: 60px; } }
     .header-white .page-title .titleborder {
       display: inline-block;
-      margin: 0 auto 10px;
-      border-bottom: 2px solid white; }
+      margin: 0 auto 10px; }
     .header-white .page-title .leadcopy {
       width: 80%;
       display: block;
@@ -2921,6 +3004,23 @@ ul.tabs {
   font-style: italic;
   font-family: "chaparral-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
 
+/*.newhere{
+  .header{
+    background-color: #5fd9ad;
+	background: -moz-linear-gradient(rgba(95, 217, 173, 0.45),rgba(42, 212, 233, 0.45)),rgba(95, 217, 173, 0.45);
+	background: -webkit-linear-gradient(rgba(95, 217, 173, 0.45),rgba(42, 212, 233, 0.45)),rgba(95, 217, 173, 0.45);
+	background: linear-gradient(rgba(95, 217, 173, 0.45),rgba(42, 212, 233, 0.45)),rgba(95, 217, 173, 0.45);
+  }
+}
+
+.blog{
+  .header{
+    background-color: #f5756c;
+	background: -moz-linear-gradient(rgba(245, 117, 108, 0.45),rgba(253, 84, 128, 0.45)),rgba(245, 117, 108, 0.45);
+	background: -webkit-linear-gradient(rgba(245, 117, 108, 0.45),rgba(253, 84, 128, 0.45)),rgba(245, 117, 108, 0.45);
+	background: linear-gradient(rgba(245, 117, 108, 0.45),rgba(253, 84, 128, 0.45)),rgba(245, 117, 108, 0.45);
+  }
+}*/
 /*----------------------------------------------------------------------------*\
     Headhesive Specific Styles
 /*----------------------------------------------------------------------------*/
@@ -3685,8 +3785,6 @@ main, .main {
   .openingParagraph h3, .openingParagraph h5 {
     text-align: center; }
   .openingParagraph h3 {
-    line-height: 1;
-    margin-bottom: 0;
     font-weight: 400; }
   .openingParagraph h5 {
     color: #db612e; }
@@ -3725,6 +3823,9 @@ main, .main {
         float: left; } }
     .interior .leadcopy p {
       font-size: inherit; }
+
+.newhere .openingParagraph .leadcopy {
+  text-align: center; }
 
 /*---------------------------------
   Client logo list
@@ -3827,6 +3928,347 @@ main, .main {
     margin-right: 12px; }
 
 /*-------------------------------
+  Numbered list - New Here Page
+--------------------------------*/
+.page {
+  background: white;
+  overflow: hidden; }
+  .page h3 {
+    text-align: left; }
+  @media (min-width: 55em) {
+    .page .half, .page .less-half {
+      width: 60%; } }
+  @media (min-width: 55em) {
+    .page .less-half {
+      width: 40%; } }
+  @media (min-width: 55em) {
+    .page .half.right, .page .right.less-half {
+      float: right; } }
+
+.block-heading--numbered {
+  margin-left: -.15em;
+  position: relative;
+  padding-left: 4.5em;
+  display: inline-block;
+  text-align: left; }
+  .block-heading--numbered:before {
+    display: block;
+    content: attr(data-numbered);
+    font-size: 2.7em;
+    line-height: .8;
+    position: absolute;
+    left: 0;
+    letter-spacing: 2px; }
+
+.bg-photo {
+  background: url("//dddb43dxo5lmp.cloudfront.net/images/library2.jpg") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white; }
+  .bg-photo .block-heading--numbered {
+    color: white; }
+
+.feature {
+  width: 100%;
+  float: none;
+  display: inline-block;
+  margin-top: 72px;
+  padding-left: 42px;
+  height: 100%; }
+  @media (min-width: 55em) {
+    .feature {
+      width: 45%;
+      float: left; } }
+
+.slab .feature {
+  margin-top: 0; }
+.slab h3 {
+  color: white;
+  position: relative; }
+
+figure.browsers, .browsers {
+  display: block;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  float: none;
+  margin-bottom: 0; }
+  figure.browsers, .browsers {
+    *zoom: 1; }
+  figure.browsers:before, figure.browsers:after, .browsers:before, .browsers:after {
+    content: "";
+    display: table; }
+  figure.browsers:after, .browsers:after {
+    clear: both; }
+  @media (min-width: 55em) {
+    figure.browsers, .browsers {
+      width: 55%;
+      float: left; } }
+  figure.browsers div, .browsers div {
+    padding: 0; }
+
+.iphone {
+  background-color: #e3e3e3;
+  position: absolute;
+  bottom: -35%;
+  width: 228px;
+  height: 480px;
+  border-radius: 28px;
+  overflow: hidden;
+  z-index: 3;
+  right: 0;
+  -ms-box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px; }
+  .iphone .iphone-camera {
+    height: 1.9%;
+    width: 4%;
+    border-radius: 100%;
+    margin: 6% auto 4%;
+    background-color: #aaa; }
+  .iphone .iphone-sensor {
+    display: inline-block;
+    height: 1.5%;
+    width: 3.1%;
+    border-radius: 100%;
+    float: left;
+    background-color: #aaa;
+    position: relative;
+    left: 35%;
+    top: 1px; }
+  .iphone .iphone-earpiece {
+    position: relative;
+    width: 18.4%;
+    margin: 1% auto 6.5%;
+    height: 1.7%;
+    border-radius: 15px;
+    background-color: #aaa; }
+    .iphone .iphone-earpiece:after {
+      content: "";
+      display: table; }
+  .iphone .iphone-home {
+    width: 18.4%;
+    height: 8.75%;
+    margin: 5.3% auto 0;
+    background-color: #dfdfdf;
+    border-radius: 100%;
+    border-radius: 999px;
+    -webkit-border-radius: 999px; }
+  .iphone .iphone-content {
+    position: relative;
+    width: 88%;
+    height: 75%;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #222;
+    -webkit-backface-visibility: visible; }
+
+.browser-bar {
+  border-radius: 3px 3px 0 0;
+  height: 21px;
+  font-size: 1px;
+  background-color: #e0e0e0;
+  line-height: 26px; }
+  .browser-bar .browser-button {
+    display: inline-block;
+    height: 21px;
+    font-size: inherit;
+    float: left; }
+    .browser-bar .browser-button:before {
+      content: "\25cf";
+      font-size: 13px;
+      line-height: 20px;
+      color: #fff; }
+    .browser-bar .browser-button:first-child {
+      margin-left: 8px; }
+
+.browser-content {
+  position: relative;
+  width: 100%;
+  height: 565px;
+  background-color: #fff; }
+
+.macbook {
+  bottom: 3.125em;
+  height: 480px;
+  width: 100%;
+  z-index: 1;
+  text-align: left;
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1); }
+
+figure .iphone + .macbook {
+  width: 95%; }
+
+.flexible {
+  background: #edece4; }
+  .flexible.padding {
+    padding-bottom: 3%; }
+
+.flexible .macbook {
+  left: 0;
+  bottom: 0; }
+  .flexible .macbook .line {
+    display: inline-block;
+    height: 0.7em;
+    width: 55%;
+    background-color: #f4f4f4;
+    margin-bottom: 1.25em; }
+  .flexible .macbook .line:nth-child(2n) {
+    width: 10%;
+    background-color: #48e0a4; }
+  .flexible .macbook .line:nth-child(4n) {
+    background-color: #f26767; }
+  .flexible .macbook .line:nth-child(6n) {
+    background-color: #fff; }
+  .flexible .macbook .browser-content {
+    padding-top: 8%;
+    padding-left: 10%; }
+
+.social {
+  position: relative;
+  height: 3em;
+  width: 12em;
+  margin-top: 2em; }
+
+.social li {
+  display: block;
+  height: 4em;
+  line-height: 4em;
+  margin: -2em;
+  position: absolute;
+  -webkit-transition: -webkit-transform .5s;
+  -moz-transition: -moz-transform .5s;
+  -ms-transition: -ms-transform .5s;
+  -o-transition: -o-transform .5s;
+  transition: transform .5s;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  text-align: center;
+  width: 4em; }
+
+.social a {
+  color: #fffdf0;
+  display: block;
+  height: 4em;
+  line-height: 4em;
+  text-align: center;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  width: 4em; }
+
+.facebook {
+  background: #155b9d;
+  left: 0;
+  top: 0%; }
+
+.twitter {
+  background: #1a9ec4;
+  bottom: 0;
+  left: 25%; }
+
+.dribbble {
+  background: #d05f8f;
+  left: 50%;
+  top: 0%; }
+
+.behance {
+  background: #3f7aa3;
+  bottom: 0;
+  left: 75%; }
+
+.linked-in {
+  background: #157f9d;
+  left: 100%;
+  top: 0%; }
+
+/* #Canvas Element Circular charts
+================================================== */
+canvas, video {
+  display: inline-block; }
+
+.stats-container {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  padding-bottom: 70px; }
+
+.stats-container li {
+  display: inline-block;
+  margin: 0 4% 5px;
+  position: relative; }
+
+.circular-stat {
+  position: relative; }
+
+.circular-stat .digit-label {
+  color: #e46a3f;
+  font-family: "brandon-grotesque", sans-serif;
+  font-size: 3.2em;
+  text-align: center;
+  display: inline-block;
+  position: absolute;
+  top: 11.5%;
+  width: 75%;
+  left: 12.5%;
+  padding: 30px 0 0 30px;
+  text-shadow: -1px 1px 0px #fff;
+  white-space: nowrap;
+  overflow: hidden; }
+
+.circular-stat .text-label {
+  font-family: "brandon-grotesque", sans-serif;
+  color: #333;
+  font-size: 1.5em;
+  top: 50%;
+  left: 21.875%;
+  width: 56.25%;
+  padding-top: 6px;
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+  border-top: 1px solid #999; }
+
+span.text-title {
+  color: #444;
+  font-family: "Noto Sans", "Helvetica Neue", Helvetica, arial, sans-serif;
+  text-align: center;
+  letter-spacing: -1px;
+  font-size: 1.3em;
+  font-weight: 400;
+  text-shadow: -1px 1px 0px #FFF;
+  padding: 30px 10px 0 0px;
+  margin-top: 240px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 99999;
+  display: block;
+  text-shadow: -1px 1px 0px #fff; }
+
+span.text-dates {
+  font-size: 1.5em;
+  font-family: "Noto Sans", "Helvetica Neue", Helvetica, arial, sans-serif;
+  color: #999;
+  text-shadow: -1px 1px 0px #fff; }
+
+@media only screen and (min-width: 1010px) {
+  .stats-container li {
+    margin: 0 2% 5px; } }
+@media only screen and (max-width: 1009px) {
+  .stats-container li {
+    margin: 0 -.2em 5px; } }
+/*-------------------------------
   What to expect - New Here Page
 --------------------------------*/
 .what-not-to {
@@ -3859,10 +4301,11 @@ ul.popular-posts {
     margin: 0 1.04167%;
     padding: 18px;
     border: 1px solid #9fbb58;
-    text-align: center;
-    min-height: 120px; }
+    text-align: center; }
     ul.popular-posts li a {
-      color: #9fbb58; }
+      color: #9fbb58;
+      position: relative;
+      display: block; }
 
 /*--------------------------------
   Blog Grid Style

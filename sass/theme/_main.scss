@@ -105,8 +105,6 @@ main, .main{
     text-align: center;
   }
   h3{
-    line-height: 1;
-    margin-bottom: 0;
     font-weight: $semi-bold;
   }
   h5{
@@ -144,6 +142,14 @@ main, .main{
     }
     p {
       font-size: inherit;  
+    }
+  }
+}
+
+.newhere{
+  .openingParagraph {
+    .leadcopy{
+      text-align: center;
     }
   }
 }
@@ -249,6 +255,414 @@ main, .main{
 }
 
 
+
+/*-------------------------------
+  Numbered list - New Here Page
+--------------------------------*/
+
+.page{
+  background: $white;
+  overflow: hidden;
+  h3{
+    text-align: left;
+  }
+  .half{
+    @media(min-width: 55em) {
+      width: 60%;
+    }
+  }
+  .less-half{
+    @extend .half;
+    @media(min-width: 55em) {
+      width: 40%;
+    }
+  }
+  .half.right{
+    @media(min-width: 55em) {
+      float: right;
+    }
+  }
+}
+
+
+.block-heading--numbered {
+  margin-left: -.15em;
+  position: relative;
+  padding-left: 4.5em;
+  display: inline-block;
+  text-align: left;
+  &:before {
+    display: block;
+    content: attr(data-numbered);
+    font-size: 2.7em;
+    line-height: .8;
+    position: absolute;
+    left: 0;
+    letter-spacing: 2px;
+  }
+}
+
+
+.bg-photo{
+  background: url('//dddb43dxo5lmp.cloudfront.net/images/library2.jpg') no-repeat center;
+  @include vendorize(background-size, cover);
+  color: $white;
+  .block-heading--numbered {
+    color: $white;
+  }
+}
+
+
+.feature{
+	width: 100%;
+	float: none;
+	display: inline-block;
+	margin-top: $gutter*3;
+	padding-left: 42px;
+	height: 100%;
+	@media(min-width: 55em){
+	  width: 45%;
+	  float: left;
+	}
+	
+}
+
+.slab{
+  .feature{
+    margin-top: 0;
+  }
+  h3{
+    color: $white;
+    position: relative;
+  }
+}
+
+
+
+// Screen Resizing
+
+figure.browsers, .browsers {
+  display: block;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  float: none;
+  margin-bottom: 0;
+  @include clearfix();
+  @media(min-width: 55em){
+    width: 55%;
+    float: left;
+  }
+  div{
+    padding: 0;
+  }
+}
+
+.iphone{
+	background-color: #e3e3e3;
+	position: absolute;
+	bottom: -35%;
+	width: 228px;
+	height: 480px;
+	border-radius: 28px;
+	overflow: hidden;
+	z-index: 3;
+	right: 0;
+	-ms-box-shadow: rgba(0, 0, 0, .1) 0px 3px 10px;
+	-moz-box-shadow: rgba(0, 0, 0, .1) 0px 3px 10px;
+	-webkit-box-shadow: rgba(0, 0, 0, .1) 0px 3px 10px;
+	box-shadow: rgba(0, 0, 0, .1) 0px 3px 10px;
+	.iphone-camera {
+	  height: 1.9%;
+	  width: 4%;
+	  border-radius: 100%;
+	  margin: 6% auto 4%;
+	  background-color: #aaa;
+    }
+    .iphone-sensor {
+	  display: inline-block;
+	  height: 1.5%;
+	  width: 3.1%;
+	  border-radius: 100%;
+	  float: left;
+	  background-color: #aaa;
+	  position: relative;
+	  left: 35%;
+	  top: 1px;
+	}
+	.iphone-earpiece {
+	  position: relative;
+	  width: 18.4%;
+	  margin: 1% auto 6.5%;
+	  height: 1.7%;
+	  border-radius: 15px;
+	  background-color: #aaa;
+	  &:after{
+		content: "";
+		display: table;
+	  }
+	}
+	.iphone-home {
+	  width: 18.4%;
+	  height: 8.75%;
+	  margin: 5.3% auto 0;
+	  background-color: #dfdfdf;
+	  border-radius: 100%;
+	  border-radius: 999px;
+	  -webkit-border-radius: 999px;
+    }
+    .iphone-content {
+	  position: relative;
+	  width: 88%;
+	  height: 75%;
+	  margin: 0 auto;
+	  overflow: hidden;
+	  background-color: #222;
+	  -webkit-backface-visibility: visible;
+    }
+}
+
+
+.browser-bar {
+  border-radius: 3px 3px 0 0;
+  height: 21px;
+  font-size: 1px;
+  background-color: #e0e0e0;
+  line-height: 26px;
+  .browser-button{
+	display: inline-block;
+	height: 21px;
+	font-size: inherit;
+	float: left;
+    &:before{
+     content: "\25cf";
+     font-size: 13px;
+     line-height: 20px;
+     color: #fff;
+    }
+    &:first-child{
+	  margin-left: 8px;
+    }	
+  }
+}
+
+.browser-content {
+	position: relative;
+	width: 100%;
+	height: 565px;
+	background-color: #fff;
+}
+
+
+.macbook{
+	bottom: 3.125em;
+	height: 480px;
+	width: 100%;
+	z-index: 1;
+	text-align: left;
+	box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, .1);
+}
+
+figure{
+	.iphone + .macbook{
+		width: 95%;
+	}
+}
+
+.flexible{
+	background: $offwhite;
+	&.padding{
+		padding-bottom: 3%;
+	}
+}
+
+.flexible{
+	.macbook{
+		left: 0;
+		bottom: 0;
+		.line {
+		    display: inline-block;
+		    height: 0.7em;
+		    width: 55%;
+		    background-color: #f4f4f4;
+		    margin-bottom: 1.25em;
+		  }
+		  .line:nth-child(2n) {
+		    width: 10%;
+		    background-color: #48e0a4;
+		  }
+		  .line:nth-child(4n){
+			background-color: #f26767;
+		}
+		  .line:nth-child(6n){
+			background-color: #fff;
+		}
+		  .browser-content{
+			padding-top: 8%;
+			padding-left: 10%;
+		}
+	}
+}
+
+
+
+.social {
+	position: relative;
+	height: 3em;
+	width: 12em;
+	margin-top: 2em;
+}
+
+.social li {
+	display: block;
+	height: 4em;
+	line-height: 4em;
+	margin: -2em;
+	position: absolute;
+	-webkit-transition: -webkit-transform .5s;
+	-moz-transition: -moz-transform .5s;
+	-ms-transition: -ms-transform .5s;
+	-o-transition: -o-transform .5s;
+	transition: transform .5s;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	text-align: center;
+	width: 4em;
+}
+
+.social a {
+	color: #fffdf0;
+	display: block;
+	height: 4em;
+	line-height: 4em;
+	text-align: center;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	width: 4em;	
+}
+
+.facebook {
+	background: #155b9d;
+	left: 0;
+	top: 0%;
+}
+
+.twitter {
+	background: #1a9ec4;
+	bottom: 0;
+	left: 25%;
+}
+
+.dribbble {
+	background: #d05f8f;
+	left: 50%;
+	top: 0%;
+}
+
+.behance {
+	background: #3f7aa3;
+	bottom: 0;
+	left: 75%;
+}
+
+.linked-in {
+	background: #157f9d;
+	left: 100%;
+	top: 0%;
+}
+
+/* #Canvas Element Circular charts
+================================================== */
+canvas, video {display: inline-block;}
+
+
+.stats-container {
+margin: 0;
+padding: 0;
+list-style: none;
+text-align: center;
+padding-bottom: 70px;
+}
+
+.stats-container li {
+display: inline-block;
+margin: 0 4% 5px;
+position: relative;
+}
+
+.circular-stat {
+position: relative;
+}
+
+.circular-stat .digit-label {
+color:  $light-orange;
+font-family: $headline-font;
+font-size: 3.2em;
+text-align: center;
+display: inline-block;
+position: absolute;
+top: 11.5%;
+width: 75%;
+left: 12.5%;
+padding: 30px 0 0 30px;
+  text-shadow:-1px 1px 0px #fff; 
+white-space: nowrap;
+overflow: hidden;
+}
+
+.circular-stat .text-label {
+font-family: $headline-font;
+color: #333;
+font-size:1.5em;
+top: 50%;
+left: 21.875%;
+width: 56.25%;
+padding-top: 6px;
+display: inline-block;
+position: absolute;
+text-align: center;
+border-top: 1px solid #999;
+}
+
+span.text-title {
+color:  #444;
+font-family: "Noto Sans", "Helvetica Neue", Helvetica, arial, sans-serif;
+text-align: center;
+letter-spacing: -1px;
+font-size: 1.3em;
+font-weight: 400;
+text-shadow: -1px 1px 0px #FFF;
+padding: 30px 10px 0 0px;
+margin-top: 240px;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+z-index: 99999;
+display: block;
+text-shadow: -1px 1px 0px #fff;
+}
+
+span.text-dates{
+font-size: 1.5em;
+font-family: "Noto Sans", "Helvetica Neue", Helvetica, arial, sans-serif;
+color: #999;
+text-shadow: -1px 1px 0px #fff;
+}
+
+@media only screen and (min-width: 1010px) { 
+.stats-container li {margin: 0 2% 5px;}
+}
+@media only screen and (max-width: 1009px) { 
+.stats-container li {margin: 0 -.2em 5px;}
+}
+
+
 /*-------------------------------
   What to expect - New Here Page
 --------------------------------*/
@@ -278,9 +692,10 @@ ul.popular-posts{
     padding: ($base-unit * 3);
     border: 1px solid $green;
     text-align: center;
-    min-height: 120px;
     a{
       color: $green;
+	  position: relative;
+	  display: block;
     }
   }
 }

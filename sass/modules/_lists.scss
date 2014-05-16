@@ -99,6 +99,7 @@ ul.large li, li p {
 	  color: lighten($green, 5%);
       margin-top: $gutter + 2;
       margin-bottom: $gutter*2;
+      background: $white;
 	
 	  @media(min-width: 55em){
 	    float: none;
@@ -188,4 +189,77 @@ ul.large li, li p {
 	  padding: 0 10px 20px 0;
     }
   }
+}
+
+
+
+
+
+.featured-list{
+  display: block;
+  margin-top: $gutter;
+  width: 100%;
+  @include center-block;
+  text-align: center;
+  color: $white;
+  @include clearfix();
+  .featured-list-item{
+    width: 100%;
+    padding: ($base-unit * 2) 0 0;
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 0;
+    @media(min-width: 45em){
+      width: 48%;
+      margin: 0 1.1% 0 0;
+    }
+    @media(min-width: 65em){
+      width: 32%;
+      display: inline-block;
+    }
+    a{
+      color: $white;
+    }
+    
+    h5, p{
+      text-align: center;
+    }
+    .panel{
+      margin-bottom: 4em;
+    }
+    .panel__header {
+      padding-bottom: .8em;
+	  position: relative;
+	  margin-bottom: 1em;
+      &:after {
+        display: block;
+		content: "";
+		width: 80px;
+		height: 5px;
+		background-color: rgba($black-20, .3);
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		margin-left: -40px;
+      }
+      h5 {
+        margin-bottom: 4px;
+        font-weight: $heavy;
+        color: $white;
+      }
+    }
+  }
 }	
+
+
+.podcast-list{
+  width: 100%;
+  display: block;
+  @include clearfix();
+  li{
+    @include column(12);
+    @media(min-width: 55em) {
+      @include column(4);
+    }
+  }
+}
