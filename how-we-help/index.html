@@ -1,0 +1,85 @@
+---
+layout: blog
+class: "services"
+title: How we help
+description: Infinitus Marketing + Technology is a Newfoundland Web Development Marketing Agency. We offer custom, strategic web design and production services, SEO, social media marketing, and mobile marketing solutions to clients in Newfoundland, Canada, and globally. 
+---
+
+<section class="openingParagraph">
+		<div class="leadcopy center">
+			<h3>Strategic planning is expected. Strategic innovation is your competitive advantage.</h3>
+			<p>You don’t need all of the answers right now. You just need to believe that you’re going in the right direction, for the right reasons, to make the right impact. If you know where you want to go, we can help you get there.</p> 
+		</div>
+	</section>
+	
+	
+	<section class="page animated">
+		<div class="container">
+			
+				<div class="feature">
+			<h3 data-numbered="01/" class="block-heading--numbered">Website: Strategy, Design + Development</h3>
+			<p>We can help you realize your vision. More than that, we have the experience and team to make your new website look and work better than you’ve ever imagined because it’ll be better than everyone else in your industry.</p>
+			<p>Your website is the online version of your storefront or office. Even if your clients ultimately interact with you in person, you can be sure that they are searching for information online first. Take advantage of the opportunity to become the local market leader – and reap the rewards in customer and industry attention.</p>
+			<p>Your website can be your biggest business asset. It’s worth the investment to do it right.</p>
+			<a href="{{base.url}}contact" class="btn">Let's Talk</a>	
+			</div>
+			
+			<figure class="browsers">
+				<div class="macbook">
+				      <div class="browser-bar">
+				  	  <div class="browser-button"></div>
+				  	  <div class="browser-button"></div>
+				  	  <div class="browser-button"></div>
+				  	</div>
+				  	<div class="browser-content">
+					<img src="//dddb43dxo5lmp.cloudfront.net/images/flow-sample.jpg">
+						
+				  	</div>
+			</figure>	
+			
+		</div>
+	</section>
+	
+	
+	<section class="featured-case-study">
+		<blockquote class="featured-case-study-quote">
+				{% for client in site.data.casestudies %}
+				  {% if client.id == 'clarenville' %}
+					<h3>{{ client.quote }}</h3>
+					<cite><div class="img-thumbnail-circle"><img src="{{client.clientimage}}"></div>{{client.author}}</cite>
+					{% endif %} 
+				{% endfor %}
+		</blockquote>
+		<a href="" class="btn btn-transparent">Read the Case Study</a>	
+	</section>
+	
+	<section class="page bg-offwhite animated fadeIn">
+		<div class="container">
+				<figure class="browsers">
+				<div class="macbook noshadow">
+					<img src="//dddb43dxo5lmp.cloudfront.net/images/community-iphone.png">
+				</div>	
+				</figure>	
+				<div class="feature">
+			<h3 data-numbered="02/" class="block-heading--numbered">Community: Content Marketing, Social Media</h3>
+		<p>Your audience has changed. They’re interacting like never before. They’re using new media and becoming the producers. They’re socializing and searching to find everything they need and want. If you want to exist in their world, you need to be in the thick of it with them. Get involved or get out of the way.</p>
+		<p>This new reality adds a whole new dimension and set of “to dos” to your operations. Instead of hiring a full in-house team and trying to figure out the rapidly changing landscape on your own, we can offer you a shortcut.</p>
+		<p>The best part? You’ll get the results while we do the work.</p>
+		<a href="{{base.url}}contact" class="btn">Let's Talk</a>	
+			</div>
+			
+		</div>
+	</section>
+	
+	
+	<section class="page bg-photo bg-topview animated">
+		<div class="container">
+				<div class="feature">
+			<h3 data-numbered="03/" class="block-heading--numbered">Technology: Mobile Apps,<br>E-Learning</h3>
+		<p>Business as usual is bust. You need to stand out to be heard. We’re all competing for attention and commitment from our clients, so we have to work smarter.</p>
+		<p>Once you have your website and content rocking, the next step to differentiate online is to innovate. Mobile apps, e-learning platforms and custom software will help you reach new audiences in new ways. </p>
+		<a href="{{base.url}}contact" class="btn">Let's Talk</a>	
+			</div>
+			
+		</div>
+	</section>

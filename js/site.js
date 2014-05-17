@@ -427,4 +427,3 @@ $('.with-animation').each(function() {
 		});
 
 	});
-

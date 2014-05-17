@@ -1,3 +1,15 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="{{ site.baseurl }}js/application.min.js"></script>
 <script src="{{ site.baseurl }}js/site.min.js"></script>
+<script src="http://max.jotfor.ms/js/vendor/maskedinput.min.js?v=3.2.1884" type="text/javascript"></script>
+<script src="http://max.jotfor.ms/static/prototype.forms.js" type="text/javascript"></script>
+<script src="http://max.jotfor.ms/static/jotform.forms.js?3.2.1884" type="text/javascript"></script>
+<script>
+JotForm.init(function(){
+      $('input_13').hint('ex: John Doe');
+      $('input_9').hint('ex: myname@example.com');
+      $('input_12').hint('ex: ###-###-####');
+      JotForm.setInputTextMasking( 'input_12', '###-###-####' );
+      $('input_5').hint('ex: example.com');
+   });
+</script>

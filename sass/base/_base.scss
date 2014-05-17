@@ -167,3 +167,14 @@ pre,table,fieldset,hr {
  } 
 }
 
+.slab.full-white{
+  @extend .slab.full;
+  background: $white;
+  half{
+    padding: 0;
+  }
+  h3, p {
+    color: $darkgrey;
+  }
+}
+

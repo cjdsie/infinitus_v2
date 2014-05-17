@@ -110,7 +110,7 @@ ol, ul, dl, address {
   line-height: (24 / $basefont);
 }
 
-small {
+small, .small {
   @include font-size(11.312);
 }
 
