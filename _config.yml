@@ -25,4 +25,4 @@ markdown: redcarpet
 pygments: true
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink: /posts/:title/
+permalink: none

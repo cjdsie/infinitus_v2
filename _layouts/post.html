@@ -6,10 +6,22 @@ class: "single"
 {% capture readtime %}{{ page.content | number_of_words | plus:91 | divided_by:180 }}{% endcapture %}
 
 <section class="post bg-offwhite">
-	<script type="text/javascript">(function() {
-	  var fl = document.createElement('script'); fl.type = 'text/javascript'; fl.async = true; fl.src = document.location.protocol + '//filamentapp.s3.amazonaws.com/c6b2865201e317c27c049391901f074a.js';
-	  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fl, s);
-	})();</script>
+	<!-- AddThis Smart Layers BEGIN -->
+	<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-537a37b0126fe596"></script>
+	<script type="text/javascript">
+	  addthis.layers({
+	    'theme' : 'transparent',
+	    'domain' : 'goinfinitus.com',
+	    'share' : {
+	      'position' : 'left',
+	      'numPreferredServices' : 5,
+	      'desktop' : true,
+		  'mobile' : true,
+	    }, 
+	  });
+	</script>
+	<!-- AddThis Smart Layers END -->
 	<div class="container">
 		<article class="single-post">
 			<img src="{{page.image}}">
@@ -25,7 +37,7 @@ class: "single"
 			<ul class="podcast-list">
 			{% for post in site.categories['podcast'] limit:3 %}
 			<li>
-			<a href="{{site.baseurl}}{{ post.url }}">
+			<a href="{{ post.url }}">
 				<div class="imgContainerSecondary">
 					<img src="{{ post.image }}">
 				</div></a>
@@ -37,7 +49,7 @@ class: "single"
 			<ul class="grid-list">
 			{% for post in site.categories['blog'] offset:1 limit:3 %}
 			<li class="item">
-			<a href="{{site.baseurl}}{{ post.url }}">
+			<a href="{{ post.url }}">
 				<div class="imgContainerSecondary">
 					<img src="{{ post.image }}">
 					<h5>{{ post.title }}</h5>
