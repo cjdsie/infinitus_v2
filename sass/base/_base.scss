@@ -150,7 +150,7 @@ pre,table,fieldset,hr {
 
 .slab.half{
   display:block;
-  float: none;
+  float: left;
 
   @media(min-width: 55em) {
     display: table-cell;

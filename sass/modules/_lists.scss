@@ -144,6 +144,10 @@ ul.large li, li p {
       margin: 0 1.1% 0 0;
     }
     @media(min-width: 65em){
+      width: 30%;
+      display: inline-block;
+    }
+    @media(min-width: 75em) {
       width: 32%;
       display: inline-block;
     }

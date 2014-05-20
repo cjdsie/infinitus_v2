@@ -188,8 +188,11 @@ main, .main{
 
 .matched-height{
   padding: 0;
+  display: block;
+  position: relative;
+  overflow: hidden;
   @media(min-width: 55em){
-    height: 420px;
+    height: 580px;
   }
   h5{
     padding-bottom: 3px;

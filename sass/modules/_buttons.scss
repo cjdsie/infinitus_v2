@@ -244,6 +244,7 @@ $button-disabled-opacity: 0.6 !global;
 .btn-transparent-green{
   @include button-style(transparent);
   border-color: $green;
+  color: $green;
   &:visited{
     color: $green;
   }
