@@ -25,4 +25,4 @@ markdown: redcarpet
 pygments: true
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink: /infinitus_v2/posts/:title/
+permalink: /posts/:title/
