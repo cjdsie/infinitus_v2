@@ -1,10 +1,11 @@
 ---
 layout: post
 title:  "3 Foolproof Steps to an Engaging Headline"
-image: "//dddb43dxo5lmp.cloudfront.net/images/master-modern-marketing2.jpg"
+image: "//dddb43dxo5lmp.cloudfront.net/blog-images/3_11_Keyword.jpg"
 description: "Make sure your headlines working on three levels: for SEO, for your audience, and for your brand. If they’re not, you’re losing out on valuable site traffic!" 
 date:   2014-03-11
-categories: content strategy marketing trends
+tags: content strategy marketing trends
+categories: blog
 ---
 
 We’ve got a five-minute challenge for you! 

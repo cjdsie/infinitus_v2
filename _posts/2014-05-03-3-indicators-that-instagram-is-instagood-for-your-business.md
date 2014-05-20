@@ -1,11 +1,12 @@
 ---
 layout: post
 title:  "3 Indicators that Instagram is InstaGOOD for Your Business"
-image: "//dddb43dxo5lmp.cloudfront.net/blog-images/skydive.gif"
+image: "//dddb43dxo5lmp.cloudfront.net/blog-images/5_3_Photographer.jpg"
 description: "If you’re not sure that your brand would translate well on Instagram, here are 3 indicators that you should dive in to the Instagram waters." 
 class: "fullpage-post"
 date:   2014-05-03
-categories: potential business engagement
+tags: potential business engagement
+categories: blog
 ---
 
 Do you operate an Instagram profile for your business? 

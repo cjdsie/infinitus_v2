@@ -2,9 +2,9 @@
 layout: post
 title:  "15 Brands to Watch for Facebook Marketing Ideas"
 image: "//dddb43dxo5lmp.cloudfront.net/blog-images/15-facebook.jpg"
-class: "audio"
 date:   2013-12-18
-categories: podcast update
+tags: marketing update
+categories: blog
 ---
 
 Facebook Marketing is a must for businesses of all shapes and sizes, but doing it right can be tough, especially for smaller businesses that don't have the resources or the know-how to make every post count. Luckily there are major brands out there paving the way, spending the money, and providing you with best practices that can be applied to your small business. Here are 15 big brands to follow for Facebook marketing inspiration and some things you can learn from them. 

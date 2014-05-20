@@ -1,11 +1,12 @@
 ---
 layout: post
 title:  "3 Steps to Creating an Engaging Twitter Presence"
-image: "//dddb43dxo5lmp.cloudfront.net/images/elevate-your-website2.jpg"
+image: "//dddb43dxo5lmp.cloudfront.net/blog-images/2_27.jpg"
 description: "Build your twitter following and get more value from your social media marketing with these three easy steps from INFINITUS Marketing + Technology." 
 class: "featured"
 date:   2014-02-27
-categories: strategy marketing content bounce-rates
+tags: strategy marketing content bounce-rates
+categories: blog
 ---
 
 You’ve got the Twitter handle, you know what a hashtag is, and you can sling a RT with the best of them, but… There’s something missing. Maybe your tweets feel forced. Maybe you don’t know exactly what to talk about. Maybe it doesn’t feel like your followers are really listening or care what you have to say. Have no fear! You can turn this around and get your social media back on track with just a little targeted interaction, a solid understanding of your brand, and some elbow grease. How? You can start with these three steps!

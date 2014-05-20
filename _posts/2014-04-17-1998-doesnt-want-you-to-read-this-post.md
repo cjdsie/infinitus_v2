@@ -1,9 +1,10 @@
 ---
 layout: post
 title:  "1998 Doesn’t Want You To Read This Post"
-image: "//dddb43dxo5lmp.cloudfront.net/blog-images/ninjaturtle.gif"
+image: "//dddb43dxo5lmp.cloudfront.net/blog-images/4_17_Option2.jpg"
 date:   2014-04-17
-categories: podcast update
+tags: marketing update
+categories: blog
 ---
 
 We have a fondness for the 90’s. After all, the decade brought us Surge, boy bands, Lisa Frank TrapperKeepers, and dial-up internet access. Who will ever forget Titanic or Adam Sandler?  It was a pretty boss decade. 

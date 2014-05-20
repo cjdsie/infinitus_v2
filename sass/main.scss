@@ -28,12 +28,13 @@ MIT License
 ========================================================================== */
 
 @import 'helpers/_render-gradients.scss';
+@import 'modules/_animations.scss';
+@import 'helpers/_animate.scss';
 
 
 /* MODULES - Individual site elements. 
 ========================================================================== */
 
-@import 'modules/_animations.scss';
 @import 'modules/_transitions.scss';
 @import 'modules/_breadcrumbs.scss';
 @import 'modules/_blockquotes.scss';

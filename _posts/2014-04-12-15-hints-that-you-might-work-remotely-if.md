@@ -1,9 +1,10 @@
 ---
 layout: post
 title:  "15 Hints that You Might Work Remotely If…"
-image: "//dddb43dxo5lmp.cloudfront.net/blog-images/panda.gif"
+image: "//dddb43dxo5lmp.cloudfront.net/blog-images/4_12.jpg"
 date:   2014-04-12
-categories: podcast update
+tags: business update
+categories: blog
 ---
 
 It’s no secret that INFINITUS’ entire team is made up of remote workers. We think that this is what makes us an effective and relevant team—we’re able to [hire the best people for the right jobs](http://www.goinfinitus.com/myposts/benefits-to-hiring-freelance-employees). We’re not relegated to the pool of job seekers in any one place. Rather, our pool of job seekers is the world!

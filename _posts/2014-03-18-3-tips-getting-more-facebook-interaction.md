@@ -1,11 +1,12 @@
 ---
 layout: post
 title:  "3 Tips to Getting More Facebook Interaction Without Having to Pay"
-image: "//dddb43dxo5lmp.cloudfront.net/images/award.jpg"
+image: "//dddb43dxo5lmp.cloudfront.net/blog-images/3_18.jpg"
 description: "Despite Facebook’s attempts to thwart your scope of influence, we’ve got steps you can take to increase your visibility to your fans without paying to boost your post."
 class: "featured" 
 date:   2014-03-18
-categories: strategy marketing content facebook
+tags: strategy marketing content facebook
+categories: blog
 ---
 
 In the past few months, you might have noticed your audience interaction on your brand’s Facebook fan page has changed for the worse. 

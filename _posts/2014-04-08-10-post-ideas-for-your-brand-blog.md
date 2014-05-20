@@ -1,9 +1,10 @@
 ---
 layout: post
 title:  "10 Post Ideas for Your Brand’s Blog"
-image: "//dddb43dxo5lmp.cloudfront.net/images/windsor.jpg"
+image: "//dddb43dxo5lmp.cloudfront.net/blog-images/4_8.jpg"
 date:   2014-04-08
-categories: podcast update
+tags: brands update
+categories: blog
 ---
 
 Unless you love writing, maintaining a blog for your business may feel like an arduous task. After all, if you wanted to be a writer, you’d be a writer, right? Still, a blog for a business generates leads and traffic— it should be an integral part of your brand’s marketing plan. (And, if you don’t have one, you should seriously consider it.)

@@ -1,35 +1,84 @@
 - id: ronellsworth
+  title: Ellsworth 2013
   quote: He’s helped shape our strategy on how to attract people online and engage our audience.
   clientimage: //dddb43dxo5lmp.cloudfront.net/work/ellsworth/ellsworth1-252x300.jpg
-  author: Ron Ellswort, Deputy Mayor, City of St. John’s
+  featuredimage: //dddb43dxo5lmp.cloudfront.net/work/ellsworth.jpg 
+  author: Ron Ellsworth, Deputy Mayor, City of St. John’s
+  slug: ellsworth-2013
+  publish: yes
 - id: tlp
+  title: The Learning Partnership
   quote: INFINITUS has been instrumental in transiting our organization of over 100 people online and allowing for our programs to be accessed online
   clientimage: //dddb43dxo5lmp.cloudfront.net/work/tlp/akelapeoples.jpg
   author: Akela Peoples, CEO & President, The Learning Partnership
+  publish: no
 - id: vigilant
+  title: Vigilant Management
   quote: They’ve have helped shape our strategy on how to attract people online and engage our audience in an extremely meaningful way.
   clientimage: //dddb43dxo5lmp.cloudfront.net/work/vigilant/terry.jpg
   author: Terry Hussey, VP Business & Marketing, Vigilant Management
+  featuredimage: //dddb43dxo5lmp.cloudfront.net/work/vigilant.jpg
+  image2: //dddb43dxo5lmp.cloudfront.net/work/vigilant2.jpg
+  image3: //dddb43dxo5lmp.cloudfront.net/work/vigilant3.jpg
+  image4: //dddb43dxo5lmp.cloudfront.net/work/vigilant/vigilant2.png 
+  slug: vigilant-management
+  publish: yes
 - id: ywca
+  title: YWCA, Moncton
   quote: Scott and his team has allowed us to plan a strategic online platform that will drive the next-generation of growth for our organization. Event planning, donations and community involvement will be much easier. We’re excited!
   author: Beth Lyons, Associate Director, YWCA
+  publish: no
 - id: clarenville
+  title: Town of Clarenville
   quote: …They brought great ideas to the table and over-delivered.
   clientimage: //dddb43dxo5lmp.cloudfront.net/work/clarenville/chadholloway.jpg
   author: Chad Holloway, Economic Development - Town of Clarenville
+  featuredimage: //dddb43dxo5lmp.cloudfront.net/work/clarenville.jpg
+  slug: town-of-clarenville
+  publish: yes
 - id: cornerstone
+  title: Cornerstone Sports Lounge
   quote: Scott has transformed us online in the eyes of our current and potential customers alike.
   author: Jason Clark, General Manager, Cornerstone Sports Lounge
+  publish: no
 - id: gandertoyota
+  title: Gander Toyota
   quote: Scott’s company is both local and among the best we’ve worked with, which is a GREAT combination.
   clientimage: //dddb43dxo5lmp.cloudfront.net/work/gandertoyota/rod_tucker.jpg
   author: Rod Tucker, General Manager, Gander Toyota
+  publish: no
 - id: royalk9
+  title: RoyalK9
   quote: He always brings a level of confidence, experience and passion that allows me to translate my idea to a reality.
   clientimage: //dddb43dxo5lmp.cloudfront.net/work/royalk9/angie.jpg
   author: Angie Parsons, Owner, RoyalK9
+  publish: no
 - id: platinumprofitness
+  title: Platinum Pro Fitness
   quote: We knew we wanted to take our business to the next level and help even more people.
   clientimage: //dddb43dxo5lmp.cloudfront.net/work/platinumprofitness/john.jpg
   author: John Perry, Owner, Platinum Pro Fitness
+  publish: no
+- id: avalonlaser
+  title: Avalon Laser Health
+  featuredimage: //dddb43dxo5lmp.cloudfront.net/work/avalon-laser.jpg
+  portfolioimage: //dddb43dxo5lmp.cloudfront.net/work/avalon-placehold.jpg
+  slug: avalon-laser-health
+  publish: yes
+- id: madison
+  title: Madison McKenzie
+  featuredimage: //dddb43dxo5lmp.cloudfront.net/work/madison.jpg
+  slug: madison-mackenzie
+  publish: yes
+- id: flow 
+  title: Flow Consulting
+  image: //dddb43dxo5lmp.cloudfront.net/images/flow-sample.jpg
+  featuredimage: //dddb43dxo5lmp.cloudfront.net/work/flow-consulting.jpg
+  slug: flow-consulting
+  publish: yes
+- id: dawe
+  title: Dawe’s Mechanical
+  featuredimage: //dddb43dxo5lmp.cloudfront.net/work/dawe.jpg
+  slug: dawe-mechanical
+  publish: yes
             

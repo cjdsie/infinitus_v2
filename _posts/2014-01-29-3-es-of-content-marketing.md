@@ -1,11 +1,11 @@
 ---
 layout: post
 title:  "The 3 E's of Content Marketing"
-image: "//dddb43dxo5lmp.cloudfront.net/images/what-we-do_2.jpg"
+image: "//dddb43dxo5lmp.cloudfront.net/blog-images/1_29_Educate.jpg"
 description: "Whenever we set out to create a content marketing strategy for one of our clients, it helps us to have a framework to build out the custom content from. Here’s our secret sauce - feel free to borrow and steal this to create your own effective content."
-class: "audio"
-date:   2014-04-12
-categories: marketing
+date:   2014-01-29
+tags: marketing
+categories: blog
 ---
 
 Whenever we set out to create a content marketing strategy for one of our clients, it helps us to have a framework to build out the custom content from. Here’s our secret sauce - feel free to borrow and steal this to create your own effective content.

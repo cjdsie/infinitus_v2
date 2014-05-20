@@ -1,10 +1,11 @@
 ---
 layout: post
 title: "Hunting Inspiration on Twitter: 185 Accounts for Business Leaders"
-image: "//dddb43dxo5lmp.cloudfront.net/podcast/podcast-akelapeoples.jpg"
-date: 2014-05-8
+image: "//dddb43dxo5lmp.cloudfront.net/blog-images/5_6_Twitter.jpg"
+date: 2014-05-06
 class: "doublewide-right-post"
-categories: blog update
+tags: social twitter
+categories: blog
 ---
 
 140 characters may not be a lot, but for these accounts, they’re just enough to get fresh, interesting, engaging content out to the world. And people-- thousands of people, and in some cases, millions-- have taken notice. We gleaned the internet looking for the best articles about the best Twitter accounts of the best, most innovative leaders in the realm of business.

@@ -1,10 +1,51 @@
 ---
 layout: blog
-class: "blog"
+class: "single"
 ---
-<h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_string }}</p>
 
-<div class="post">
-{{ content }}
-</div>
+{% capture readtime %}{{ page.content | number_of_words | plus:91 | divided_by:180 }}{% endcapture %}
+
+<section class="post bg-offwhite">
+	<script type="text/javascript">(function() {
+	  var fl = document.createElement('script'); fl.type = 'text/javascript'; fl.async = true; fl.src = document.location.protocol + '//filamentapp.s3.amazonaws.com/c6b2865201e317c27c049391901f074a.js';
+	  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fl, s);
+	})();</script>
+	<div class="container">
+		<article class="single-post">
+			<img src="{{page.image}}">
+			<div class="single-post__inner">
+			<p class="meta">{{ page.date | date_to_string }} &bull; {% if readtime == '0' %} &lt; 1{% else %}{{ readtime }}{% endif %} min. read &bull; <a href="#disqus_thread" data-disqus-identifier="{{ page.path | split:'/' | last | cgi_escape }}">View Comments</a></p>
+		{{ content }}
+		
+		{% include comments.html %}
+		</div>
+		</article>
+		<aside class="blog-sidebar">
+			<h4>Latest Podcasts</h4>
+			<ul class="podcast-list">
+			{% for post in site.categories['podcast'] limit:3 %}
+			<li>
+			<a href="{{ post.url }}">
+				<div class="imgContainerSecondary">
+					<img src="{{ post.image }}">
+				</div></a>
+			</li>	
+			{% endfor %}
+			</ul>
+			<hr>
+			<h4>Latest Posts</h4>
+			<ul class="grid-list">
+			{% for post in site.categories['blog'] offset:1 limit:3 %}
+			<li class="item">
+			<a href="{{ post.url }}">
+				<div class="imgContainerSecondary">
+					<img src="{{ post.image }}">
+					<h5>{{ post.title }}</h5>
+				</div></a>
+			</li>	
+			{% endfor %}
+			</ul>
+			<a href="{{site.baseurl}}resources" class="btn btn-alt btn-lrg">Back to all posts</a>
+		</aside>	
+	</div>	
+</section>
