@@ -19,16 +19,56 @@
 </div>
 
     <main class="main">
-		<section class="page">
-			<div class="container body__inner">
         {{ content }}
-            </div>
-        </section>
+        <section class="page">
+			<div class="center">
+				<a href="{{client.url}}" class="btn btn-transparent-green btn-lrg">Visit the site</a>
+		    </div>
+		</section>
+		{% if client.quote %}
        	<section class="featured-case-study">
 			<blockquote class="featured-case-study-quote">
 						<h3>{{ client.quote }}</h3>
 						<cite><div class="img-thumbnail-circle"><img src="{{client.clientimage}}"></div>{{client.author}}</cite>
 			</blockquote>
+		</section>
+		{% endif %}
+		<section class="portfolio-heading">
+	    <h3>View More Case Studies</h3>
+	    </section>
+		<section class="page worklist">
+				{% for client in site.data.casestudies %}
+				{% if client.featuredimage %}
+				<article class="case-study-grid-item tile">
+					<img src="{{client.featuredimage}}" alt="{{ client.title }}"/>
+						<div class="hover">
+							<a href="{{ site.baseurl }}case-studies/{{client.slug}}" class="tile-link">
+								<div class="tile-top">
+									<div class="tile-inner">
+										<h5>{{ client.title }}</h5>
+										<div class="cta-wrapper">
+											<span class="cta hollow">Read Case Study</span>
+										</div>	
+							  		</div>
+							    </div>
+							</a>
+						</div>
+					</article>
+					{% endif %}	
+				{% endfor %}
+		        <article class="workwithus">
+			       <div class="tile-link">
+			       <div class="tile-top">
+				    	<div class="tile-inner">
+			       			<h3>Learn More about what we offer<h3>
+				         		<div class="cta-wrapper">
+									<a href="{{ site.baseurl }}how-we-help" class="btn">Learn More</a>
+								</div>
+				    		</div>
+				  		</div>
+				</div>
+
+			    </article>	
 		</section>
    </main>
     {% endif %}

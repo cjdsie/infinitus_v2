@@ -3,14 +3,30 @@ layout: single
 class: "single case-study"
 id: avalonlaser
 title: Avalon Laser Health
-description: Infinitus Marketing + Technology is a Newfoundland Web Development Marketing Agency. We offer custom, strategic web design and production services, SEO, social media marketing, and mobile marketing solutions to clients in Newfoundland, Canada, and globally. 
+description: Infinitus Marketing + Technology is a Newfoundland Web Development Marketing Agency. We offer custom, strategic web design and production services, SEO, social media marketing, and mobile marketing solutions to clients in Newfoundland, Canada, and globally.
+image1: //dddb43dxo5lmp.cloudfront.net/work/avalon-facebook.jpg 
+image2: //dddb43dxo5lmp.cloudfront.net/work/avalon-magazine.jpg
+image3: //dddb43dxo5lmp.cloudfront.net/work/golfingposter.jpg
+image4: //dddb43dxo5lmp.cloudfront.net/work/avalon-website-blog.jpg
+image5: //dddb43dxo5lmp.cloudfront.net/work/avalon/avalon.png
 ---
 
-{% for client in site.data.casestudies %}
-<img src="{{client.portfolioimage}}">
-{% endfor %}
+<section class="portfolio-heading">
+	<div class="container body__inner">
 
 		<p>Avalon Laser Health is a health and wellness clinic located in St. John’s, NL that offers physiotherapy, chiropractic, acupuncture, massage therapy, homeopathy and laser light services. Before we started working together, they were doing a lot of the right things, but weren’t seeing the traction and growth that they wanted.</p>
 		<p>We started with a brand discovery session and narrowed their message down to the inspiration that they get from seeing their patients overcome pain, injury and difficult circumstances to recover and fully enjoy life again. The common thread between their target clients was that they were passionate about life, and getting back to the activities that they love - whether that is playing with their kids, hiking, biking, gardening, or just feeling like themselves again.</p>
 		<p>After developing the brand message and persona, we used it to design a responsive website, write copy, and selected imagery that matched their new direction. The new website includes a modern responsive design, online appointment requests, social media integration, and compelling copywriting.</p>
 		<p>Beyond the website design, we’ve been helping them with a full marketing campaign that includes ongoing social media management, office signage, printed brochure design and development, search engine marketing, public relations, online advertising, and more.</p>
+		</div>
+	</section>
+	<section class="page bg-offwhite image-container">
+				    
+		<div class="container body__inner">
+			<img src="{{page.image5}}">
+			<img src="{{page.image1}}">
+			<img src="{{ page.image4 }}">
+			<img src="{{page.image2}}">
+			<img src="{{page.image3}}">
+		</div>
+	</section>	

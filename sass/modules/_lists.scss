@@ -338,3 +338,51 @@ ul.large li, li p {
     }
   }
 }
+
+
+.checkmark-list {
+  width: 100%;
+  display: block;
+  position: relative;
+  @include clearfix();
+  li{
+    width: 100%;
+    display: block;
+    text-align: left;
+    padding-left: 28px;
+    margin-bottom: $gutter;
+    @media(min-width: 55em) {
+      @include column(6);
+      margin-bottom: $gutter;
+    }
+    &:before {
+      font-family: "icomoon";
+      content: "\e6ce";
+      display: inline-block;
+      color: $light-orange;
+      margin-left: -22px;
+     }
+  }
+}
+
+.checkers-list {
+  width: 100%;
+  display: block;
+  position: relative;
+  @include clearfix();
+  li{
+    width: 100%;
+    display: block;
+    text-align: left;
+    padding-left: 28px;
+    margin-bottom: ($base-unit * 2);
+    &:before {
+      font-family: "icomoon";
+      content: "\e6fe";
+      display: inline-block;
+      color: $light-orange;
+      margin-left: -30px;
+	  margin-right: 14px;
+     }
+  }
+}

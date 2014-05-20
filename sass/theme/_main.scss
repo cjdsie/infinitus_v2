@@ -953,7 +953,52 @@ text-shadow: -1px 1px 0px #fff;
 	}	
   }
 
+.single {
+  .case-study-grid-item {
+    @media(min-width: 55em){
+      width: 25%;
+    }
+  }
+}
 
+.worklist{
+  padding: 0;
+}
+
+.portfolio-heading {
+  text-align: center;
+  position: relative;
+  background: $white;
+  &:after{
+    content: ' ';
+	position: absolute;
+	left: 50%;
+	width: 0;
+	height: 0;
+	display: block;
+    bottom: -15px;
+	margin-left: -16px;
+	border-left: 16px solid transparent;
+	border-right: 16px solid transparent;
+	border-top: 16px solid #fff;
+	z-index: 10;
+  }
+}
+
+.image-container {
+  text-align: center;
+  img{
+    margin-bottom: 5%;
+  }
+  .browsers{
+    overflow: hidden;
+    @media(min-width: 55em) {
+      width: 100%;
+      float: none;
+      margin-bottom: 5%;
+    }
+  }
+}
 
 /*-------------------------------
   What to expect - New Here Page
@@ -1209,7 +1254,7 @@ ul.popular-posts{
   border: 1px solid $offwhite;
   @include vendorize(box-shadow, rgba(0,0,0,.6) 0px 2px 12px);
   padding: 14px 22px;
-  width: 50%;
+  width: 100%;
   position: relative;
   display: none;
 }

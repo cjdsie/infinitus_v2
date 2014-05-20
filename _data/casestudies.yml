@@ -2,15 +2,17 @@
   title: Ellsworth 2013
   quote: He’s helped shape our strategy on how to attract people online and engage our audience.
   clientimage: //dddb43dxo5lmp.cloudfront.net/work/ellsworth/ellsworth1-252x300.jpg
-  featuredimage: //dddb43dxo5lmp.cloudfront.net/work/ellsworth.jpg 
+  featuredimage: //dddb43dxo5lmp.cloudfront.net/work/ellsworth.jpg
   author: Ron Ellsworth, Deputy Mayor, City of St. John’s
   slug: ellsworth-2013
+  url: http://ellsworth2013.com/
   publish: yes
 - id: tlp
   title: The Learning Partnership
   quote: INFINITUS has been instrumental in transiting our organization of over 100 people online and allowing for our programs to be accessed online
   clientimage: //dddb43dxo5lmp.cloudfront.net/work/tlp/akelapeoples.jpg
   author: Akela Peoples, CEO & President, The Learning Partnership
+  url: http://www.thelearningpartnership.ca/
   publish: no
 - id: vigilant
   title: Vigilant Management
@@ -18,10 +20,8 @@
   clientimage: //dddb43dxo5lmp.cloudfront.net/work/vigilant/terry.jpg
   author: Terry Hussey, VP Business & Marketing, Vigilant Management
   featuredimage: //dddb43dxo5lmp.cloudfront.net/work/vigilant.jpg
-  image2: //dddb43dxo5lmp.cloudfront.net/work/vigilant2.jpg
-  image3: //dddb43dxo5lmp.cloudfront.net/work/vigilant3.jpg
-  image4: //dddb43dxo5lmp.cloudfront.net/work/vigilant/vigilant2.png 
   slug: vigilant-management
+  url: http://vigilantmanagement.ca/
   publish: yes
 - id: ywca
   title: YWCA, Moncton
@@ -34,6 +34,7 @@
   clientimage: //dddb43dxo5lmp.cloudfront.net/work/clarenville/chadholloway.jpg
   author: Chad Holloway, Economic Development - Town of Clarenville
   featuredimage: //dddb43dxo5lmp.cloudfront.net/work/clarenville.jpg
+  url: http://www.clarenville.net/
   slug: town-of-clarenville
   publish: yes
 - id: cornerstone
@@ -64,21 +65,25 @@
   featuredimage: //dddb43dxo5lmp.cloudfront.net/work/avalon-laser.jpg
   portfolioimage: //dddb43dxo5lmp.cloudfront.net/work/avalon-placehold.jpg
   slug: avalon-laser-health
+  url: http://www.avalonlaserhealth.ca/
   publish: yes
 - id: madison
   title: Madison McKenzie
   featuredimage: //dddb43dxo5lmp.cloudfront.net/work/madison.jpg
   slug: madison-mackenzie
   publish: yes
+  url: http://madisonmackenziehome.com/
 - id: flow 
   title: Flow Consulting
   image: //dddb43dxo5lmp.cloudfront.net/images/flow-sample.jpg
   featuredimage: //dddb43dxo5lmp.cloudfront.net/work/flow-consulting.jpg
   slug: flow-consulting
   publish: yes
+  url: http://flowconsult.ca/
 - id: dawe
   title: Dawe’s Mechanical
   featuredimage: //dddb43dxo5lmp.cloudfront.net/work/dawe.jpg
   slug: dawe-mechanical
+  url: http://dawesmechanical.com/
   publish: yes
             

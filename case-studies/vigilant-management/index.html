@@ -3,24 +3,25 @@ layout: single
 class: "single case-study"
 id: vigilant
 title: Vigilant Management
-description: Infinitus Marketing + Technology is a Newfoundland Web Development Marketing Agency. We offer custom, strategic web design and production services, SEO, social media marketing, and mobile marketing solutions to clients in Newfoundland, Canada, and globally. 
+description: Infinitus Marketing + Technology is a Newfoundland Web Development Marketing Agency. We offer custom, strategic web design and production services, SEO, social media marketing, and mobile marketing solutions to clients in Newfoundland, Canada, and globally.
+image2: //dddb43dxo5lmp.cloudfront.net/work/vigilant2.jpg
+image3: //dddb43dxo5lmp.cloudfront.net/work/vigilant3.jpg
+image4: //dddb43dxo5lmp.cloudfront.net/work/vigilant/vigilant2.png 
 ---
-{% for client in site.data.casestudies %}
-	<img src="{{ client.image4 }}">
-{% endfor %}
 
-<p>Vigilant Management is a new industrial and commercial project management firm. They work in an industry that is not very active online, so they saw the huge opportunity to own that space. Even though the business partners have marketing knowledge, they wanted expert team to translate their ideas into reality.</p>
-<p>After our discovery sessions, we identified the buyer persona and decision making process their potential clients go through before hiring a project management firm. We used that knowledge to create a website that speaks directly to their potential customers with every design and copywriting aspect.</p>
-{% for client in site.data.casestudies %}
-<img src="{{client.image2}}">
-{% endfor %}
+<section class="portfolio-heading">
+	<div class="container body__inner">
+		
 
-{% for client in site.data.casestudies %}
-<img src="{{client.image3}}">
-{% endfor %}
-<section class="page">
-	<div class="center">
-		<a href="http://www.vigilantmanagement.ca/" class="btn btn-lrg">Visit the site</a>
-    </div>
+		<p>Vigilant Management is a new industrial and commercial project management firm. They work in an industry that is not very active online, so they saw the huge opportunity to own that space. Even though the business partners have marketing knowledge, they wanted expert team to translate their ideas into reality.</p>
+		<p>After our discovery sessions, we identified the buyer persona and decision making process their potential clients go through before hiring a project management firm. We used that knowledge to create a website that speaks directly to their potential customers with every design and copywriting aspect.</p>
+	</div>
 </section>
+<section class="page bg-offwhite image-container">
+	<div class="container body__inner">
+		<img src="{{ page.image4 }}">
+		<img src="{{page.image2}}">
+		<img src="{{page.image3}}">
+	</div>
+</section>	
 

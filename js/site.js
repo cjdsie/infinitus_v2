@@ -19,6 +19,23 @@
   });
 
 
+jQuery("#closeFancy").click(function(){
+                                                jQuery.fancybox.close();
+                                                return false;
+                                            });
+
+$('.fancybox').fancybox({
+	padding : 0,
+    openEffect  : 'elastic',
+    closeBtn : false,
+	closeClick: false,
+	modal: true,
+    
+	});
+
+
+
+
 // Set options
         var options = {
             offset: 500,
@@ -32,17 +49,6 @@
 
 // Create a new instance of Headhesive
 var headhesive = new Headhesive('.banner', options);
-
-$('#signup_btn').click(function(e) {
-    $('#sign_up').lightbox_me({
-        centered: true, 
-        onLoad: function() { 
-            $('#sign_up').find('input:first').focus()
-            }
-        });
-    e.preventDefault();
-});
-
 
 
 /***************** Image with Animation *******************/

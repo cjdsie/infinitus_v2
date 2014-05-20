@@ -2,8 +2,8 @@
 layout: post
 title:  "Automate your business and make more money, Joshua Davidson"
 image: "//dddb43dxo5lmp.cloudfront.net/podcast/podcast-joshuadavidson.jpg"
-description: "In this edition of the Limitless Business Podcast, INFINITUS chat to tech entrepreneur and startup advisor Joshua Davidson. As the founder of Chop Dawg, he works with organisations to streamline their workflow, automate their processes and ultimately make more money using web technology. It takes an investment of time and money, but with patience can take your business to the next level." 
-excerpt: "In this edition of the Limitless Business Podcast, INFINITUS chat to tech entrepreneur and startup advisor Joshua Davidson."
+description: "In this edition of the Limitless Business Podcast, INFINITUS chats to tech entrepreneur and startup advisor Joshua Davidson. As the founder of Chop Dawg, he works with organisations to streamline their workflow, automate their processes and ultimately make more money using web technology. It takes an investment of time and money, but with patience can take your business to the next level." 
+excerpt: "In this edition of the Limitless Business Podcast, INFINITUS chats to tech entrepreneur and startup advisor Joshua Davidson."
 class: "audio"
 date:   2014-05-20
 categories: podcast update
