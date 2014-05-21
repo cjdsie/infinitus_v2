@@ -274,6 +274,7 @@ ul.large li, li p {
     border-top: 1px solid rgba(211, 131, 18, 0.75);
 	border-bottom: 1px solid rgba(168, 50, 121, 0.75);
 	border-radius: 5px;
+	margin-bottom: ($base-unit * 8);
 	&:before, &:after{
 	  content: "";
 	  position: absolute;
@@ -296,6 +297,7 @@ ul.large li, li p {
     @media(min-width: 55em){
       @include column(4);
       padding: 0;
+      margin-bottom: 0;
       &.padded{
         margin-top: -100px;
       }

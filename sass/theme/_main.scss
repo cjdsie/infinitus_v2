@@ -347,13 +347,15 @@ main, .main{
 .feature{
 	width: 100%;
 	float: none;
-	display: inline-block;
+	display: block;
 	margin-top: $gutter*3;
-	padding-left: 42px;
+	padding-left: 0;
 	height: 100%;
 	@media(min-width: 55em){
 	  width: 45%;
 	  float: left;
+	  display: inline-block;
+	  padding-left: 42px;
 	}
 	
 }

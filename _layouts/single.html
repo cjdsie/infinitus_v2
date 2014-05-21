@@ -6,7 +6,10 @@
 		<header class="container banner" role="banner">
 			<div class="headerInfo">
 				<a href="{{ site.baseurl }}">
-					<h1 class="title">INFINITUS Marketing + Technology</h1>
+					<div class="title">
+						<!--[if gte IE 9]><!--><img src='{{site.baseurl}}img/infinitus-icon.svg', alt='INFINITUS Marketing + Technology', onerror="this.src={{site.baseurl}}img/infinitus-icon.png"><!--<![endif]-->
+		            	<!--[if lt IE 9]><img src='{{site.baseurl}}img/infinitus-icon.png', alt='INFINITUS Marketing + Technology'><![endif]-->
+						</div>
 				</a>
 			{% include navigation.html %}
 			</div>

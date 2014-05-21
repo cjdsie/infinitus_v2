@@ -360,10 +360,11 @@ button[disabled], html input[disabled] {
   margin: 0;
   padding: 0; }
 
+/*font-size: 16px;   // 1rem = 16px*/
 html {
   background-color: white;
   height: 100%;
-  font-size: 95%;
+  font-size: 80%;
   -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: #e46a3f;
   -webkit-text-size-adjust: 100%;
@@ -371,19 +372,16 @@ html {
   -ms-text-size-adjust: 100%;
   -o-text-size-adjust: 100%;
   text-size-adjust: 100%; }
-  @media (min-width: 30em) {
+  @media (min-width: 40em) {
     html {
-      font-size: 97.5%; } }
-  @media (min-width: 72em) {
+      font-size: 90%; } }
+  @media (min-width: 55em) {
     html {
       font-size: 100%; } }
 
 body {
   width: 100%;
   font-family: "chaparral-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  font-size: 1.125em;
-  font-size: 100%;
   line-height: 1.5;
   color: #5d6266;
   -webkit-font-smoothing: antialiased;
@@ -3614,7 +3612,8 @@ ul.large li, li p {
     position: relative;
     border-top: 1px solid rgba(211, 131, 18, 0.75);
     border-bottom: 1px solid rgba(168, 50, 121, 0.75);
-    border-radius: 5px; }
+    border-radius: 5px;
+    margin-bottom: 48px; }
     .results-list .results-list-item:before, .results-list .results-list-item:after {
       content: "";
       position: absolute;
@@ -3637,7 +3636,8 @@ ul.large li, li p {
         float: left;
         width: 31.25%;
         margin: 0 1.04167%;
-        padding: 0; }
+        padding: 0;
+        margin-bottom: 0; }
         .results-list .results-list-item.padded {
           margin-top: -100px; } }
     .results-list .results-list-item .top-portion {
@@ -6585,14 +6585,16 @@ main, .main {
 .feature {
   width: 100%;
   float: none;
-  display: inline-block;
+  display: block;
   margin-top: 72px;
-  padding-left: 42px;
+  padding-left: 0;
   height: 100%; }
   @media (min-width: 55em) {
     .feature {
       width: 45%;
-      float: left; } }
+      float: left;
+      display: inline-block;
+      padding-left: 42px; } }
 
 .slab .feature {
   margin-top: 0; }
