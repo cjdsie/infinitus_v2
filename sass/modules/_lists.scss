@@ -339,7 +339,7 @@ ul.large li, li p {
   @include clearfix();
   li{
     @include column(12);
-    @media(min-width: 55em) {
+    @media(min-width: 45em) {
       @include column(4);
     }
   }

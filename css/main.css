@@ -3679,7 +3679,7 @@ ul.large li, li p {
     float: left;
     width: 97.91667%;
     margin: 0 1.04167%; }
-    @media (min-width: 55em) {
+    @media (min-width: 45em) {
       .podcast-list li {
         display: inline;
         float: left;
@@ -6964,21 +6964,36 @@ span.text-dates {
       width: 25%;
       float: left;
       margin-top: 0; } }
+  .blog-sidebar h4 {
+    text-align: center; }
+    @media (min-width: 75em) {
+      .blog-sidebar h4 {
+        text-align: left; } }
+  .blog-sidebar .grid-list {
+    display: block; }
+    .blog-sidebar .grid-list {
+      *zoom: 1; }
+    .blog-sidebar .grid-list:before, .blog-sidebar .grid-list:after {
+      content: "";
+      display: table; }
+    .blog-sidebar .grid-list:after {
+      clear: both; }
   .blog-sidebar .grid-list li {
     display: block;
     overflow: hidden;
     width: 100%;
     text-align: left;
     vertical-align: top; }
-    @media (min-width: 50em) {
+    @media (min-width: 45em) {
       .blog-sidebar .grid-list li {
-        width: 32.5%;
-        margin: 0 1.2%;
-        display: inline-block;
-        float: left; } }
+        display: inline;
+        float: left;
+        width: 31.25%;
+        margin: 0 1.04167%; } }
     @media (min-width: 75em) {
       .blog-sidebar .grid-list li {
         width: 314px;
+        display: block;
         margin: 0;
         float: none; } }
   .blog-sidebar .grid-list li h5 {

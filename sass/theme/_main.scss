@@ -792,20 +792,28 @@ text-shadow: -1px 1px 0px #fff;
 	float: left;
 	margin-top: 0;
   }
+  h4 {
+    text-align: center;
+    @media(min-width: 75em) {
+      text-align: left;
+    }
+  }
+  .grid-list {
+    display: block;
+    @include clearfix();
+  }
   .grid-list li {
 	display: block;
 	overflow: hidden;
 	width: 100%;
 	text-align: left;
 	vertical-align: top;
-	@media(min-width: 50em) {
-	  width: 32.5%;
-	  margin: 0 1.2%;
-	  display: inline-block;
-	  float: left;
+	@media(min-width: 45em) {
+	  @include column(4);
 	}
 	@media(min-width: 75em) {
 	  width: 314px;
+	  display: block;
 	  margin: 0;
 	  float: none;
 	}
