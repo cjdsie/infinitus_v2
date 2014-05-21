@@ -751,6 +751,10 @@ text-shadow: -1px 1px 0px #fff;
   .container{
     margin-top: 0;
     padding-top: 0;
+    width: 100%;
+    @media(min-width: 55em) {
+      width: 90%;
+    }
   }
   a, a:visited {
     color: $green;
@@ -779,17 +783,24 @@ text-shadow: -1px 1px 0px #fff;
 }
 
 .blog-sidebar {
+  width: 100%;
+  float: none;
+  margin-top: $gutter * 2;
   @media(min-width: 55em){
     padding-top: 1em;
     width: 25%;
 	float: left;
+	margin-top: 0;
   }
   .grid-list li {
 	display: block;
 	overflow: hidden;
-	width: 314px;
+	width: 100%;
 	text-align: left;
 	vertical-align: top;
+	@media(min-width: 55em) {
+	  width: 314px;
+	}
   }
   /* Title */
   .grid-list li h5 {

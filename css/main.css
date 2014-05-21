@@ -6930,7 +6930,11 @@ span.text-dates {
   padding-top: 0; }
   .post .container, .post .featured-case-study-quote, .post footer .footerFirst, footer .post .footerFirst {
     margin-top: 0;
-    padding-top: 0; }
+    padding-top: 0;
+    width: 100%; }
+    @media (min-width: 55em) {
+      .post .container, .post .featured-case-study-quote, .post footer .footerFirst, footer .post .footerFirst {
+        width: 90%; } }
   .post a, .post a:visited {
     color: #9fbb58; }
     .post a:hover, .post a:visited:hover {
@@ -6950,18 +6954,25 @@ span.text-dates {
     padding: 2.5em 2em; }
 
 .blog-sidebar {
+  width: 100%;
+  float: none;
+  margin-top: 48px;
   /* Title */ }
   @media (min-width: 55em) {
     .blog-sidebar {
       padding-top: 1em;
       width: 25%;
-      float: left; } }
+      float: left;
+      margin-top: 0; } }
   .blog-sidebar .grid-list li {
     display: block;
     overflow: hidden;
-    width: 314px;
+    width: 100%;
     text-align: left;
     vertical-align: top; }
+    @media (min-width: 55em) {
+      .blog-sidebar .grid-list li {
+        width: 314px; } }
   .blog-sidebar .grid-list li h5 {
     position: relative;
     bottom: 0;
