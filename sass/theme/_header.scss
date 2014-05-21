@@ -18,6 +18,7 @@
   bottom: 0;
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.../img/polygram-bk.jpg', sizingMethod='scale');
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/polygram-bk.jpg', sizingMethod='scale')";
+  z-index:-1;
 }
 
 /* ------------------------------
@@ -94,13 +95,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d38312', end
   .title{
     display: inline-block;
     position: relative;
-    background: url(../img/infinituslogofull.png) no-repeat center;
-    background: url(../img/infinituslogofull.svg) no-repeat center;
     float: left;
     margin:0;
-    width: 200px;
+    max-width: 200px;
+    width: 60%;
     height: 79px;
-    text-indent: -99999em;
+    
+    @media(min-width: 55em) {
+      width: 100%;
+    }
   }
   .lead-headline{
     text-align: center;
@@ -137,11 +140,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d38312', end
   }
   .title{
     line-height: 1;
-    width: 125px;
+    max-width: 125px;
+    width: 60%;
     height: 49px;
-    background: url(../img/infinitus-icon.png) no-repeat center;
-    background: url(../img/infinitus-icon.svg) no-repeat center;
-    text-indent: -99999em;
+    @media(min-width: 55em) {
+      width: 100%;
+    }
   }
   .sm-button{
     top:10px;

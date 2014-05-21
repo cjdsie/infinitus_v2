@@ -27,4 +27,4 @@ markdown: redcarpet
 highlighter: true
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink: /:categories/:title/
+permalink: /:categories/:title
