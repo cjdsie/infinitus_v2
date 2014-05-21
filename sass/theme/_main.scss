@@ -304,10 +304,14 @@ main, .main{
   padding-left: 4.5em;
   display: inline-block;
   text-align: left;
+  @include font-size($baseh4);
+  @media(min-width: 55em) {
+    @include font-size($baseh3);
+  }
   &:before {
     display: block;
     content: attr(data-numbered);
-    font-size: 2.7em;
+    @include font-size(42);
     line-height: .8;
     position: absolute;
     left: 0;
@@ -407,6 +411,7 @@ figure.browsers, .browsers {
 }
 
 .iphone{
+    display: none;
 	background-color: #e3e3e3;
 	position: absolute;
 	bottom: -35%;
@@ -420,6 +425,9 @@ figure.browsers, .browsers {
 	-moz-box-shadow: rgba(0, 0, 0, .1) 0px 3px 10px;
 	-webkit-box-shadow: rgba(0, 0, 0, .1) 0px 3px 10px;
 	box-shadow: rgba(0, 0, 0, .1) 0px 3px 10px;
+	@media(min-width: 55em) {
+	  display:block;
+	}
 	.iphone-camera {
 	  height: 1.9%;
 	  width: 4%;
