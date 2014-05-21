@@ -90,7 +90,7 @@ pre,table,fieldset,hr {
 .half{
   display: block;
   width:100%;
-  padding: 30px;
+  padding: 0;
   @media(min-width: 55em){
     padding: 30px 60px;
     width: 50%;

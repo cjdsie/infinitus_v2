@@ -458,7 +458,7 @@ pre, table, fieldset, hr {
 .half, .page .less-half {
   display: block;
   width: 100%;
-  padding: 30px; }
+  padding: 0; }
   @media (min-width: 55em) {
     .half, .page .less-half {
       padding: 30px 60px;
@@ -6782,8 +6782,11 @@ figure .iphone + .macbook {
 .social {
   position: relative;
   height: 3em;
-  width: 12em;
+  width: 100%;
   margin-top: 2em; }
+  @media (min-width: 55em) {
+    .social {
+      width: 12em; } }
 
 .social li {
   display: block;

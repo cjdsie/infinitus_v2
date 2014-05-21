@@ -584,8 +584,11 @@ figure{
 .social {
 	position: relative;
 	height: 3em;
-	width: 12em;
+	width: 100%;
 	margin-top: 2em;
+	@media(min-width: 55em) {
+	  width: 12em;
+	}
 }
 
 .social li {
