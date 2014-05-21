@@ -786,7 +786,7 @@ text-shadow: -1px 1px 0px #fff;
   width: 100%;
   float: none;
   margin-top: $gutter * 2;
-  @media(min-width: 55em){
+  @media(min-width: 75em){
     padding-top: 1em;
     width: 25%;
 	float: left;
@@ -798,8 +798,16 @@ text-shadow: -1px 1px 0px #fff;
 	width: 100%;
 	text-align: left;
 	vertical-align: top;
-	@media(min-width: 55em) {
+	@media(min-width: 50em) {
+	  width: 32.5%;
+	  margin: 0 1.2%;
+	  display: inline-block;
+	  float: left;
+	}
+	@media(min-width: 75em) {
 	  width: 314px;
+	  margin: 0;
+	  float: none;
 	}
   }
   /* Title */

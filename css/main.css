@@ -6958,7 +6958,7 @@ span.text-dates {
   float: none;
   margin-top: 48px;
   /* Title */ }
-  @media (min-width: 55em) {
+  @media (min-width: 75em) {
     .blog-sidebar {
       padding-top: 1em;
       width: 25%;
@@ -6970,9 +6970,17 @@ span.text-dates {
     width: 100%;
     text-align: left;
     vertical-align: top; }
-    @media (min-width: 55em) {
+    @media (min-width: 50em) {
       .blog-sidebar .grid-list li {
-        width: 314px; } }
+        width: 32.5%;
+        margin: 0 1.2%;
+        display: inline-block;
+        float: left; } }
+    @media (min-width: 75em) {
+      .blog-sidebar .grid-list li {
+        width: 314px;
+        margin: 0;
+        float: none; } }
   .blog-sidebar .grid-list li h5 {
     position: relative;
     bottom: 0;
