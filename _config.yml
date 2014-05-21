@@ -5,7 +5,7 @@ search: true
 # PS. If you set this wrong stylesheets and scripts won't load and most links will break.
 # PPS. If you leave it blank for local testing home links won't work, they'll be fine for live domains though.
 url: http://goinfinitus.com
-baseurl: /infinitus_v2 # /infinitus_v2/
+baseurl: # /infinitus_v2
 
 exclude:  [ Gemfile, Gemfile.lock, Procfile, vendor, gems]
 
