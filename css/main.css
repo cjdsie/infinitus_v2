@@ -5408,7 +5408,9 @@ ul.tabs {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0; }
+  bottom: 0;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.../img/polygram-bk.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/polygram-bk.jpg', sizingMethod='scale')"; }
 
 /* ------------------------------
   Callout Posts
