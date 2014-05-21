@@ -7,7 +7,7 @@ search: true
 url: http://goinfinitus.com
 baseurl: / # /infinitus_v2/
 
-exclude: ['config.ru', 'Gemfile', 'Gemfile.lock', 'vendor']
+exclude:  [ Gemfile, Gemfile.lock, Procfile, vendor, gems]
 
 
 # Owner/author information
@@ -24,7 +24,7 @@ google_verify: lg4c4FqPQtwIacudJlp_xAol2lGL6n2EgyCA5r-TKwI
 
 timezone: America/St_Johns
 markdown: redcarpet
-pygments: true
+highlighter: true
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink: /:categories/:title/
