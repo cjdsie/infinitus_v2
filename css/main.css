@@ -7007,6 +7007,8 @@ span.text-dates {
     color: white;
     -webkit-transition: -webkit-transform 0.2s, color 0.2s;
     transition: transform 0.2s, color 0.2s; }
+  .blog-sidebar .backToPost {
+    text-align: center; }
 
 /*-------------------------------
   Case Studies
