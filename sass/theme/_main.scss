@@ -766,7 +766,7 @@ text-shadow: -1px 1px 0px #fff;
 
 .single-post {
   background: $white;
-  @media(min-width: 55em){
+  @media(min-width: 70em){
     width: 72.5%;
     margin-bottom: 0;
     margin-right: 2.5%;
@@ -786,7 +786,7 @@ text-shadow: -1px 1px 0px #fff;
   width: 100%;
   float: none;
   margin-top: $gutter * 2;
-  @media(min-width: 75em){
+  @media(min-width: 70em){
     padding-top: 1em;
     width: 25%;
 	float: left;

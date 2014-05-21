@@ -6942,7 +6942,7 @@ span.text-dates {
 
 .single-post {
   background: white; }
-  @media (min-width: 55em) {
+  @media (min-width: 70em) {
     .single-post {
       width: 72.5%;
       margin-bottom: 0;
@@ -6958,7 +6958,7 @@ span.text-dates {
   float: none;
   margin-top: 48px;
   /* Title */ }
-  @media (min-width: 75em) {
+  @media (min-width: 70em) {
     .blog-sidebar {
       padding-top: 1em;
       width: 25%;
