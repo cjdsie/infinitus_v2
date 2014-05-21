@@ -397,7 +397,7 @@ body.sm-activate {
   color: $white;
 }
 
-.no-js {
+.no-js, .ie9 {
   .sm-menu .sm-nav .nav-inner{
     display: block;
   } 

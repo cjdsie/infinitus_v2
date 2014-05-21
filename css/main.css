@@ -6078,7 +6078,7 @@ body.sm-activate {
   text-align: left;
   color: white; }
 
-.no-js .sm-menu .sm-nav .nav-inner {
+.no-js .sm-menu .sm-nav .nav-inner, .ie9 .sm-menu .sm-nav .nav-inner {
   display: block; }
 
 .sm-menu .sm-nav .nav-inner.animated {
