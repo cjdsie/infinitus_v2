@@ -6599,13 +6599,13 @@ main, .main {
   width: 100%;
   float: none;
   display: block;
-  margin-top: 72px;
   padding-left: 0;
   height: 100%; }
   @media (min-width: 55em) {
     .feature {
       width: 45%;
       float: left;
+      margin-top: 72px;
       display: inline-block;
       padding-left: 42px; } }
 
@@ -6783,10 +6783,11 @@ figure .iphone + .macbook {
   position: relative;
   height: 3em;
   width: 100%;
-  margin-top: 2em; }
+  margin-top: 5em; }
   @media (min-width: 55em) {
     .social {
-      width: 12em; } }
+      width: 12em;
+      margin-top: 2em; } }
 
 .social li {
   display: block;
