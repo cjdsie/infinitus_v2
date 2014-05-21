@@ -6,7 +6,7 @@ description: "In this edition of the Limitless Business Podcast, INFINITUS disco
 excerpt: "In this edition of the Limitless Business Podcast, INFINITUS discover how tourism in the Newfoundland & Labrador area has been boosted by technology as well as marketing."
 class: "audio"
 date:   2014-05-10
-categories: podcast update
+categories: podcast
 ---
 
 CRAIG FOLEY - Hospitality - Newfoundland & Labrador [@craigfoleyHNL](http://twitter.com/craigfoleyHNL) & [@HospitalityNL](http://twitter.com/hospitalityNL)

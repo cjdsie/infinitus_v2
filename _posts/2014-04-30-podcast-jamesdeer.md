@@ -6,7 +6,7 @@ description: "In this edition of the Limitless Business Podcast, INFINITUS have 
 excerpt: "In this edition of the Limitless Business Podcast, INFINITUS have a chat across the pond with James Deer, founder of London based GatherContent."
 class: "audio"
 date:   2014-04-30
-categories: podcast update
+categories: podcast
 ---
 
 JAMES DEER - Gather Content [@jamesdeer](http://twitter.com/jamesdeer) & [@GatherContent](http://twitter.com/gathercontent)

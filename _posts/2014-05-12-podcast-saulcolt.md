@@ -6,7 +6,7 @@ description: "In this edition of the Limitless Business Podcast, INFINITUS chat 
 excerpt: "In this edition of the Limitless Business Podcast, INFINITUS discuss how to get that book out of their heads and into print with best selling author Shawn Stratton."
 class: "audio"
 date:   2014-05-12
-categories: podcast update
+categories: podcast
 ---
 
 SAUL COLT - Word of Mouth marketing magic [@saulcolt](http://twitter.com/saulcolt)

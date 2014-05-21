@@ -6,7 +6,7 @@ description: "In this edition of the Limitless Business Podcast, INFINITUS discu
 excerpt: "In this edition of the Limitless Business Podcast, INFINITUS discuss how to get that book out of their heads and into print with best selling author Shawn Stratton."
 class: "audio"
 date:   2014-05-10
-categories: podcast update
+categories: podcast
 ---
 
 SHAWN STRATTON - Writing & Self Publishing Your Book [@SStratton1](http://twitter.com/sstratton1)

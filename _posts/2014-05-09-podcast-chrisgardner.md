@@ -6,7 +6,7 @@ description: "In this edition of the Limitless Business Podcast, INFINITUS chat 
 excerpt: "In this edition of the Limitless Business Podcast, INFINITUS chat about the popularity of ‘co-working’ spaces and how Chris Gardner, CEO of Common Ground went about both researching, funding and starting his own space in St John’s."
 class: "audio"
 date:   2014-05-9
-categories: podcast update
+categories: podcast
 ---
 
 CHRIS GARDNER - COMMON GROUND [@CommonGroundNL](http://twitter.com/commongroundNL)

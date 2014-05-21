@@ -6,7 +6,7 @@ description: "In this edition of the Limitless Business Podcast, INFINITUS chats
 excerpt: "In this edition of the Limitless Business Podcast, INFINITUS chats to tech entrepreneur and startup advisor Joshua Davidson."
 class: "audio"
 date:   2014-05-20
-categories: podcast update
+categories: podcast
 ---
 
 JOSHUA DAVIDSON - AUTOMATE YOUR BUSINESS AND MAKE MORE MONEY [@dasjoshua](http://twitter.com/dasjoshua)

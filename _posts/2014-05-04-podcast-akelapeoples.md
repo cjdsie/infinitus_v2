@@ -6,7 +6,7 @@ description: "In this edition of the Limitless Business Podcast, INFINITUS chat 
 excerpt: "In this edition of the Limitless Business Podcast, INFINITUS chat to experienced leader Akela Peoples."
 class: "audio"
 date:   2014-05-04
-categories: podcast update
+categories: podcast
 ---
 
 AKELA PEOPLES - THE LEARNING PARTNERSHIP [@TLPCanada](http://twitter.com/tlpcanada)
