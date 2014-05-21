@@ -397,6 +397,12 @@ body.sm-activate {
   color: $white;
 }
 
+.no-js {
+  .sm-menu .sm-nav .nav-inner{
+    display: block;
+  } 
+}
+
 .sm-menu .sm-nav .nav-inner.animated{
   display: inline-block;
 }
