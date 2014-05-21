@@ -6113,7 +6113,7 @@ body.sm-activate {
 .sm-menu .sm-close:hover {
   color: black; }
 
-.sm-menu .sm-nav .nav-inner > a {
+.sm-menu .sm-nav .nav-inner .navigation li > a {
   font-size: 16px;
   font-size: 0.88889em;
   font-size: 1rem;

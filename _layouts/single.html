@@ -3,7 +3,7 @@
 {% for client in site.data.casestudies %}
    {% if client.id == page.id and client.publish == true %}
 <div class="header header-white">
-		<header class="container banner">
+		<header class="container banner" role="banner">
 			<div class="headerInfo">
 				<a href="{{ site.baseurl }}">
 					<h1 class="title">INFINITUS Marketing + Technology</h1>
@@ -18,7 +18,7 @@
 		</div>
 </div>
 
-    <main class="main">
+    <main class="main" role="main">
         {{ content }}
         <section class="page">
 			<div class="center">

@@ -440,7 +440,7 @@ body.sm-activate {
   color: black;
 }
 
-.sm-menu .sm-nav .nav-inner > a{
+.sm-menu .sm-nav .nav-inner .navigation li > a{
   @include font-size(16);
   line-height: 1;
   margin-bottom: 18px;

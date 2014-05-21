@@ -2,6 +2,8 @@
 	//Grid.init();
 //});
 
+$('input, textarea').placeholder();
+
 
 		      $(".poemline").typed({
 		        strings: ["magnify your unfair advantage.", "get people talking.", "grow faster.", "build influence.", "make a bigger impact."],

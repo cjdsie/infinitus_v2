@@ -46,6 +46,7 @@ grunt.initConfig({
 	concat: {
 	  js: {
 	    src: [
+	      'js/vendor/jquery.placeholder.js',
 	      'js/classie.js',
 	      'js/vendor/jquery.menu.js',
 	      'js/vendor/jquery.typer.js',
