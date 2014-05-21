@@ -6020,7 +6020,7 @@ body.sm-activate {
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   width: 100%;
-  height: 55%;
+  height: 100%;
   position: relative;
   top: 0;
   background: #e46a3f;
@@ -6036,6 +6036,12 @@ body.sm-activate {
       height: 100%;
       position: absolute;
       padding: 30px 60px; } }
+
+.left.sm-nav {
+  display: none; }
+  @media (min-width: 55em) {
+    .left.sm-nav {
+      display: inline-block; } }
 
 .right.sm-nav {
   background: #e36336; }
@@ -6125,7 +6131,9 @@ body.sm-activate {
   text-transform: uppercase;
   letter-spacing: .2em;
   display: block;
-  color: white; }
+  color: white;
+  position: relative;
+  z-index: 10000; }
 
 .sm-menu .sm-nav .nav-inner > a:hover {
   color: #2E3B4E; }
