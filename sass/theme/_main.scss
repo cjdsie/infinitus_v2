@@ -794,7 +794,7 @@ text-shadow: -1px 1px 0px #fff;
   }
   h4 {
     text-align: center;
-    @media(min-width: 75em) {
+    @media(min-width: 70em) {
       text-align: left;
     }
   }
@@ -811,7 +811,7 @@ text-shadow: -1px 1px 0px #fff;
 	@media(min-width: 45em) {
 	  @include column(4);
 	}
-	@media(min-width: 75em) {
+	@media(min-width: 70em) {
 	  width: 314px;
 	  display: block;
 	  margin: 0;

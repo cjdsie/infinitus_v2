@@ -6966,7 +6966,7 @@ span.text-dates {
       margin-top: 0; } }
   .blog-sidebar h4 {
     text-align: center; }
-    @media (min-width: 75em) {
+    @media (min-width: 70em) {
       .blog-sidebar h4 {
         text-align: left; } }
   .blog-sidebar .grid-list {
@@ -6990,7 +6990,7 @@ span.text-dates {
         float: left;
         width: 31.25%;
         margin: 0 1.04167%; } }
-    @media (min-width: 75em) {
+    @media (min-width: 70em) {
       .blog-sidebar .grid-list li {
         width: 314px;
         display: block;
