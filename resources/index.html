@@ -9,7 +9,7 @@ description: Infinitus Marketing + Technology is a Newfoundland Web Development 
 	<ul id="grid" class="grid swipe-rotate">
     {% for post in site.posts %}
       <li class="item {{post.class}}">
-		<a href="{{post.url}}">
+		<a href="{{site.baseurl}}{{post.url}}">
 			{% if post.image %}
 			<div class="img-container">
 				<img src="{{post.image}}" alt="{{ post.title }}"/>
