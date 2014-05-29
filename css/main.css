@@ -3561,6 +3561,10 @@ ul.large li, li p {
         margin: 0 1.1% 0 0; } }
     @media (min-width: 65em) {
       .featured-list .featured-list-item {
+        width: 30%;
+        display: inline-block; } }
+    @media (min-width: 75em) {
+      .featured-list .featured-list-item {
         width: 32%;
         display: inline-block; } }
     .featured-list .featured-list-item a {
@@ -7269,10 +7273,27 @@ ul.popular-posts {
   min-height: 500px; }
 
 .js .grid {
-  background: url(../img/loading.gif) no-repeat 50% 100px; }
+  background: none; }
+  .js .grid:before {
+    content: "We're loading the latest content...please give us a minute";
+    font-family: "brandon-grotesque", sans-serif;
+    font-size: 31.984px;
+    font-size: 1.77689em;
+    font-size: 1.999rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear; }
 
 .js .grid.loaded {
   background: none; }
+  .js .grid.loaded:before {
+    display: none; }
 
 .grid li {
   display: inline-block;

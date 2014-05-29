@@ -1125,11 +1125,22 @@ ul.popular-posts{
 }
 
 .js .grid {
-	background: url(../img/loading.gif) no-repeat 50% 100px;
+	background: none;
+	&:before{
+	  content: "We're loading the latest content...please give us a minute";
+	  font-family: $headline-font;
+	  @include font-size($baseh3);
+	  @include center-block;
+	  display: block;
+	  @include vendorize(transition, all 0.2s linear);
+	}
 }
 
 .js .grid.loaded {
 	background: none;
+	&:before{
+	  display: none;
+	}
 }
 
 .grid li {
