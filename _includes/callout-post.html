@@ -11,7 +11,11 @@
         	</div>
         	<div class="get-hired-guide">
 				<p>Want to get hired? Here's our guide for success</p>
-				<a href="" class="btn btn-sml">See it now</a>
+				{% for post in site.categories['blog'] limit:1 %}
+				{% if site.categories contains 'blog' %}
+				<a href="{{site.baseurl}}{{ post.url }}" class="btn btn-sml">See it now</a>
+				{% endif %}
+				{% endfor %}
 	    	</div>
 	   </div>
   </div>

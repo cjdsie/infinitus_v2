@@ -70,3 +70,15 @@
     </head>
     <body class="{{page.class}}">
 	<div class="fixed-background"></div>
+	
+	<div class="menu-wrap">
+		<div class="container">
+			<a href="{{ site.baseurl }}">
+				<div class="title">
+					<!--[if gte IE 9]><!--><img src='{{site.baseurl}}/img/infinitus-icon-dark.svg', alt='INFINITUS Marketing + Technology', onerror="this.src={{site.baseurl}}/img/infinitus-icon-dark.png"><!--<![endif]-->
+	            	<!--[if lt IE 9]><img src='{{site.baseurl}}/img/infinitus-icon-dark.png', alt='INFINITUS Marketing + Technology'><![endif]-->
+					</div>
+			</a>
+		{% include navigation.html %}
+		</div>
+	</div>

@@ -51,7 +51,7 @@ grunt.initConfig({
 	      'js/vendor/jquery.menu.js',
 	      'js/vendor/jquery.typer.js',
 	      'js/vendor/jquery.fancybox.pack.js',
-	      'js/vendor/headhesive.min.js',
+	      'js/vendor/jquery.stickychimp.js',
 	      'js/vendor/raphael.js',
 	      'js/vendor/circular.js',
 	      'js/vendor/grid.js',

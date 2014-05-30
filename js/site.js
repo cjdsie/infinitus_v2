@@ -2,6 +2,10 @@
 	//Grid.init();
 //});
 
+
+
+$('.menu-wrap').stickychimp();
+
 $('input, textarea').placeholder();
 
 
@@ -37,20 +41,6 @@ $('.fancybox').fancybox({
 
 
 
-
-// Set options
-        var options = {
-            offset: 500,
-            classes: {
-                clone:   'banner--clone',
-                stick:   'banner--stick',
-                unstick: 'banner--unstick'
-            }
-        };
-
-
-// Create a new instance of Headhesive
-var headhesive = new Headhesive('.banner', options);
 
 
 /***************** Image with Animation *******************/
