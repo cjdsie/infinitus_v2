@@ -4,11 +4,11 @@
 *************************/
 
 section{
-  padding: ($base-unit * 5) 0;
+  padding: ($base-unit * 3) 0;
 }
 
 section div {
-  padding: ($base-unit * 3) 0;
+  padding: ($base-unit * 5) 0;
 }
 
 .hero {
@@ -43,6 +43,7 @@ main, .main{
     text-align: center;
     @media(min-width: 55em){
       @include center-block;
+      padding: ($base-unit * 5) 0 ($base-unit);
       p{
         width: 75%;
         @include center-block;
@@ -537,6 +538,9 @@ figure.browsers, .browsers {
 
 .macbook.noshadow{
   box-shadow: none;
+  @media(min-width: 55em) {
+    height: 665px;
+  }
 }
 
 figure{

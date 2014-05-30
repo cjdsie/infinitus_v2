@@ -355,6 +355,7 @@ ul.large li, li p {
   display: block;
   position: relative;
   @include clearfix();
+  margin-bottom: 0;
   li{
     width: 100%;
     display: block;

@@ -273,10 +273,24 @@ input:-moz-placeholder, textarea:-moz-placeholder, input:-ms-input-placeholder, 
   }
 }
 
+.input-small-medium{
+  width: 100%;
+  @media(min-width: 55em){
+    width: 30%;
+  }
+}
+
 .input-medium{
   width: 100%;
   @media(min-width: 55em){
     width: 40%;
+  }
+}
+
+.input-medium-large{
+  width: 100%;
+  @media(min-width: 55em){
+    width: 50%;
   }
 }
 

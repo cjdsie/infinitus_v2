@@ -20,7 +20,7 @@ description: Infinitus Marketing + Technology is a Newfoundland Web Development 
 					      <div class="iphone-sensor"></div>
 					      <div class="iphone-earpiece"></div>
 					      <div class="iphone-content">
-					        <img src="//dddb43dxo5lmp.cloudfront.net/images/tlp-mobile.jpg">
+					        <img src="//dddb43dxo5lmp.cloudfront.net/images/ywca-moncton-mobile.jpg">
 					      </div>
 
 				          <div class="iphone-home"></div>
@@ -32,7 +32,7 @@ description: Infinitus Marketing + Technology is a Newfoundland Web Development 
 					  	  <div class="browser-button"></div>
 					  	</div>
 					  	<div class="browser-content">
-						<img src="//dddb43dxo5lmp.cloudfront.net/images/tlp-desktop.jpg">
+						<img src="//dddb43dxo5lmp.cloudfront.net/images/ywca-moncton-desktop.jpg">
 							
 					  	</div>
 				      </figure>
@@ -136,40 +136,54 @@ description: Infinitus Marketing + Technology is a Newfoundland Web Development 
 			<div class="content">
 				<div class="featured-list">
 					<div class="featured-list-item">
-						<a href="/stop-worrying-about-seo">
+						{% for post in site.posts %}
+						{% if post.title == 'Stop Worrying about SEO'  %}
+						<a href="{{site.baseurl}}{{ post.url }}">
 							<div class="panel__header">
-								<h5>Stop Worrying about SEO</h5>
+								<h5>{{post.title}}</h5>
 							</div>
 							</a>
 							<div class="panel">
-								
-							</div>	
+								{{post.excerpt}}
 							</div>
-					<div class="featured-list-item">
-						<a href="/doggy-paddling-in-a-sea-of-competitors">
-							<div class="panel__header">
-								<h5>Doggy Paddling in a Sea of Competitors</h5>
-							</div>
-						</a>
-						<div class="panel">
 							
-						</div>
-					</div>
-					<div class="featured-list-item">
-						<a href="/the-3-es-of-content-marketing">
-							<div class="panel__header">
-								<h5>The 3Es of content marketing</h5>
+							{% endif %}	
+							{% endfor %}
 							</div>
-							<div class="panel">
+								<div class="featured-list-item">
+									{% for post in site.posts %}
+									{% if post.title == 'Doggy Paddling in a Sea of Competitors?'  %}
+									<a href="{{site.baseurl}}{{ post.url }}">
+										<div class="panel__header">
+											<h5>{{post.title}}</h5>
+										</div>
+										</a>
+										<div class="panel">
+											{{post.excerpt}}
+										</div>
 
-							</div>
-						</a>
-						
-					</div>
+										{% endif %}	
+										{% endfor %}
+										</div>
+								<div class="featured-list-item">
+									{% for post in site.posts %}
+									{% if post.title == "The 3 E's of Content Marketing"  %}
+									<a href="{{site.baseurl}}{{ post.url }}">
+										<div class="panel__header">
+											<h5>{{post.title}}</h5>
+										</div>
+										</a>
+										<div class="panel">
+											{{post.excerpt}}
+										</div>
+
+										{% endif %}	
+										{% endfor %}
+										</div>
 			{% if site.categories contains 'podcast'  %}
 				{% for post in site.categories['podcast'] limit:3 %}
 				<div class="featured-list-item">
-				<a href="{{ post.url }}">
+				<a href="{{site.baseurl}}{{ post.url }}">
 					<div class="panel__header">
 					<h5>{{post.title}}</h5>
 					</div>

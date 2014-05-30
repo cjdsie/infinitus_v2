@@ -58,7 +58,5 @@ Shawn recommends [Joanna Penn’s website](http://www.thecreativepenn.com/) for 
 
 Shawn recommends the printers of his book: [Lightning Source](https://www1.lightningsource.com/default.aspx).
  
-
-#### For a full TRANSCRIPT of the episode, just scroll on down.
  
 Remember, we’d love to hear from you [@GoInfinitus](http://twitter.com/goinfinitus) - Tell us what you like, or don’t like about the show and what ideas you’d like us to cover. If you get a chance, we’d love you to add a [quick review on iTunes](https://itunes.apple.com/us/podcast/limitless-business-podcast/id873320660?mt=2).

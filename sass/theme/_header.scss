@@ -61,7 +61,8 @@
       margin-bottom: 0;
       border-color: $white;
       &:hover{
-        background: rgba($black-90, .2);
+        color: $white;
+	    background-color: darken($green, 10%);
      }
     }
   }

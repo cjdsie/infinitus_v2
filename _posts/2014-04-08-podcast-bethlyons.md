@@ -50,6 +50,5 @@ Remember, if you enjoy this podcast please give us a [review on iTunes](https://
 - [YWCA Moncton on Facebook](http://www.facebook.com/ywcamoncton)
 - [United Way (umbrella organization for all Moncton area charities)](http://www.gmsenbunitedway.ca)
  
-#### For a full TRANSCRIPT of the episode, just scroll on down.
  
 Remember, we’d love to hear from you [@GoInfinitus](http://twitter.com/goinfinitus) - Tell us what you like, or don’t like about the show and what ideas you’d like us to cover. If you get a chance, we’d love you to add a [quick review on iTunes](https://itunes.apple.com/us/podcast/limitless-business-podcast/id873320660?mt=2).

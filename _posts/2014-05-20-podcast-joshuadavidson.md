@@ -44,7 +44,5 @@ Remember, if you enjoy this podcast please give us a [review on iTunes](https://
 - [Entrepreneur Getaway Facebook](http://facebook.com/entrepreneurgetaway)
 - [Disney’s Waffle Sandwiches](http://www.disneyfoodblog.com/2011/11/13/new-waffle-sandwiches-at-magic-kingdoms-sleepy-hollow/)
  
-
-#### For a full TRANSCRIPT of the episode, just scroll on down.
  
 Remember, we’d love to hear from you [@GoInfinitus](http://twitter.com/goinfinitus) - Tell us what you like, or don’t like about the show and what ideas you’d like us to cover. If you get a chance, we’d love you to add a [quick review on iTunes](https://itunes.apple.com/us/podcast/limitless-business-podcast/id873320660?mt=2).

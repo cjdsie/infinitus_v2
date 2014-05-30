@@ -626,7 +626,7 @@ p {
   font-size: 22px;
   font-size: 1.22222em;
   font-size: 1.375rem;
-  margin-bottom: 24px;
+  margin-bottom: 6px;
   text-align: center; }
   .leadcopy p {
     font-size: inherit; }
@@ -3693,7 +3693,8 @@ ul.large li, li p {
 .checkmark-list {
   width: 100%;
   display: block;
-  position: relative; }
+  position: relative;
+  margin-bottom: 0; }
   .checkmark-list {
     *zoom: 1; }
   .checkmark-list:before, .checkmark-list:after {
@@ -4894,11 +4895,23 @@ input:-moz-placeholder, textarea:-moz-placeholder, input:-ms-input-placeholder, 
     .input-small {
       width: 20%; } }
 
+.input-small-medium {
+  width: 100%; }
+  @media (min-width: 55em) {
+    .input-small-medium {
+      width: 30%; } }
+
 .input-medium {
   width: 100%; }
   @media (min-width: 55em) {
     .input-medium {
       width: 40%; } }
+
+.input-medium-large {
+  width: 100%; }
+  @media (min-width: 55em) {
+    .input-medium-large {
+      width: 50%; } }
 
 .input-large {
   width: 100%; }
@@ -5463,7 +5476,8 @@ ul.tabs {
       margin-bottom: 0;
       border-color: white; }
       .callout-posts .get-hired-guide .btn:hover {
-        background: rgba(26, 26, 26, 0.2); }
+        color: white;
+        background-color: #849f41; }
 
 .header {
   padding: 0;
@@ -6120,7 +6134,7 @@ body.sm-activate {
   top: 0;
   right: 0;
   z-index: 100;
-  padding: 10px 15px;
+  padding: 20px 25px;
   font-size: 14px;
   font-size: 0.77778em;
   font-size: 0.875rem;
@@ -6266,10 +6280,10 @@ body.sm-activate .sm-overlay {
 **** Version: 0.0.1 *****
 *************************/
 section {
-  padding: 30px 0; }
+  padding: 18px 0; }
 
 section div {
-  padding: 18px 0; }
+  padding: 30px 0; }
 
 .hero {
   height: 15em;
@@ -6309,7 +6323,8 @@ main, .main {
       .newsletter .newsletterText {
         display: block;
         margin-left: auto;
-        margin-right: auto; }
+        margin-right: auto;
+        padding: 30px 0 6px; }
         .newsletter .newsletterText p {
           width: 75%;
           display: block;
@@ -6757,6 +6772,9 @@ figure.browsers, .browsers {
 
 .macbook.noshadow {
   box-shadow: none; }
+  @media (min-width: 55em) {
+    .macbook.noshadow {
+      height: 665px; } }
 
 figure .iphone + .macbook {
   width: 95%; }
