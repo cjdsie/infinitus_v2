@@ -10,9 +10,10 @@
     			{% endfor %}
         	</div>
         	<div class="get-hired-guide">
-				<p>Want to get hired? Here's our guide for success</p>
-				{% for post in site.categories['blog'] limit:1 %}
-				{% if site.categories contains 'blog' %}
+					{% for post in site.categories['blog'] limit:1 %}
+					{% if site.categories contains 'blog' %}
+				<p>{{ post.title }}</p>
+			
 				<a href="{{ post.url }}" class="btn btn-sml">See it now</a>
 				{% endif %}
 				{% endfor %}
