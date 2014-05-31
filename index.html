@@ -15,7 +15,7 @@ description: Infinitus Marketing + Technology is a Newfoundland Web Development 
 				<p>You know that great work takes great people. When you have a big idea for a new website, mobile app, online marketing strategy or other digital project, we can help you make it happen. Since you don’t have an army of strategists, marketers, engineers and designers, that’s where we come in. </p>
 				<p>You might not consider yourself tech savvy, but you know what you want. You know that there are opportunities to grow your organization’s impact in a record-setting way. You’ve never let anything get in the way of your goals before. Let’s make those goals a reality.</p>
 				
-					<a href="{{ site.baseurl }}/how-we-help" class="btn">How We Help</a>
+					<a href="{{ site.baseurl }}how-we-help" class="btn">How We Help</a>
 				
 			</div>
 		</div>
@@ -27,7 +27,7 @@ description: Infinitus Marketing + Technology is a Newfoundland Web Development 
 		<div class="half slab slab-podcast">
 				<h5>Latest Podcast</h5>
 				{% for post in site.categories['podcast'] limit:1 %}
-				<a href="{{site.baseurl}}{{ post.url }}">
+				<a href="{{ post.url }}">
 					<div class="imgContainer">
 						<img src="{{ post.image }}">
 					</div>	
@@ -39,7 +39,7 @@ description: Infinitus Marketing + Technology is a Newfoundland Web Development 
 				<ul class="podcast-list">
 				{% for post in site.categories['podcast'] offset:1 limit:3 %}
 				<li>
-				<a href="{{site.baseurl}}{{ post.url }}">
+				<a href="{{ post.url }}">
 					<div class="imgContainerSecondary">
 						<img src="{{ post.image }}">
 					</div></a>
@@ -49,20 +49,20 @@ description: Infinitus Marketing + Technology is a Newfoundland Web Development 
 		</div>		
                {% else %}
 		<div class="half slab">
-                <a href="{{ site.baseurl }}/resources" class="btn btn-sml btn-alt">No Podcasts available</a>
+                <a href="{{ site.baseurl }}resources" class="btn btn-sml btn-alt">No Podcasts available</a>
 		</div>
 		   {% endif %}
 		<div class="half slab dark">
 		<h5>Latest On The Blog</h5>
 		{% for post in site.categories['blog'] limit:1 %}
 		{% if site.categories contains 'blog' %}
-             <a href="{{site.baseurl}}{{ post.url }}"> 
+             <a href="{{ post.url }}"> 
 			<h4>{{ post.title }}</h4>
             </a>
             {{post.excerpt}}
-			<a href="{{site.baseurl}}{{post.url}}" class="btn">Keep Reading</a>
+			<a href="{{post.url}}" class="btn">Keep Reading</a>
 			{% else %}
-                <a href="{{ site.baseurl }}/resources" class="btn btn-sml btn-alt">No Articles available</a>
+                <a href="{{ site.baseurl }}resources" class="btn btn-sml btn-alt">No Articles available</a>
 			   {% endif %}
 			{% endfor %}
 		</div>
@@ -79,22 +79,9 @@ description: Infinitus Marketing + Technology is a Newfoundland Web Development 
 				{% endif %} 
 			{% endfor %}
 		</blockquote>
-		<a href="{{ site.baseurl }}/case-studies/{{client.slug}}" class="btn btn-transparent">Read the Case Study</a>	
+		<a href="{{ site.baseurl }}case-studies/{{client.slug}}" class="btn btn-transparent">Read the Case Study</a>	
 	</section>	
 	<!--@end of Featured Case Study -->	
 	
 	{% include clientlogos.html %}
-
-	<!--<section class="what-not-to">
-		<div class="container center">
-			<h3>Want more?</h3>
-			<p>We believe that by sharing knowledge, everyone benefits. This is why we've included a series of information in various formats for you to discover, learn and benefit from.</p>
-			<ul class="inline-list">
-				<li><span class="icon-bookmarks"></span><h6>eBooks</h6></li>
-				<li><span class="icon-book"></span><h6>Guides</h6></li>
-				<li><span class="icon-film"></span><h6>Video</h6></li>
-				<li><span class="icon-podcast"></span><h6>Podcast</h6></li>
-			</ul>	
-		</div>	
-	</section>-->
 
