@@ -192,6 +192,7 @@ main, .main{
   display: block;
   position: relative;
   overflow: hidden;
+  text-align: center;
   @media(min-width: 55em){
     height: 580px;
   }
@@ -200,17 +201,22 @@ main, .main{
     border-bottom: 1px solid $offwhite;
     color: $white;
     position: relative;
+    text-align: left;
   }
   a{
     h4{
       color: $white;
       position: relative;
+      text-align: left;
     }
   }
   .dark{
     h4{
       color: $darkgrey;
     }
+  }
+  p {
+    text-align: left;
   }
 }
 
@@ -241,6 +247,9 @@ main, .main{
       }
       a.btn{
         color: $white;
+      }
+      a.btn.btn-transparent-green {
+        color: $green;
       }
     }
   }
@@ -1335,6 +1344,9 @@ ul.popular-posts{
   width: 100%;
   position: relative;
   display: none;
+  .checkbox {
+    padding-left: 0;
+  }
 }
 
 

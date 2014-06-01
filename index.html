@@ -34,8 +34,11 @@ description: Infinitus Marketing + Technology is a Newfoundland Web Development 
   				<h4>{{ post.title }}</h4>
                 </a>
                 <p>{{post.excerpt}}</p>
-				<a href="{{post.url}}" class="btn btn-transparent">Listen</a>
+                	<a href="{{post.url}}" class="btn btn-transparent">Listen Now</a>
+					<a href="{{ site.baseurl }}resources" class="btn btn-alt">All Posts</a>
 				{% endfor %}
+				<div class="recent-podcasts">
+				<h5>Recent Podcasts</h5>
 				<ul class="podcast-list">
 				{% for post in site.categories['podcast'] offset:1 limit:3 %}
 				<li>
@@ -46,6 +49,7 @@ description: Infinitus Marketing + Technology is a Newfoundland Web Development 
 				</li>	
 				{% endfor %}
 				</ul>
+				</div>
 		</div>		
                {% else %}
 		<div class="half slab">
@@ -61,6 +65,7 @@ description: Infinitus Marketing + Technology is a Newfoundland Web Development 
             </a>
             {{post.excerpt}}
 			<a href="{{post.url}}" class="btn">Keep Reading</a>
+			<a href="{{ site.baseurl }}resources" class="btn btn-transparent-green">All Posts</a>
 			{% else %}
                 <a href="{{ site.baseurl }}resources" class="btn btn-sml btn-alt">No Articles available</a>
 			   {% endif %}

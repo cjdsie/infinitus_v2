@@ -3670,7 +3670,8 @@ ul.large li, li p {
 
 .podcast-list {
   width: 100%;
-  display: block; }
+  display: block;
+  margin-top: 24px; }
   .podcast-list {
     *zoom: 1; }
   .podcast-list:before, .podcast-list:after {
@@ -3688,7 +3689,10 @@ ul.large li, li p {
         display: inline;
         float: left;
         width: 31.25%;
-        margin: 0 1.04167%; } }
+        margin: 0 1.04167%;
+        text-align: center; }
+        .podcast-list li img {
+          width: 80%; } }
 
 .checkmark-list {
   width: 100%;
@@ -6506,7 +6510,8 @@ main, .main {
   padding: 0;
   display: block;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  text-align: center; }
   @media (min-width: 55em) {
     .matched-height {
       height: 580px; } }
@@ -6514,12 +6519,16 @@ main, .main {
     padding-bottom: 3px;
     border-bottom: 1px solid #edece4;
     color: white;
-    position: relative; }
+    position: relative;
+    text-align: left; }
   .matched-height a h4 {
     color: white;
-    position: relative; }
+    position: relative;
+    text-align: left; }
   .matched-height .dark h4 {
     color: #5d6266; }
+  .matched-height p {
+    text-align: left; }
 
 .featured-posts .slab {
   background: linear-gradient(to bottom right, rgba(211, 131, 18, 0.45), rgba(168, 50, 121, 0.45)), url("//dddb43dxo5lmp.cloudfront.net/images/podcasting.jpg") no-repeat center;
@@ -6548,6 +6557,8 @@ main, .main {
       color: #5d6266; }
     .featured-posts .slab.dark a.btn {
       color: white; }
+    .featured-posts .slab.dark a.btn.btn-transparent-green {
+      color: #9fbb58; }
 
 /*-------------------------------
   Homepage blockquote
@@ -7519,6 +7530,8 @@ ul.popular-posts {
   width: 100%;
   position: relative;
   display: none; }
+  #sign_up .checkbox {
+    padding-left: 0; }
 
 /*--------------------------------
   Team
