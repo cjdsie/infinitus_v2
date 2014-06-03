@@ -9,12 +9,27 @@ $('.menu-wrap').stickychimp();
 $('input, textarea').placeholder();
 
 
-		      $(".poemline").typed({
-		        strings: ["magnify your unfair advantage.", "get people talking.", "grow faster.", "build influence.", "make a bigger impact."],
-		        typeSpeed: 50,
-		        backDelay: 400,
-        			loop: true
-		      });
+enquire.register("screen and (min-width:65em)", function() {
+	    $(".poemline").typed({
+	      strings: ["magnify your unfair advantage.", "get people talking.", "grow faster.", "build influence.", "make a bigger impact."],
+	      typeSpeed: 50,
+	      backDelay: 400,
+		  loop: true
+	    });
+	
+});	
+enquire.register("screen and (max-width:65em)", function() {
+		 $(".poemline").typed({
+		      strings: ["magnify your unfair advantage."],
+		      typeSpeed: 50,
+		      backDelay: 400,
+			  loop: false
+		    });	
+	});
+
+
+
+
 
 
   $(".sidemenu").square_menu({
