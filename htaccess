@@ -2,3 +2,5 @@
 layout: none
 permalink: .htaccess
 ---
+RewriteEngine On
+Redirect /podcast /resources

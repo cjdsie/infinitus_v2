@@ -14,7 +14,7 @@ KEVIN CASEY - MARKETING THEN & NOW [@Factoryman](http://twitter.com/factoryman)
 >Today’s marketing isn’t about spending, it’s about outsmarting.
 
 [![alt Subscribe on iTunes](//dddb43dxo5lmp.cloudfront.net/podcast/Subscribe_on_iTunes_Badge_US-UK_110x40_0824.png "Subscribe on iTunes")](https://itunes.apple.com/us/podcast/marketing-then-now-chief-strategy/id873320660?i=313799118&mt=2)
-[![alt Listen to Stitcher](//cloudfront.assets.stitcher.com/promo.assets/stitcher-banner-120x90.jpg "Listen to Stitcher")](http://www.stitcher.com/s?eid=34124221&refid=stpr)
+[![alt Listen to Stitcher](//cloudfront.assets.stitcher.com/promo.assets/stitcher-banner-120x90.jpg "Listen to Stitcher")](http://www.stitcher.com/s?eid=34246915&refid=stpr)
 
 *****
 
