@@ -343,11 +343,11 @@ ul.large li, li p {
   @include clearfix();
   margin-top: $gutter;
   li{
-    @include column(12);
-    @media(min-width: 45em) {
-      @include column(4);
-      text-align: center;
-      img{
+    @include column(4);
+    text-align: center;
+    img{
+      width: 100%;
+      @media(min-width: 50em) {
         width: 80%;
       }
     }

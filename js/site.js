@@ -4,7 +4,7 @@
 
 
 
-$('.menu-wrap').stickychimp();
+
 
 $('input, textarea').placeholder();
 
@@ -16,6 +16,8 @@ enquire.register("screen and (min-width:65em)", function() {
 	      backDelay: 400,
 		  loop: true
 	    });
+	
+	   $('.menu-wrap').stickychimp();
 	
 });	
 enquire.register("screen and (max-width:65em)", function() {

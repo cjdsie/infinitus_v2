@@ -58,7 +58,7 @@
 		fromTop = $(window).scrollTop(),
 		atBottom = fromTop >= (this.documentHeight - this.windowHeight - 5);
 
-		if(this.elementTop === 0) {
+		if(this.elementTop === 350) {
 			// If element top is 0 we can defer the scroll events and reduce methods fired.
 			if((now - this.lastScroll < 250)) {
 				return;
@@ -71,7 +71,7 @@
 		}
 
 		// Clear animation queue and set to visible if user hits the top of the page suddenly.
-		if(fromTop <= 0) {
+		if(fromTop <= 350) {
 			$(this.el).stop(true);
 			$(this.el).show().fadeTo(0, 0).css('top', this.elementTop);
 		}

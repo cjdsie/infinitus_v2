@@ -99,11 +99,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d38312', end
     float: left;
     margin:0;
     max-width: 200px;
-    width: 60%;
-    height: 79px;
-    
+    width: 45%;
+    max-height: 79px;
+    height: auto;
+    margin-top: 20px;
     @media(min-width: 55em) {
       width: 100%;
+      margin-top: 0;
     }
   }
   .lead-headline{
@@ -142,17 +144,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d38312', end
   .title{
     line-height: 1;
     max-width: 125px;
-    width: 60%;
-    height: 49px;
+    width: 25%;
+    max-height: 49px;
+    height: auto;
+    margin-top: 10px;
     @media(min-width: 55em) {
       width: 100%;
+      margin-top: 0;
+    }
+    img {
+      display: block;
     }
   }
   .sm-button{
-    top:10px;
+    top:20px;
+    @media(min-width: 55em) {
+      top: 10px;
+    }
   }
   .page-title {
-    padding: 5px 0 0 0;
+    padding: ($base-unit * 8) 0 0 0;
     color: $white;
     text-align: center;
     display: block;
@@ -188,22 +199,35 @@ background-color: white;
 box-shadow: 0 1px 1px rgba(6,8,8,0.1);
 opacity: 0;
 z-index: 10;
+display: none;
+  @media(min-width: 55em) {
+    display: block;
+  }
   .sm-button{
-    top: 10px;
+    top: -30px;
     color: $light-orange;
     &:hover, &:visited {
       color: $darkorange;
     }
   }
+  a {
+    @include clearfix();
+  }
   .title{
     line-height: 1;
     max-width: 125px;
-    width: 60%;
-    height: 49px;
+    width: 25%;
+    max-height: 49px;
+    height: auto;
     float: left;
+    margin-top: 10px;
     @media(min-width: 55em) {
       width: 100%;
+      margin-top: 0;
       
+    }
+    img {
+      display: block;
     }
   }
 }

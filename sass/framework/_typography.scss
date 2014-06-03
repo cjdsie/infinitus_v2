@@ -97,8 +97,11 @@ p {
 
 .leadcopy{
   @include font-size($leadcopy);
-  margin-bottom: ($base-unit);
+  margin-bottom: ($base-unit - 3);
   text-align: center;
+  @media(min-width: 55em){
+    margin-bottom: ($base-unit);
+  }
   p {
     font-size: inherit;  
   }

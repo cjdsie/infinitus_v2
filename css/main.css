@@ -458,7 +458,7 @@ pre, table, fieldset, hr {
 .half, .page .less-half {
   display: block;
   width: 100%;
-  padding: 0; }
+  padding: 30px; }
   @media (min-width: 55em) {
     .half, .page .less-half {
       padding: 30px 60px;
@@ -626,8 +626,11 @@ p {
   font-size: 22px;
   font-size: 1.22222em;
   font-size: 1.375rem;
-  margin-bottom: 6px;
+  margin-bottom: 3px;
   text-align: center; }
+  @media (min-width: 55em) {
+    .leadcopy {
+      margin-bottom: 6px; } }
   .leadcopy p {
     font-size: inherit; }
 
@@ -3682,15 +3685,12 @@ ul.large li, li p {
   .podcast-list li {
     display: inline;
     float: left;
-    width: 97.91667%;
-    margin: 0 1.04167%; }
-    @media (min-width: 45em) {
-      .podcast-list li {
-        display: inline;
-        float: left;
-        width: 31.25%;
-        margin: 0 1.04167%;
-        text-align: center; }
+    width: 31.25%;
+    margin: 0 1.04167%;
+    text-align: center; }
+    .podcast-list li img {
+      width: 100%; }
+      @media (min-width: 50em) {
         .podcast-list li img {
           width: 80%; } }
 
@@ -5532,11 +5532,14 @@ ul.tabs {
     float: left;
     margin: 0;
     max-width: 200px;
-    width: 60%;
-    height: 79px; }
+    width: 45%;
+    max-height: 79px;
+    height: auto;
+    margin-top: 20px; }
     @media (min-width: 55em) {
       .header .title {
-        width: 100%; } }
+        width: 100%;
+        margin-top: 0; } }
   .header .lead-headline {
     text-align: center;
     margin: 78px auto;
@@ -5566,15 +5569,23 @@ ul.tabs {
   .header-white .title {
     line-height: 1;
     max-width: 125px;
-    width: 60%;
-    height: 49px; }
+    width: 25%;
+    max-height: 49px;
+    height: auto;
+    margin-top: 10px; }
     @media (min-width: 55em) {
       .header-white .title {
-        width: 100%; } }
+        width: 100%;
+        margin-top: 0; } }
+    .header-white .title img {
+      display: block; }
   .header-white .sm-button {
-    top: 10px; }
+    top: 20px; }
+    @media (min-width: 55em) {
+      .header-white .sm-button {
+        top: 10px; } }
   .header-white .page-title {
-    padding: 5px 0 0 0;
+    padding: 48px 0 0 0;
     color: white;
     text-align: center;
     display: block;
@@ -5606,21 +5617,37 @@ ul.tabs {
   -webkit-box-shadow: 0 1px 1px rgba(6, 8, 8, 0.1);
   box-shadow: 0 1px 1px rgba(6, 8, 8, 0.1);
   opacity: 0;
-  z-index: 10; }
+  z-index: 10;
+  display: none; }
+  @media (min-width: 55em) {
+    .menu-wrap {
+      display: block; } }
   .menu-wrap .sm-button {
-    top: 10px;
+    top: -30px;
     color: #e46a3f; }
     .menu-wrap .sm-button:hover, .menu-wrap .sm-button:visited {
       color: #db612e; }
+  .menu-wrap a {
+    *zoom: 1; }
+  .menu-wrap a:before, .menu-wrap a:after {
+    content: "";
+    display: table; }
+  .menu-wrap a:after {
+    clear: both; }
   .menu-wrap .title {
     line-height: 1;
     max-width: 125px;
-    width: 60%;
-    height: 49px;
-    float: left; }
+    width: 25%;
+    max-height: 49px;
+    height: auto;
+    float: left;
+    margin-top: 10px; }
     @media (min-width: 55em) {
       .menu-wrap .title {
-        width: 100%; } }
+        width: 100%;
+        margin-top: 0; } }
+    .menu-wrap .title img {
+      display: block; }
 
 .rotate {
   font-style: italic;
@@ -6418,6 +6445,7 @@ main, .main {
 ---------------------------------*/
 .openingParagraph {
   padding-top: 30px;
+  padding-bottom: 0;
   background: white; }
   .openingParagraph h3, .openingParagraph h5 {
     text-align: center; }
@@ -6426,11 +6454,13 @@ main, .main {
   .openingParagraph h5 {
     color: #db612e; }
   .openingParagraph .leadcopy {
-    width: 100%;
+    width: 90%;
     font-size: 18px;
     font-size: 1em;
     font-size: 1.125rem;
-    text-align: left; }
+    text-align: left;
+    padding: 1em 0;
+    margin: 0 auto; }
     @media (min-width: 55em) {
       .openingParagraph .leadcopy {
         width: 65%;
@@ -6797,7 +6827,7 @@ figure.browsers, .browsers {
 
 .macbook {
   bottom: 3.125em;
-  height: 485px;
+  height: 345px;
   width: 100%;
   z-index: 1;
   text-align: left;
@@ -6808,7 +6838,8 @@ figure.browsers, .browsers {
       height: 565px; } }
 
 .macbook.noshadow {
-  box-shadow: none; }
+  box-shadow: none;
+  height: 400px; }
   @media (min-width: 55em) {
     .macbook.noshadow {
       height: 665px; } }
