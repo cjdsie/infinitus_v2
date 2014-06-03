@@ -64,7 +64,7 @@
 			// if 0, the element is considered in the viewport as soon as it enters.
 			// if 1, the element is considered in the viewport only when it's fully inside
 			// value in percentage (1 >= h >= 0)
-			h = h || 0;
+			h = h || 1;
 
 		return (elTop + elH * h) <= viewed && (elBottom - elH * h) >= scrolled;
 	}
@@ -125,11 +125,11 @@
 	GridScrollFx.prototype.options = {
 		// Minimum and maximum delay of the animation (random value is chosen)
 		minDelay : 0,
-		maxDelay : 500,
+		maxDelay : 200,
 		// The viewportFactor defines how much of the appearing item has to be visible in order for the animation to start
 		// if we'd use a value of 0, this would mean that it would add the animation class as soon as the item is in the viewport. 
 		// If we were to use the value of 1, the animation would only be triggered when we see all of the item in the viewport (100% of it)
-		viewportFactor : 0
+		viewportFactor : 1
 	}
 
 	GridScrollFx.prototype._init = function() {
@@ -148,6 +148,8 @@
 		imagesLoaded( this.el, function() {
 			// show grid
 			classie.add( self.el, 'loaded' );
+			
+			
 
 			// initialize masonry
 			new Masonry( self.el, {
