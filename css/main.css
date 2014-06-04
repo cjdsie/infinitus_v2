@@ -569,10 +569,10 @@ h1 {
     color: #e46a3f; }
 
 h2 {
-  font-size: 45.232px;
-  font-size: 2.51289em;
-  font-size: 2.827rem;
-  margin-bottom: 0.37584em;
+  font-size: 43.232px;
+  font-size: 2.40178em;
+  font-size: 2.702rem;
+  margin-bottom: 0.39323em;
   font-weight: 100; }
 
 h3 {
@@ -3451,9 +3451,9 @@ ul.large li, li p {
         width: auto;
         margin: 0 6px; } }
     .inline-list li span {
-      font-size: 45.232px;
-      font-size: 2.51289em;
-      font-size: 2.827rem;
+      font-size: 43.232px;
+      font-size: 2.40178em;
+      font-size: 2.702rem;
       border: 2px solid #a9c26a;
       padding: 24px;
       border-radius: 50em; }
@@ -3598,7 +3598,7 @@ ul.large li, li p {
 .results-list {
   width: 100%;
   display: block;
-  margin-top: 168px;
+  margin-top: 48px;
   width: 100%;
   display: block;
   margin-left: auto;
@@ -3611,6 +3611,9 @@ ul.large li, li p {
     display: table; }
   .results-list:after {
     clear: both; }
+  @media (min-width: 55em) {
+    .results-list {
+      margin-top: 168px; } }
   .results-list div {
     padding: 0; }
   .results-list .results-list-item {
@@ -5542,8 +5545,12 @@ ul.tabs {
         margin-top: 0; } }
   .header .lead-headline {
     text-align: center;
-    margin: 78px auto;
-    position: relative; }
+    margin: 60px auto 78px;
+    position: relative;
+    width: 90%; }
+    @media (min-width: 55em) {
+      .header .lead-headline {
+        margin-top: 78px; } }
     .header .lead-headline h2 {
       margin-top: 30px;
       color: white;

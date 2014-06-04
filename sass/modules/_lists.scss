@@ -263,11 +263,14 @@ ul.large li, li p {
 .results-list{
   width: 100%;
   display: block;
-  margin-top: $gutter * 7;
+  margin-top: $gutter * 2;
   width: 100%;
   @include center-block;
   text-align: center;
   @include clearfix();
+  @media(min-width: 55em) {
+    margin-top: $gutter * 7;
+  }
   div{
     padding: 0; 
   }

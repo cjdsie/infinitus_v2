@@ -110,8 +110,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d38312', end
   }
   .lead-headline{
     text-align: center;
-    margin: ($base-unit * 13) auto;
+    margin: ($base-unit * 10) auto ($base-unit * 13);
     position: relative;
+    width: 90%;
+    @media(min-width: 55em) {
+      margin-top: ($base-unit * 13);
+    }
     h2{
       margin-top: ($base-unit * 5);
       color: $white;
