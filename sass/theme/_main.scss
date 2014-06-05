@@ -1143,6 +1143,7 @@ ul.popular-posts{
 
 .js .grid {
 	background: none;
+	text-align: center;
 	&:before{
 	  content: "We're loading the latest content...please give us a minute";
 	  font-family: $headline-font;

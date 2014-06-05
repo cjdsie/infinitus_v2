@@ -7366,7 +7366,8 @@ ul.popular-posts {
   min-height: 500px; }
 
 .js .grid {
-  background: none; }
+  background: none;
+  text-align: center; }
   .js .grid:before {
     content: "We're loading the latest content...please give us a minute";
     font-family: "brandon-grotesque", sans-serif;
