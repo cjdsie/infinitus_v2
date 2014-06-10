@@ -7369,7 +7369,7 @@ ul.popular-posts {
   background: none;
   text-align: center; }
   .js .grid:before {
-    content: "We're loading the latest content...please give us a minute";
+    content: "Please be patient... we're loading the content for you now";
     font-family: "brandon-grotesque", sans-serif;
     font-size: 31.984px;
     font-size: 1.77689em;
@@ -7633,6 +7633,14 @@ ul.popular-posts {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px; }
+
+/*--------------------------------
+  Privacy Page
+--------------------------------*/
+.privacy a, .privacy a:visited {
+  color: #9fbb58; }
+.privacy .container, .privacy .featured-case-study-quote, .privacy footer .footerFirst, footer .privacy .footerFirst {
+  width: 55%; }
 
 /************************
 ******   Footer    *******

@@ -1145,7 +1145,7 @@ ul.popular-posts{
 	background: none;
 	text-align: center;
 	&:before{
-	  content: "We're loading the latest content...please give us a minute";
+	  content: "Please be patient... we're loading the content for you now";
 	  font-family: $headline-font;
 	  @include font-size($baseh3);
 	  @include center-block;
@@ -1428,3 +1428,15 @@ ul.popular-posts{
           border-radius: 4px;
 }
 
+
+/*--------------------------------
+  Privacy Page
+--------------------------------*/
+.privacy {
+  a, a:visited {
+    color: $green;
+  }
+  .container {
+    width: 55%;
+  }
+}
