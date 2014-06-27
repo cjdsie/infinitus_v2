@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Your Company Culture is Key to Your Marketing"
-image: "//dddb43dxo5lmp.cloudfront.net/podcast/podcast-generic.jpg"
+image: "//dddb43dxo5lmp.cloudfront.net/podcast/podcast-christerry.jpg"
 description: "In this edition of the Limitless Business Podcast, INFINITUS chat to three great guests on three different subjects; but all of them tie back to one central theme: that your company culture is key to your marketing strategy." 
 excerpt: "In this edition of the Limitless Business Podcast, INFINITUS chat to three great guests on three different subjects; but all of them tie back to one central theme: that your company culture is key to your marketing strategy."
 class: "audio"
