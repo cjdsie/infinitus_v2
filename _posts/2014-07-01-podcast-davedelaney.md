@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "New Business Networking: Dave Delaney" 
-image: "//dddb43dxo5lmp.cloudfront.net/podcast/podcast-davedelaney.jpg"
+image: "//dddb43dxo5lmp.cloudfront.net/podcast/podcast-davedelaneycredited.jpg"
 description: "In this edition of the Limitless Business Podcast, INFINITUS chats to master networker Dave Delaney, author of ‘New Business Networking’, who discusses his experiences and thoughts of online and offline networking from arranging events to making podcasts and giving value." 
 excerpt: "In this edition of the Limitless Business Podcast, INFINITUS chats to master networker Dave Delaney, author of ‘New Business Networking’."
 class: "audio"
