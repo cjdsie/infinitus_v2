@@ -1,16 +1,20 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="{{ site.baseurl }}js/application.min.js"></script>
 <script src="{{ site.baseurl }}js/site.min.js"></script>
-<script src="https://static-interlogyllc.netdna-ssl.com/js/vendor/maskedinput.min.js?v=3.2.2071" type="text/javascript"></script>
-<script src="https://static-interlogyllc.netdna-ssl.com/static/prototype.forms.js" type="text/javascript"></script>
-<script src="https://static-interlogyllc.netdna-ssl.com/static/jotform.forms.js?3.2.2071" type="text/javascript"></script>
+<script src="{{ site.baseurl }}js/vendor/maskedinput.min.js?v=3.2.2614"></script>
+<script src="{{ site.baseurl }}js/vendor/prototype.js?v=3.2.2614"></script>
+<script src="{{ site.baseurl }}js/vendor/json2.js?v=3.2.2614"></script>
+<script src="{{ site.baseurl }}js/vendor/protoplus.js?v=3.2.2614"></script>
+<script src="{{ site.baseurl }}js/vendor/protoplus-ui-form.js?v=3.2.2614"></script>
+<script src="{{ site.baseurl }}js/vendor/calendarview.js?v=3.2.2614"></script>
 <script>
 JotForm.init(function(){
-      $('input_13').hint('ex: John Doe');
-      $('input_9').hint('ex: myname@example.com');
-      $('input_12').hint('ex: ###-###-####');
-      JotForm.setInputTextMasking( 'input_12', '###-###-####' );
-      $('input_5').hint('ex: example.com');
+      JotForm.init(function(){
+	      $('input_13').hint('ex: John Doe');
+	      $('input_9').hint('ex: myname@example.com');
+	      JotForm.setInputTextMasking( 'input_12', '###-###-####' );
+	      $('input_5').hint('ex: example.com');
+	   });
    });
 </script>
 

@@ -1432,11 +1432,17 @@ ul.popular-posts{
 /*--------------------------------
   Privacy Page
 --------------------------------*/
-.privacy {
+.privacy-wrapper {
   a, a:visited {
     color: $green;
   }
   .container {
     width: 55%;
+  }
+  section{
+    padding: 0;
+    &:first-of-type{
+      padding-top: ($base-unit * 5);
+    }
   }
 }

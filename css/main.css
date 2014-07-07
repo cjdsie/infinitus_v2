@@ -7637,10 +7637,14 @@ ul.popular-posts {
 /*--------------------------------
   Privacy Page
 --------------------------------*/
-.privacy a, .privacy a:visited {
+.privacy-wrapper a, .privacy-wrapper a:visited {
   color: #9fbb58; }
-.privacy .container, .privacy .featured-case-study-quote, .privacy footer .footerFirst, footer .privacy .footerFirst {
+.privacy-wrapper .container, .privacy-wrapper .featured-case-study-quote, .privacy-wrapper footer .footerFirst, footer .privacy-wrapper .footerFirst {
   width: 55%; }
+.privacy-wrapper section {
+  padding: 0; }
+  .privacy-wrapper section:first-of-type {
+    padding-top: 30px; }
 
 /************************
 ******   Footer    *******

@@ -1633,22 +1633,24 @@ var _alert = window.alert;
  * Super Alert.
  * Usage: alert("Hello %s, welcome to %s", name, location); -> Hello serkan welcome to Ankara
  */
-window.alert = function(){
-    var args = arguments;
-    var i = 1;
-    var first = args[0];
-    if(typeof first == "object"){
-        $H(first).debug();
-        return first;
-    }else if(typeof first == "string"){
-        var msg = first.replace(/(\%s)/gim, function(e){
-            return args[i++] || "";
-        });
-        _alert(msg);
-        return true;
-    }
-    _alert(first);
-};
+if(!location.pathname.match(/^\/answers\/.+/)){
+  window.alert = function(){
+      var args = arguments;
+      var i = 1;
+      var first = args[0];
+      if(typeof first == "object"){
+          $H(first).debug();
+          return first;
+      }else if(typeof first == "string"){
+          var msg = first.replace(/(\%s)/gim, function(e){
+              return args[i++] || "";
+          });
+          _alert(msg);
+          return true;
+      }
+      _alert(first);
+  };
+}
 
 var rand = function (min, max){
     return Math.floor(Math.random()*(max-min))+min;

@@ -101,11 +101,14 @@ var JotForm = {
         required:           'This field is required.',
         requireOne:         'At least one field required.', 
         requireEveryRow:    'Every row is required.',
+        requireEveryCell:   'Every cell is required.',
         email:              'Enter a valid e-mail address',
         alphabetic:         'This field can only contain letters',
         numeric:            'This field can only contain numeric values',
         alphanumeric:       'This field can only contain letters and numbers.',
         url:                'This field can only contain a valid URL',
+        currency:           'This field can only contain currency values.',
+        fillMask:           'Field value must fill mask.',
         uploadExtensions:   'You can only upload following files:',
         uploadFilesize:     'File size cannot be bigger than:',
         gradingScoreError:  'Score total should only be less than or equal to',
@@ -121,8 +124,11 @@ var JotForm = {
         multipleFileUploads_minSizeError: '{file} is too small, minimum file size is {minSizeLimit}.',
         multipleFileUploads_emptyError: '{file} is empty, please select files again without it.',
         multipleFileUploads_onLeave: 'The files are being uploaded, if you leave now the upload will be cancelled.',
+        multipleFileUploads_fileLimitError: 'Only {fileLimit} file uploads allowed.',
         generalError:       'There are errors on the form. Please fix them before continuing.',
-        generalPageError:   'There are errors on this page. Please fix them before continuing.'
+        generalPageError:   'There are errors on this page. Please fix them before continuing.',
+        wordLimitError:     'Too many words. The limit is',
+        characterLimitError:'Too many Characters.  The limit is'
     },
     paymentTexts: {
         couponApply:        'Apply',
@@ -254,7 +260,7 @@ var JotForm = {
                 
                 this.handleFormCollapse();
                 this.handlePages();
-                
+
                 if ($$('.form-product-item').length > 0) {
                     this.changePaymentStrings();
                 }
@@ -268,6 +274,8 @@ var JotForm = {
 					this.handleIFrameHeight();
 				}
 
+                this.jumpToPage();
+
                 this.highLightLines();
                 this.setButtonActions();
                 this.initGradingInputs();
@@ -275,7 +283,7 @@ var JotForm = {
                 this.initNumberInputs();
                 this.setConditionEvents();
                 this.setCalculationEvents();
-                this.runCalculationsOnLoad();
+                this.runAllCalculations();
                 this.setCalculationResultReadOnly();
                 this.prePopulations();
                 this.handleAutoCompletes();
@@ -350,11 +358,25 @@ var JotForm = {
     		sections[0].setStyle({display: 'block'});
     		height = maxHeight;
     	} else {
-    		height = $$('body').first().getHeight();
+    		//height = $$('body').first().getHeight();
+
+            //augment jQuery's height implementation
+            var jQueryHeight = Math.max(
+                Math.max(document.body["scrollHeight"],0/*, document.documentElement["scrollHeight"]*/),
+                Math.max(document.body["offsetHeight"], document.documentElement["offsetHeight"])
+            );
+
+            //height = Math.max(height, jQueryHeight);
+            height = jQueryHeight;
     	}
 
 	// if this is a captcha verification page, set height to 300 
 	height = ( document.title === 'Please Complete' ) ? 300 : height;
+        if("console" in window){
+            if("log" in console){
+                console.log('Debug : setting height to ',height,' from iframe');
+            }
+        }
     	window.parent.postMessage('setHeight:' + height, '*');
     },
     fixIESubmitURL: function () {
@@ -746,7 +768,7 @@ var JotForm = {
         if($$('.form-upload-multiple').length > 0){
             var script = document.createElement('script');
             script.type="text/javascript";
-            script.src = "https://static-interlogyllc.netdna-ssl.com/file-uploader/fileuploader.js";
+            script.src = "https://static-interlogyllc.netdna-ssl.com/file-uploader/fileuploader.js?v3";
             $(document.body).appendChild(script);
         }
     },
@@ -831,6 +853,7 @@ var JotForm = {
                 action: JotForm.server,
                 subLabel: subLabel,
                 buttonText: buttonText,
+                fileLimit: file.readAttribute('file-limit'),
                 sizeLimit: parseInt(file.readAttribute('file-maxsize'), 10) * 1024, // Set file size limit
                 allowedExtensions: exts,
                 messages: {
@@ -838,7 +861,8 @@ var JotForm = {
                    sizeError: self.texts.multipleFileUploads_sizeError,
                    minSizeError: self.texts.multipleFileUploads_minSizeError,
                    emptyError: self.texts.multipleFileUploads_emptyError,
-                   onLeave: self.texts.multipleFileUploads_onLeave         
+                   onLeave: self.texts.multipleFileUploads_onLeave,
+                   fileLimitError: self.texts.multipleFileUploads_fileLimitError
                 },
                 onComplete: function(id, aa, result){
                     if(result.success){
@@ -1415,15 +1439,21 @@ var JotForm = {
                     contents = input.value;
                 }
 
+                // remove html tags and space chars, to prevent wrong counts on text copied from MS WORD
+                var cleaned_contents = contents.replace(/<.[^<>]*?>/g, ' ').replace(/&nbsp;|&#160;/gi, ' '); 
+
                 if(limitType == 'Words'){
-                    count = $A(contents.split(/\s+/)).without("").length;
+                    count = $A(cleaned_contents.split(/\s+/)).without("").length;
                 }else if(limitType == 'Letters'){
-                    count = contents.length;
+                    count = cleaned_contents.length;
                 }
                 if(count > limit){
                     $(el.parentNode).addClassName('form-textarea-limit-indicator-error');
+                    var msg = limitType === 'Words' ? JotForm.texts.wordLimitError : JotForm.texts.characterLimitError;
+                    JotForm.errored(el.up('.form-line').down('textarea'), msg+" "+limit+'.');
                 }else{
                     $(el.parentNode).removeClassName('form-textarea-limit-indicator-error');
+                    JotForm.corrected(el.up('.form-line').down('textarea'));
                 }
                 el.update(count + "/" + limit);
             };
@@ -1689,6 +1719,31 @@ var JotForm = {
 
             input = $$('.form-textbox%s, .form-dropdown%s, .form-textarea%s, .form-hidden%s'.replace(/\%s/gim, n))[0];
 
+            if(!input) {
+                var name = pair.key.substr(0, pair.key.lastIndexOf('['));
+                if($$("select[name*="+name+"], input[name*="+name+"]").length > 0 ) {
+                    var index = pair.key.substr(pair.key.lastIndexOf('[')+1).replace("]", "");
+                    if($$("select[name*="+name+"], input[name*="+name+"]").length > index) {
+                        var type = $$("select[name*="+name+"]").length > 0 ? "select" : $$("input[name*="+name+"]")[index].type;
+
+                        switch (type) {
+                            case "select":
+                                $$("select[name*="+name+"]")[index].value = pair.value.replace(/\+/g, ' ');
+                                break;
+                            case "text":
+                            case "tel":
+                                $$("input[name*="+name+"]")[index].value = pair.value.replace(/\+/g, ' ');
+                                break;
+                            case "radio":
+                            case "checkbox":
+                                $$("input[name*="+name+"]")[index].checked = (pair.value == "true" || pair.value == 1);
+                                break;
+                        } 
+                    }                        
+                }
+                n = name;
+            }
+
             if(input && input.readAttribute('data-type') == 'input-grading') {
                 var grades = pair.value.split(',');
                 var stub = input.id.substr(0, input.id.lastIndexOf('_')+1);
@@ -1741,7 +1796,7 @@ var JotForm = {
     editMode: function(data, noreset, skipField){
         if(!window.editModeFunction) {
             var self = this;
-            this.loadScript('/js/form.edit.mode.js?v_'+Date.now(), function() {
+            this.loadScript('/js/form.edit.mode.js?v_'+(new Date()).getTime(), function() {
                 //editModeFunction is function name defined in form.edit.mode.js
                 self.editMode = editModeFunction;
                 self.editMode(data, noreset, skipField);
@@ -1771,6 +1826,19 @@ var JotForm = {
 
     setCalculations: function(calculations) {
         JotForm.calculations = calculations;
+    },
+
+    runConditionForId: function(id) {
+        $H(JotForm.fieldConditions).each(function(pair){
+            var conds = pair.value.conditions;
+            $A(conds).each(function(cond){
+                $A(cond.terms).each(function(term) {
+                    if(term.field === id) {
+                        JotForm.checkCondition(cond);
+                    }
+                });
+            });
+        });
     },
 
     otherConditionTrue: function(field, visibility) {
@@ -2176,7 +2244,7 @@ var JotForm = {
                             var termValue = term.value;
                             termValue = term.value.toLowerCase();
                             if(termValue.indexOf('today') > -1) {
-                                var offset = parseInt(termValue.split('today')[1].trim()) || 0;
+                                var offset = parseInt(termValue.split('today')[1]) || 0;
                                 var comparativeDate = new Date();
                                 comparativeDate.setDate(comparativeDate.getDate() + offset);
                                 var year = comparativeDate.getFullYear();
@@ -2321,8 +2389,24 @@ var JotForm = {
                                 all = false;
                             }
                         }
-                    break;                    
+                    break;  
+                    case "file": 
+                        if($('id_' + term.field).select('.qq-uploader').length > 0) {
+                            value = $('id_' + term.field).select('.qq-upload-file').length > 0;
+                        } else {
+                            value = $('input_'+term.field).value;
+                        }
+
+                        if(value === undefined){return;/* continue; */}
+                        if(JotForm.checkValueByOperator(term.operator, term.value, value, term.field)){
+                            any = true;
+                        }else{
+                            all = false;
+                        }
+                    break;
+
                     default:
+
                         value = $('input_'+term.field).value;
                         if($('input_'+term.field).hinted){
                             value = "";
@@ -2339,45 +2423,102 @@ var JotForm = {
                 JotForm.error(e);
             }
         });
-
         
+
         if(condition.type == 'field'){ // Field Condition
             // JotForm.log("any: %s, all: %s, link: %s", any, all, condition.link.toLowerCase());
             var isConditionValid = (condition.link.toLowerCase() == 'any' && any) || (condition.link.toLowerCase() == 'all' && all);
+
             condition.action.each(function(action) {
+
                 if (isConditionValid) {
                     action.currentlyTrue = true;
                     if (action.visibility.toLowerCase() == 'show'){
                         JotForm.showField(action.field);
-                    } else {
+                    } else if (action.visibility.toLowerCase() == 'hide') {
                         JotForm.hideField(action.field);
+                    } else if(action.visibility.toLowerCase() == 'showmultiple' && action.fields) {
+                        action.fields.each(function(field) {
+                            JotForm.showField(field);
+                        });
+                    } else if(action.visibility.toLowerCase() == 'hidemultiple' && action.fields) {
+                        action.fields.each(function(field) {
+                            JotForm.hideField(field);
+                        });
                     }
                 } else {
                     action.currentlyTrue = false;
                     if(action.visibility.toLowerCase() == 'show'){
                         JotForm.hideField(action.field);
-                    } else {
+                    } else if (action.visibility.toLowerCase() == 'hide') {
                         JotForm.showField(action.field);
+                    } else if(action.visibility.toLowerCase() == 'showmultiple' && action.fields) {
+                        action.fields.each(function(field) {
+                            JotForm.hideField(field);
+                        });
+                    } else if(action.visibility.toLowerCase() == 'hidemultiple' && action.fields) {
+                        action.fields.each(function(field) {
+                            JotForm.showField(field);
+                        });
                     }
                 }
+
+                
+                if($('section_'+action.field)) {
+                    JotForm.runAllCalculations(true);
+                }
+                if($('input_' + action.field) && $('input_' + action.field).triggerEvent) {
+                    if(!condition.terms.any(function(term) { return term.field == action.field;})) {  //rule matches action so don't rerun to avoid infinite loop
+                        $('input_' + action.field).triggerEvent('keyup'); //trigger calculations when hiding/showing
+                    }
+                }
+
             });
         } else if(condition.type == 'require') {
             var isConditionValid = (condition.link.toLowerCase() == 'any' && any) || (condition.link.toLowerCase() == 'all' && all);
             condition.action.each(function(action) {
-                if (isConditionValid) {
-                    if (action.visibility.toLowerCase() == 'require'){
-                        JotForm.requireField(action.field, true);
-                    } else {
-                        JotForm.requireField(action.field, false);
-                    }
+                if (action.visibility.toLowerCase() == 'require'){
+                    JotForm.requireField(action.field, isConditionValid);
+                } else if (action.visibility.toLowerCase() == 'unrequire'){
+                    JotForm.requireField(action.field, !isConditionValid);
+                } else if (action.visibility.toLowerCase() == 'requiremultiple' && action.fields) {
+                    action.fields.each(function(field) {
+                        JotForm.requireField(field, isConditionValid);
+                    });                        
+                } else if (action.visibility.toLowerCase() == 'unrequiremultiple' && action.fields) {
+                    action.fields.each(function(field) {
+                        JotForm.requireField(field, !isConditionValid);
+                    });     
+                }
+            });
+        } else if(condition.type == 'mask') {
+            condition.action.each(function(action) {
+                if((condition.link.toLowerCase() == 'any' && any) || (condition.link.toLowerCase() == 'all' && all)) {
+                    condition.conditionTrue = true;
+                    JotForm.setQuestionMasking("#input_"+action.field, "textMasking", action.mask);
+                    $("input_"+action.field).writeAttribute('masked', "true");
                 } else {
-                    if(action.visibility.toLowerCase() == 'require'){
-                        JotForm.requireField(action.field, false);
-                    } else {
-                        JotForm.requireField(action.field, true);
+                    condition.conditionTrue = false;
+                    //if no other mask conditions for this field are true remove the mask
+                    var removeMask = true;
+                    $A(JotForm.conditions).each(function(cond){
+                        if(cond.disabled == true) return; //go to next condition
+                        if(cond.type !== 'mask') return;
+                        if(!cond.conditionTrue) return;
+                        $A(cond.action).each(function(act) {
+                            if(act.field == action.field) {
+                                removeMask = false; //there is a different true mask cond on this field so do not remove mask
+                            }
+                        });
+                    });
+
+                    if(removeMask) {
+                        JotForm.setQuestionMasking("#input_"+action.field, "", "", true);
+                        $("input_"+action.field).writeAttribute('masked', "false");
                     }
                 }
             });
+
         } else if(condition.type == 'calculation') {
             var calcs = JotForm.calculations;
             var cond = null;
@@ -2400,7 +2541,24 @@ var JotForm = {
                         }
                     }
                     if(!matchForThisResult) {
-                        $('input_' + condition.action[0].resultField).value = '';
+                        var resultField = condition.action[0].resultField;
+                        var type = JotForm.getInputType(resultField);
+                        if(["address", "combined"].include(type)) {
+                            $('id_'+resultField).select('input').each(function(el) {
+                                el.value = "";
+                            });
+                            $('id_'+resultField).select('select').each(function(el) {
+                                el.selectedIndex = 0;
+                            });
+
+                            var triggerMe = $('input_' + resultField) ? $('input_' + resultField) : $('id_'+resultField).select('input').first();
+                            if(triggerMe && triggerMe.triggerEvent) {
+                                triggerMe.triggerEvent('keyup');
+                            }
+                        } else {
+                            $('input_' + resultField).value = '';
+                            $('input_' + resultField).triggerEvent('keyup');
+                        }
                     }
                 }, 50);
             }
@@ -2528,16 +2686,22 @@ var JotForm = {
     },
 
     setCalculationEvents: function() {
-
         var setCalculationListener = function(el, ev, calc) {
             $(el).observe(ev, function() {
-                el.addClassName('calculatedOperand');
-                JotForm.checkCalculation(calc);
+                if(ev === "paste") { //same action as other events but wait for the text to be pasted
+                    setTimeout(function() {
+                        el.addClassName('calculatedOperand');
+                        JotForm.checkCalculation(calc);
+                    },10);
+                } else {
+                    el.addClassName('calculatedOperand');
+                    JotForm.checkCalculation(calc);
+                }
             });
         };
 
         $A(JotForm.calculations).each(function(calc, index) {
-
+            if(!calc.operands) return;
             var ops = calc.operands.split(',');
             for(var i = 0; i < ops.length; i++) {
                 
@@ -2577,6 +2741,8 @@ var JotForm = {
                         break;
 
                     case 'address':
+                        setCalculationListener($('id_' + opField), 'change', calc, index);
+                        setCalculationListener($('id_' + opField), 'blur', calc, index);
                         setCalculationListener($('id_' + opField), 'keyup', calc, index);
                         $$("#id_" + opField + ' select').each(function(el) {
                             setCalculationListener($(el), 'change', calc, index);
@@ -2585,11 +2751,15 @@ var JotForm = {
 
                     case 'number':
                         setCalculationListener($('id_' + opField), 'keyup', calc, index);
+                        setCalculationListener($('id_' + opField), 'paste', calc, index);
                         setCalculationListener($('id_' + opField), 'click', calc, index);
                         break;
 
                     default:
+                        setCalculationListener($('id_' + opField), 'change', calc, index);
+                        setCalculationListener($('id_' + opField), 'blur', calc, index);                    
                         setCalculationListener($('id_' + opField), 'keyup', calc, index);
+                        setCalculationListener($('id_' + opField), 'paste', calc, index);
                         break;
                 }
             }
@@ -2602,9 +2772,9 @@ var JotForm = {
         JotForm.calcValues[id] = calculationValues.split('|');
     },
 
-    runCalculationsOnLoad:function() {
+    runAllCalculations:function(ignoreEditable) {
         $A(JotForm.calculations).each(function(calc, index) {
-            if(!calc.showBeforeInput) {
+            if(!(ignoreEditable && !calc.readOnly)) {
                 JotForm.checkCalculation(calc);
             }
         });
@@ -2615,15 +2785,21 @@ var JotForm = {
             return '';
         }
 
-        var result = calc.resultField,
-            showBeforeInput = calc.showBeforeInput;
+        var result = calc.resultField;
+        var showBeforeInput = calc.showBeforeInput;
+        var ignoreHidden = calc.ignoreHiddenFields;
 
-        if(!$('input_' + result)) return;
+        if(!$('id_' + result)) return;
+
+        var combinedObject = {};
 
         var getValue = function(data, numeric) {
 
             if(!$('id_' + data)) return '';
             if(!$('id_' + data).hasClassName('calculatedOperand') && showBeforeInput) return ''; //no input yet so ignore field
+            if(ignoreHidden && !JotForm.isVisible($('id_' + data))) {
+                return numeric ? 0 : '';
+            }
 
             var type = JotForm.getInputType(data);
             var val ='';
@@ -2689,11 +2865,24 @@ var JotForm = {
                 case 'combined':
                 case 'grading':
                     var valArr = [];
+                    combinedObject = {};
                     $$("#id_" + data + ' input[type="text"]').each(function(el) {
-                        if(!el.value.empty()) valArr.push(el.value);
+                        if(!el.value.empty()) {
+                            valArr.push(el.value);
+
+                            var id = el.id.replace(/_.*/, "");
+                            combinedObject[id] = el.value;
+                        }
+
                     });
                     $$("#id_" + data + ' input[type="tel"]').each(function(el) {
-                        if(!el.value.empty()) valArr.push(el.value);
+                        if(!el.value.empty()) {
+                            valArr.push(el.value);
+
+                            var id = el.id.replace(/input_[0-9].*_+/, "");
+                            combinedObject[id] = el.value;
+                            
+                        }
                     });
                     val = valArr.join(' ');
                     break;
@@ -2751,7 +2940,7 @@ var JotForm = {
                     });
                     if(numeric) {
                         var hour, mins, ampm = '';
-                        hours = parseInt(valArr[0]);
+                        hours = parseInt(valArr[0]) || 0;
                         if(valArr.length == 3 && !valArr[2].empty()) {
                             ampm = valArr[2];
                             if(ampm == 'PM' && hours != 12) {
@@ -2783,11 +2972,23 @@ var JotForm = {
 
                 case 'address':
                     var valArr = [];
+                    combinedObject = {}
                     $$("#id_" + data + ' input[type="text"]').each(function(el) {
-                        if(!el.value.empty()) valArr.push(el.value);
+                        if(!el.value.empty()) {
+                            valArr.push(el.value);
+
+                            var id = el.id.replace(/input_[0-9].*_+/, "");
+                            combinedObject[id] = el.value;
+                        }
+
                     });
                     $$("#id_" + data + ' select').each(function(el) {
-                        if(!el.value.empty()) valArr.push(el.value);
+                        if(!el.value.empty()) {
+                            valArr.push(el.value);
+
+                            var id = el.id.replace(/input_[0-9].*_+/, "");
+                            combinedObject[id] = el.value;
+                        }
                     });
                     val = valArr.join(', ');
                     break;
@@ -2875,6 +3076,7 @@ var JotForm = {
                             if(endSpecial === -1) continue;
                             var args = equation.substring(i, endSpecial);
                             args = args.split(',');
+                            var originalArgs = args.slice(0);
                             for(var j=0;j<args.length;j++) {
                                 args[j] = calculate(args[j], true);
                                 if(args[j]) {
@@ -2889,6 +3091,31 @@ var JotForm = {
                                 } else {
                                     equation = equation.substr(0, i+1) + '[' + equation.substr(i+1);
                                 }
+                            } else if(specOp === 'nth') {
+                                var n = args[0];
+                                args = args.splice(1);
+                                args = args.sort(function(a,b){
+                                    if(parseInt(a) > parseInt(b)) return 1;
+                                    if(parseInt(b) > parseInt(a)) return -1;
+                                    return 0;
+                                });
+                                args = args.reverse();
+                                out += args[parseInt(n)-1];
+                            } else if(specOp === 'avg' || specOp === 'avgNoZero') {
+                                var len = sum = 0;
+                                for(var j = 0; j < args.length; j++){
+                                    if(parseFloat(args[j]) > 0) {
+                                        len++;
+                                        sum += parseFloat(args[j]);
+                                    }
+                                }
+                                out += specOp === 'avg' ? sum/args.length : sum/len;
+                            } else if(specOp === 'count'){
+                                var field = originalArgs[0];
+                                field = field.replace(/[\{\}]/g,'');
+                                var type = JotForm.getInputType(field);
+                                var len = $$("#id_" + field + ' input[type="'+type+'"]:checked').length;
+                                out += len;
                             } else {
                                 out += acceptableFunctions[specOp].apply(undefined, args);
                             }
@@ -2920,15 +3147,62 @@ var JotForm = {
         if(parseFloat(output) === 0 && JotForm.defaultValues['input_' + result]) {
             output = JotForm.defaultValues['input_' + result]; 
         }
-        $('input_' + result).value = output;
 
+        var resultFieldType = JotForm.getInputType(result);
+        switch(resultFieldType) {
+            case "address":
+            case "combined":
+                for(var inputId in combinedObject) {
+                    if($('id_'+result).select('input[id*='+inputId+'], select[id*='+inputId+']').length > 0) {
+                        $('id_'+result).select('input[id*='+inputId+'], select[id*='+inputId+']').first().value = combinedObject[inputId];
+                    }
+                }
+                break;
+            default:
+                $('input_' + result).value = output;
+        }
+
+        var infiniteLoop = function() {
+            // prevent calculation&condition infinite loop by limiting the nuber of times 
+            // a calculation can be run on an element in a 500ms period
+            var timestamp = new Date().getTime();
+            var msPart = timestamp % 1000;
+            if(msPart < 500){
+                msPart = "0";
+            }else{
+                msPart = "1";
+            }
+            var secPart = parseInt(timestamp/1000);
+            var antiLoopKey = 'input_'+result+'-'+secPart+'-'+msPart;
+
+            //create global antiLoop variable if not created yet
+            if(!("__antiLoopCache" in window)){
+                window.__antiLoopCache = {};
+            }
+            if(antiLoopKey in window.__antiLoopCache){
+                window.__antiLoopCache[antiLoopKey]++;
+                if(window.__antiLoopCache[antiLoopKey] > 9) {
+                    return true; //only allow same calc to trigger nine times in half a second - multiple are needed for things like sliders that change quickly
+                }
+            }else{
+                window.__antiLoopCache[antiLoopKey] = 1;
+            }
+            return false; //not infinite loop
+        }
+
+        if(infiniteLoop()) {
+            return;
+        }
+
+        var triggerMe = $('input_' + result) ? $('input_' + result) : $('id_'+result).select('input').first();
+        if(!triggerMe) return;
         if (document.createEvent) {
             var evt = document.createEvent('HTMLEvents');
             evt.initEvent('keyup', true, true);
-            $('input_' + result).dispatchEvent(evt);
+            triggerMe.dispatchEvent(evt);
         }
-        if ($('input_' + result).fireEvent) {
-            $('input_' + result).fireEvent('onkeyup');
+        if (triggerMe.fireEvent) {
+            triggerMe.fireEvent('onkeyup');
         }
     },
 
@@ -2958,7 +3232,7 @@ var JotForm = {
 
                 if(condition.disabled == true) return; //go to next condition
 
-                if (condition.type == 'field' || condition.type == 'calculation' || condition.type == 'require') {
+                if (condition.type == 'field' || condition.type == 'calculation' || condition.type == 'require' || condition.type == 'mask') {
                     
                     // Loop through all rules
                     $A(condition.terms).each(function(term){
@@ -2968,12 +3242,13 @@ var JotForm = {
                             case "widget":
                                 JotForm.setFieldConditions('input_' + id, 'change', condition);
                                 JotForm.widgetsWithConditions.push(id);
-                        break;
+                            break;
                             case "combined":
-                                JotForm.setFieldConditions('id_' + id, 'keyup', condition);
+                            case "email":
+                                JotForm.setFieldConditions('id_' + id, 'autofill', condition);
                             break;
                             case "address":
-                                JotForm.setFieldConditions('id_' + id, 'keyup', condition);
+                                JotForm.setFieldConditions('id_' + id, 'autofill', condition);
                                 JotForm.setFieldConditions('input_'+term.field+'_country', 'change', condition);
                             break;
                             case "datetime":
@@ -3004,6 +3279,9 @@ var JotForm = {
                                 break;
                             case "grading":
                                 JotForm.setFieldConditions('id_' + id, 'keyup', condition);
+                                break;
+                            case "text":
+                                JotForm.setFieldConditions('input_' + id, 'autofill', condition);
                                 break;
                             default: // text, textarea, dropdown
                                 JotForm.setFieldConditions('input_' + id, 'keyup', condition);
@@ -3063,18 +3341,29 @@ var JotForm = {
                             JotForm.checkCondition(cond);
                         });
                     }).run('keyup'); 
+                } else if(event == "autofill") {
+                    $(field).observe('blur', function(){
+                        $A(conds).each(function(cond){
+                            JotForm.checkCondition(cond);
+                        });
+                        }).run('blur');
+                    $(field).observe('keyup', function(){
+                        $A(conds).each(function(cond){
+                            JotForm.checkCondition(cond);
+                        });
+                        }).run('keyup');
+                    $(field).observe('change', function(){
+                        $A(conds).each(function(cond){
+                            JotForm.checkCondition(cond);
+                        });
+                        }).run('change');
+                } else {
+                    $(field).observe(event, function(){
+                        $A(conds).each(function(cond){
+                            JotForm.checkCondition(cond);
+                        });
+                    }).run(event);
                 }
-                else {
-                $(field).observe(event, function(){
-                    $A(conds).each(function(cond){
-                        //Emre: phone condition does not work (65639)
-                        //var idf = field.replace(/.*_(\d+)/gim, '$1'); if field is "input_3_area", result is "3_area"
-                        var idf = field.replace(/[^0-9]/gim, ''); 
-                        // JotForm.warn('Checking ' + $('label_' + idf).innerHTML.strip(), ", Field Type: "+JotForm.getInputType(idf));
-                        JotForm.checkCondition(cond);
-                    });
-                }).run(event);
-            }
             });
         }catch(e){ 
             JotForm.error(e); 
@@ -3109,9 +3398,19 @@ var JotForm = {
         if (!calcField) {
             return;
         }
+
+        var getVal = function() {
+            var val = calcField.value;
+            if(typeof val !== 'number') {
+                val = val.replace(/[^0-9\.]/gi, "");
+            }
+            return !isNaN(val) && val > 0 ? val : 0;
+        }
+
+
         // get value from calculation widget
         setTimeout(function(){
-            donationField.value = !isNaN(calcField.value) && calcField.value > 0 ? calcField.value: 0;
+            donationField.value = getVal();
         }, 1000);
         // observe calc widget value changes 
         // prototype can't observe changes initiated by a js function to a field value
@@ -3120,7 +3419,7 @@ var JotForm = {
             calcField,
             0.5,  // 500 milliseconds
             function(el, value){
-                donationField.value = !isNaN(calcField.value) && calcField.value > 0 ? calcField.value: 0;
+                donationField.value =  getVal();
             }
         );
     },
@@ -3213,6 +3512,20 @@ var JotForm = {
             setTimeout(JotForm.totalCounter(JotForm.prices), 300);
         };
     },
+    /*
+     * sets currency formatting for payment fields
+     */
+    
+    setCurrencyFormat: function (curr) {
+        // currencies without decimal values
+        var noDecimal = ['BIF', 'CLP', 'DJF', 'GNF', 'JPY', 'KMF', 'KRW', 'MGA', 'PYG', 'RWF', 'VUV', 'XAF', 'XOF', 'XPF'];
+        var decimalPlaces = noDecimal.indexOf(curr) > -1 ? 0 : 2;
+        this.currencyFormat = {
+            curr: curr,
+            decimal: decimalPlaces
+        };
+    },
+            
     /**
      * Calculates the payment total with quantites
      * @param {Object} prices
@@ -3252,9 +3565,11 @@ var JotForm = {
         var shippingTotal = 0;  // total shipping cost
         var taxTotal = 0;       // total tax cost
         var taxRate = 0;        // uniform tax rate (percentage) for the non-exempted products
+        var decimal = JotForm.currencyFormat.decimal; // number of decimal places to use
         
         $H(prices).each(function(pair){
             var isSetupFee = pair.value.recurring ? true : false; // is there a setup fee for this subscription?
+            var isStripe = typeof Stripe === "function";    // is this a stripe payment field
             total = parseFloat(total);                  // total for the whole payment field
             var productShipping = 0;                    // shipping cost for current product
             var price = parseFloat(pair.value.price);   // price for the individual product
@@ -3262,7 +3577,7 @@ var JotForm = {
             var subproduct = false;                     // is this a subproduct?
             var parentProductKey;                       // subproduct's parent key (see http://www.jotform.com/help/264-Create-Sub-Products-Based-on-a-Product-Option)
             var recur = pair.value.recurring;           // subscription's recurring payment amount
-            
+
             // get the parent product id if this is a subproduct
             if (pair.key.split('_').length === 4) {
                 subproduct = true;
@@ -3300,7 +3615,7 @@ var JotForm = {
                  * 50-fixed ( $50 off for this product )
                  * 50-percent-first ( 50% off on first payment for this subscription item)
                  * 50-percent-all (50 % off on all payments for this subscription item)
-                 * 50-fixed-all ( $50 off on all payments
+                 * 50-fixed-all ( $50 off on all payments)
                  */
                 
                 // if this is a discount for product
@@ -3309,33 +3624,47 @@ var JotForm = {
                     price = price < 0 ? 0 : price;
                 } else {
                     // this is a discount for subscription
-                    
                     var subscriptionDiscountType = discount[2];
                     if (subscriptionDiscountType === "all") {
+                        // calculate discount to recurring charge
                         if (isSetupFee) {
                             recur = recur - ( ( discount[1] === 'fixed' ) ? discount[0] : recur * ( discount[0] / 100 ) );
                             recur = recur < 0 ? 0 : recur;
-                        } 
-                        price = price - ( ( discount[1] === 'fixed' ) ? discount[0] : price * ( discount[0] / 100 ) );
-                        price = price < 0 ? 0 : price;
-                    } else {
-                        if (isSetupFee) {
+                        }
+                        // if this is Stripe and there is a setup fee
+                        if (isStripe && isSetupFee) {
+                            // calculate setup fee
+                            var setupFee = price - recur;
+                            setupFee = setupFee - ( ( discount[1] === 'fixed' ) ? discount[0] : setupFee * ( discount[0] / 100 ) );
+                            setupFee = setupFee < 0 ? 0 : setupFee;
+                            price = Number(recur) + Number(setupFee);
+                        } else {
+                            // calculate recurring price
                             price = price - ( ( discount[1] === 'fixed' ) ? discount[0] : price * ( discount[0] / 100 ) );
                             price = price < 0 ? 0 : price;
+                        }
+                        
+                    } else {
+                        if (isSetupFee) {
+                            if (isStripe) {
+                                /**
+                                 * Neil: Stripe is a special case since their api does not offer a setup fee, so we do a separate charge for the setup fee
+                                 * So first payment = recurring charge + separate charge
+                                 * Therefore subscription discount for first payment actually applies only to the setup fee (first payment - recurring charge))
+                                 */
+                                var setupFee = price - recur;
+                                setupFee = setupFee - ( ( discount[1] === 'fixed' ) ? discount[0] : setupFee * ( discount[0] / 100 ) );
+                                setupFee = setupFee < 0 ? 0 : setupFee;
+                                price = Number(recur) + Number(setupFee);
+                                
+                            } else {
+                                price = price - ( ( discount[1] === 'fixed' ) ? discount[0] : price * ( discount[0] / 100 ) );
+                                price = price < 0 ? 0 : price;
+                            }
                         }
                     }
                 }
                 
-                // 'all' means all payments are discounted (for subscriptions), so we 
-                // calculate discount for the recurring charge
-//                if (pair.value.recurring && dc[2]) {
-//                    if (dc[2] === "all") {
-//                        recur = recur - ( ( dc[1] === 'fixed' ) ? dc[0] : recur * ( dc[0] / 100 ) );
-//                        recur = recur < 0 ? 0 : recur;
-//                    } else {
-//                        
-//                    }
-//                }
             }
             
             // If there is no recurring payment (i.e., subscription), update the price
@@ -3346,7 +3675,7 @@ var JotForm = {
                     if(pair.value.price === "0"){
                         $(priceText).update(' Free');
                     } else {
-                        $(priceText).update(parseFloat(price).formatMoney(2));
+                        $(priceText).update(parseFloat(price).formatMoney(decimal));
                     }
                     if(oldPriceText !== priceText.innerHTML) {
                         // JotForm.createTooltip($(priceText), '<p style="text-decoration:strikethrough">' + oldPriceText + '</p>');
@@ -3359,10 +3688,10 @@ var JotForm = {
                     // if a setup fee is not present, pair.value.price (price) is the subscription's price  
                     // otherwise, pair.value.price is the subscription's first payment amount and the subscription's price becomes pair.value.recurring (recur)
                     var priceAmount = isSetupFee ? recur : price;
-                    $(priceText).update(parseFloat(priceAmount).formatMoney(2));
+                    $(priceText).update(parseFloat(priceAmount).formatMoney(decimal));
                 }
                 if (setupfeeText) {
-                    $(setupfeeText).update(parseFloat(price).formatMoney(2));
+                    $(setupfeeText).update(parseFloat(price).formatMoney(decimal));
                 }
             }
             
@@ -3398,9 +3727,9 @@ var JotForm = {
                     // update item subtotal if available
                     if ($(parentProductKey  + '_item_subtotal') && !isNaN(price)) {
                         if (!subproduct) {
-                            $(parentProductKey+ '_item_subtotal').update(parseFloat(price).toFixed(2)); 
+                            $(parentProductKey+ '_item_subtotal').update(parseFloat(price).formatMoney(decimal)); 
                         } else {
-                            $(parentProductKey+ '_item_subtotal').update(parseFloat(itemSubTotal[parentProductKey]).toFixed(2)); 
+                            $(parentProductKey+ '_item_subtotal').update(parseFloat(itemSubTotal[parentProductKey]).formatMoney(decimal)); 
                         }
                     }
                     
@@ -3453,7 +3782,7 @@ var JotForm = {
             }
             // insert discount indicator
             $$('.form-payment-total')[0].insert({'top':JotForm.discounts.container});
-            $('discount_total').update(parseFloat(reduce).toFixed(2));
+            $('discount_total').update(parseFloat(reduce).formatMoney(decimal));
         }
         
         // if there is a shipping discount
@@ -3476,20 +3805,20 @@ var JotForm = {
         }
         // update payment subtotal
         if ($("payment_subtotal")){
-            $("payment_subtotal").update(parseFloat(subTotal).toFixed(2));
+            $("payment_subtotal").update(parseFloat(subTotal).formatMoney(decimal));
         }
         // update tax figures
         if ($("payment_tax")){
-            $("payment_tax").update(parseFloat(taxTotal).toFixed(2));
+            $("payment_tax").update(parseFloat(taxTotal).formatMoney(decimal)); 
             $("payment_tax_rate").update('(' + parseFloat(taxRate) + '%)');
         }
         // update shipping cost total
         if ($("payment_shipping")) {
-            $("payment_shipping").update(parseFloat(shippingTotal).toFixed(2));
+            $("payment_shipping").update(parseFloat(shippingTotal).formatMoney(decimal));
         }
         // update overall total
         if ($("payment_total")) {
-            $("payment_total").update(parseFloat(total).toFixed(2));
+            $("payment_total").update(parseFloat(total).formatMoney(decimal));
         }
     },
     prices: {},
@@ -4467,8 +4796,20 @@ var JotForm = {
             }
             else
             {
-              //remove error display
-              return JotForm.corrected(item);
+
+                var error = false
+                if(item.up('.form-matrix-table')) {
+                    item.up('.form-matrix-table').select('input').each(function(el) {
+                        if((el !== item) && el.hasClassName('form-validation-error')) {
+                            error = true;
+                        }
+                    });
+
+                }
+                //remove error display
+                if(!error) {
+                    return JotForm.corrected(item);
+                }
             }
           }
         });
@@ -4514,13 +4855,16 @@ var JotForm = {
                 var evt = (evt) ? evt : ((event) ? event : null);
                 var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
                 if ((evt.keyCode == 13) && (node.type == "text")) { return false; }
+                if(evt.keyCode == 13 && evt.target.hasClassName('form-pagebreak-next') && evt.target.triggerEvent) {
+                    evt.target.triggerEvent('mousedown');
+                }
             }
             document.onkeypress = stopEnterKey;
             
             section.select('.form-pagebreak-next').invoke('observe', 'click', function(){ // When next button is clicked
 
                 if(JotForm.saving){return;}
-                if (JotForm.validateAll(JotForm.getForm(section)) || getQuerystring('qp') !== "") {
+                if (JotForm.validateAll(JotForm.getForm(section), section) || getQuerystring('qp') !== "") {
 
                 	if (window.parent && window.parent != window) {
                 		window.parent.postMessage('scrollIntoView', '*');
@@ -4537,6 +4881,7 @@ var JotForm = {
 
                         JotForm.enableDisableButtonsInMultiForms();
                     }else if (section.next()) { // If there is a next page
+
                         JotForm.backStack.push(section.hide()); // Hide current
                         // This code will be replaced with condition selector
                         JotForm.currentSection = section.next().show();
@@ -4561,6 +4906,8 @@ var JotForm = {
                     if(JotForm.saveForm){
                         JotForm.hiddenSubmit(JotForm.getForm(section));
                     }
+
+                    JotForm.runAllCalculations(true);
                 } else {
                     try {
                         $$('.form-button-error').invoke('remove');
@@ -4598,13 +4945,16 @@ var JotForm = {
                 }
                 //clear if there is an error bar near back-next buttons
                 $$('.form-button-error').invoke('remove');
+
+                setTimeout(function() {
+                    JotForm.runAllCalculations(true); //so newly hidden fields may be excluded 
+                }, 10);
             });
-            
         });
         
         // Handle trailing page
         if (pages.length > 0) {
-            var allSections = $$('.form-section');
+            var allSections = $$('.form-section:not([id^=section_])');
             if (allSections.length > 0) {
                 last = allSections[allSections.length - 1];
             }
@@ -4636,8 +4986,23 @@ var JotForm = {
                 li.insert(cont);
                 last.insert(li);
             }
-        }
+        }     
+    },
+    /**
+    * Go straight to page on form load
+    */
+    jumpToPage: function() {
+        var page = document.get.jumpToPage;
+        var sections = $$('.form-section:not([id^=section_])');
         
+        if(!(page && page > 1) || page > sections.length ) return; //no page to jump to
+
+        sections[0].hide();
+        sections[page-1].show();
+        
+        if(page>2) JotForm.backStack = sections.splice(0, page-1); //so the back button will go to the previous pages and not the first
+        
+        JotForm.runAllCalculations(true); //so newly hidden fields may be excluded 
     },
     /**
      * Handles the functionality of Form Collapse tool
@@ -4855,8 +5220,10 @@ var JotForm = {
     /**
      * do all validations at once and stop on the first error
      * @param {Object} form
+     * @param {string} scopeSelector, used for selector scopes on following selectors :
+     *   form-textarea-limit-indicator-error and form-datetime-validation-error    
      */
-    validateAll: function(form){
+    validateAll: function(form, scopeSelector){
 
         var _log = function(){
             if(window.location.href.indexOf('stripeDebug') !== -1){
@@ -4867,12 +5234,16 @@ var JotForm = {
         if(getQuerystring('qp') !== "") {return true;}
         var ret = true;
         
-        if($$('.form-textarea-limit-indicator-error')[0]){
+        if(scopeSelector == undefined){
+            scopeSelector = $$('body')[0];
+        }
+
+        if(scopeSelector.select('.form-textarea-limit-indicator-error')[0]){
             _log('set to false because .form-textarea-limit-indicator-error');
             ret = false;
         }
 
-        if ($$('.form-datetime-validation-error').first()) {
+        if (scopeSelector.select('.form-datetime-validation-error').first()) {
             _log('set to false because .form-datetime-validation-error');
             ret = false;
         }
@@ -4936,8 +5307,7 @@ var JotForm = {
             _log('looping inputs with validation :');
             _log(input);
             if(input.validateInput === undefined){_log('no required continuing'); return; /* continue; */ }
-            if (!(!!input.validateInput && input.validateInput()) ) {
-
+            if (!(!!input.validateInput && input.validateInput())) {
                 ret = JotForm.hasHiddenValidationConflicts(input);
                 _log('ret setted '+ret);
             }
@@ -5087,6 +5457,7 @@ var JotForm = {
                         e.stop();
                         return;
                     }
+                    JotForm.runAllCalculations(true);
                 } catch (err) {
                     JotForm.error(err);
                     e.stop();
@@ -5288,10 +5659,11 @@ var JotForm = {
     setFieldValidation: function(input) {
         var $this = this;
         var reg = {
-            email: /[a-z0-9!#$%&'*+\/=?\^_`{|}~\-]+(?:\.[a-z0-9!#$%&'*+\/=?\^_`{|}~\-]+)*@(?:[a-z0-9](?:[a-z0-9\-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9\-]*[a-z0-9])/i,
+            email: /^\S[a-z0-9\/.!#$%&'*+\/=?\^_`{|}~\-]+(?:\.[a-z0-9!#$%&'*+\/=?\^_`{|}~\-]+)*@(?:[a-z0-9](?:[a-z0-9\-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9\-]*[a-z0-9])/i,
             alphanumeric: /^[a-zA-ZæøåäöÆØÅÄÖ0-9\s]+$/,
             numeric: /^(-?\d+[\.]?)+$/,
             numericDotStart: /^([\.]\d+)+$/,  //accept numbers starting with dot
+            currency: /^-?[\$\£]?\d*,?\d*(\.\d\d)?¥?$/, 
             alphabetic: /^[a-zA-ZæøåäöÆØÅÄÖ\s]+$/,
             url: /(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?/
         };
@@ -5303,7 +5675,7 @@ var JotForm = {
                 return true; // if it's hidden then user cannot fill this field then don't validate
             }
             
-            if(!$(input.parentNode).hasClassName('form-matrix-values')) //ntw
+            if(!$(input.parentNode).hasClassName('form-matrix-values') && !input.hasClassName('form-subproduct-option')) //ntw
                 JotForm.corrected(input); // First clean the element
             
             var vals = validations;
@@ -5328,6 +5700,12 @@ var JotForm = {
             else if( input.readAttribute('data-type') === 'input-number' && input.value )
             {
                 return input.validateNumberInputs();
+            }
+
+            if(input.up('.form-line').down('.form-textarea-limit-indicator-error')) {
+                var span = input.up('.form-line').down('.form-textarea-limit-indicator span');
+                var msg = span.readAttribute('type') === 'Words' ? JotForm.texts.wordLimitError : JotForm.texts.characterLimitError;
+                return JotForm.errored(input, msg+" "+span.readAttribute('limit')+'.');
             }
 
             if(vals.include('disallowFree')) {
@@ -5398,14 +5776,18 @@ var JotForm = {
                         var ty = input.readAttribute('type');
                         var matrixRows = {};
                         var oneChecked = false;
+                        var oneEmpty = false;
                         input.up('table').select('input').each(function(e){
                             if(!(e.name in matrixRows)){matrixRows[e.name] = false;}
                             if(matrixRows[e.name] !== true){matrixRows[e.name] = e.checked;}
                             if(matrixRows[e.name] === true){oneChecked = true;}
+                            if('value' in e && e.value.strip(" ").empty()) {oneEmpty = true;}
                         });
                         if(vals.include("requireOneAnswer")) {
                           if(!oneChecked) 
                             return JotForm.errored(input, JotForm.texts.requireOne);
+                        } else if(vals.include('requireEveryCell') && oneEmpty) {
+                            return JotForm.errored(input, JotForm.texts.requireEveryCell);
                         } else if( ! $H(matrixRows).values().all()){
                             return JotForm.errored(input, JotForm.texts.requireEveryRow);
                         } else {
@@ -5426,7 +5808,22 @@ var JotForm = {
                                         return JotForm.errored(input, JotForm.texts.required);
                                 }
                             } else {
-                                if ( ! $A(document.getElementsByName(input.name)).map(function(e){ return e.checked; }).any()) {
+                                if ( ! $A(document.getElementsByName(input.name)).map(function(e){
+                                    if (JotForm.isVisible(e)) {
+                                        // if this is an sub product checkbox (expanded)
+                                        if (e.readAttribute('type') === "checkbox" && e.value.indexOf('_expanded') > -1) {
+                                            // if not selected
+                                            if (!e.checked) {
+                                                return false;
+                                            } else {
+                                                // check if any of the quantities are filled
+                                                return $A($$('#' + e.id + '_subproducts .form-subproduct-quantity')).map(function(cb) { return cb.getSelected().value > 0 || cb.value > 0; }).any();
+                                            }
+                                        } else {
+                                            return e.checked;
+                                        }
+                                    }
+                                }).any()) {
                                     return JotForm.errored(input, JotForm.texts.required);
                                 }
                             }
@@ -5435,19 +5832,39 @@ var JotForm = {
                 } else if((input.tagName == "INPUT" || input.tagName == "SELECT") && $(input.parentNode).hasClassName('form-matrix-values')) {
                         var matrixRows = {};
                         var oneEntry = false;
+                        var oneEmpty = false;
 
                         input.up('table').select(input.tagName).each(function(e){
                             if(!(e.name in matrixRows)){matrixRows[e.name] = false;}
                             if(matrixRows[e.name] !== true){matrixRows[e.name] = (e.value && !e.value.strip(" ").empty());}
                             if(matrixRows[e.name] === true){oneEntry = true;}
+                            if('value' in e && e.value.strip(" ").empty()) {oneEmpty = true;}
                         });
                         if(vals.include("requireEveryRow") && ! $H(matrixRows).values().all()) {
                             return JotForm.errored(input, JotForm.texts.requireEveryRow);
                         } else if(vals.include("requireOneAnswer") && !oneEntry) {
                             return JotForm.errored(input, JotForm.texts.requireOne);
+                        } else if(vals.include('requireEveryCell') && oneEmpty) {
+                            return JotForm.errored(input, JotForm.texts.requireEveryCell);
                         } else {
                             return JotForm.corrected(input);
                         }
+                } else if ((input.tagName === "INPUT" || input.tagName === "SELECT") && input.hasClassName('form-subproduct-option')) {
+                    // if this is a subproduct quantity option 
+                    if (input.hasClassName('form-subproduct-quantity')) {
+                        var qID = input.id.replace(/_[0-9]*_[0-9]*$/, '');
+                        // if the corresponding checkbox is  checked
+                        if ($(qID.replace(/_quantity/, '')).checked) {
+                            // if any of the quantities are greater than 0
+                            if ($A($$('[id*="' + qID + '"]')).map(function(vl){
+                                return (vl.getSelected().value > 0 || vl.value > 0);
+                            }).any()) {
+                                return JotForm.corrected(input); // corrected
+                            } else {
+                                return JotForm.errored(input, JotForm.texts.required); // errored
+                            }
+                        }
+                    }
                 } else if (input.name && input.name.include("[")) {
                     try{
                         var cont = $this.getContainer(input);
@@ -5518,7 +5935,7 @@ var JotForm = {
             if (!vals[0]) {
                 return true;
             }
-            
+
             switch (vals[0]) {
                 case "Email":
                     if (!reg.email.test(input.value)) {
@@ -5545,6 +5962,17 @@ var JotForm = {
                         return JotForm.errored(input, JotForm.texts.url);
                     }
                     break;
+                case "Currency": 
+                    if(!reg.currency.test(input.value)) {
+                        return JotForm.errored(input, JotForm.texts.currency);
+                    }
+                    break;
+                case "Fill Mask":
+                    if(input.readAttribute("masked") == "true" && !jQuery(input).inputmask("isComplete")) {
+                        return JotForm.errored(input, JotForm.texts.fillMask);
+                    }
+                    break;
+
                 default:
                     // throw ("This validation is not valid (" + vals[0] + ")");
             }
@@ -5565,13 +5993,17 @@ var JotForm = {
         }else{
             input.observe('blur', validatorEvent);
         }
+        if(input.type == 'checkbox'){
+            input.observe('click', function() {
+                input.validateInput();
+            });
+        }
 
         if(input.up('.form-spinner')) {
             var spinnerEvent = function() {input.validateInput();};
             input.up('.form-spinner').down('.form-spinner-up').observe('click', spinnerEvent);
             input.up('.form-spinner').down('.form-spinner-down').observe('click', spinnerEvent);                  
         }
-
     },
 
 
@@ -5739,7 +6171,12 @@ var JotForm = {
           this.showCustomPlaceHolder();
       }).observe('keyup', function(e){
           //this will determine if the control has a value
-          this.hasContent = ( this.value.length > 0 ) ? true : false;
+          this.hasContent = ( this.value.length > 0 && this.value !== new_value) ? true : false;
+      }).observe('paste', function(e) {
+            $this = this;
+            setTimeout(function() {
+                $this.hasContent = ( $this.value.length > 0 && $this.value !== new_value) ? true : false;
+            }, 2);
       });
 
       //catch the submission of a form, and remove all custom placeholder
@@ -6019,6 +6456,7 @@ var JotForm = {
      */
     setQuestionMasking: function( toSelector, type, maskValue, unmask )
     {
+
       var unmask = ( unmask ) ? unmask : false
         , extendedMask = {};
 
@@ -6077,6 +6515,7 @@ var JotForm = {
      * currently it is used to import editMode function
      */
     loadScript: function() {
+
         var toLoad = arguments.length;
         var callback;
         var hasCallback = arguments[toLoad - 1] instanceof Function;
@@ -6097,6 +6536,19 @@ var JotForm = {
             script = document.createElement('script');
             script.src = arguments[i];
             script.onload = script.onerror = onloaded;
+
+            if(typeof(script.addEventListener) != 'undefined'){
+                script.addEventListener('load', callback, false);
+            }else{
+                //for IE8
+                var handleScriptStateChangeIE8 = function(){
+                    if(script.readyState == 'loaded'){
+                        callback();
+                    }
+                }
+                script.attachEvent('onreadystatechange',handleScriptStateChangeIE8);
+            }
+
             (
                 document.head ||
                 document.getElementsByTagName('head')[0]
