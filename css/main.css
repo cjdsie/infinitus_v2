@@ -7640,11 +7640,14 @@ ul.popular-posts {
 .privacy-wrapper a, .privacy-wrapper a:visited {
   color: #9fbb58; }
 .privacy-wrapper .container, .privacy-wrapper .featured-case-study-quote, .privacy-wrapper footer .footerFirst, footer .privacy-wrapper .footerFirst {
-  width: 55%; }
+  width: 55%;
+  padding: .25em 0; }
 .privacy-wrapper section {
   padding: 0; }
   .privacy-wrapper section:first-of-type {
     padding-top: 30px; }
+  .privacy-wrapper section:last-of-type {
+    padding-bottom: 1.4em; }
 
 /************************
 ******   Footer    *******

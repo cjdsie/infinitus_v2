@@ -1438,11 +1438,16 @@ ul.popular-posts{
   }
   .container {
     width: 55%;
+    padding: .25em 0;
+
   }
   section{
     padding: 0;
     &:first-of-type{
       padding-top: ($base-unit * 5);
+    }
+    &:last-of-type{
+      padding-bottom: 1.4em;
     }
   }
 }
