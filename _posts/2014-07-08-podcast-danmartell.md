@@ -13,7 +13,7 @@ DAN MARTELL - INVESTING - IN BUSINESSES AND PEOPLE [@danmartell](http://twitter.
 
 >You make a bet on the people, not the product.
 
-[![alt Subscribe on iTunes](//dddb43dxo5lmp.cloudfront.net/podcast/Subscribe_on_iTunes_Badge_US-UK_110x40_0824.png "Subscribe on iTunes")](itunes.apple.com/us/podcast/investing-in-business-in-people/id873320660?i=315963682mt=2)
+[![alt Subscribe on iTunes](//dddb43dxo5lmp.cloudfront.net/podcast/Subscribe_on_iTunes_Badge_US-UK_110x40_0824.png "Subscribe on iTunes")](https://itunes.apple.com/us/podcast/investing-in-business-in-people/id873320660?i=315963682mt=2)
 [![alt Listen to Stitcher](//cloudfront.assets.stitcher.com/promo.assets/stitcher-banner-120x90.jpg "Listen to Stitcher")](http://www.stitcher.com/s?eid=34736814)
 
 *****
