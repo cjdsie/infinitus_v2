@@ -45,7 +45,6 @@ Remember, if you enjoy this podcast please give us a [review on iTunes](https://
 #### USEFUL LINKS
 - [Dan on Twitter](http://www.twitter.com/DanMartell)
 - [Dan on Clarity](http://www.Clarity.Fm/DanMartell)
-- [Dan on Email](mailto:dan@clarity.fm) - keep it short!
 - [Dan on AngelList (investment)](https://angel.co/danmartell)
 - [Dan’s Blog](http://www.danmartell.com)
 - [Clarity](http://www.clarity.fm)
