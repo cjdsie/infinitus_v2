@@ -47,7 +47,9 @@
   .get-hired-guide{
 	@include column(7);
     float: right;
-    @media(min-width: 65em){
+    display: none;
+    @media(min-width: 70em){
+      display:inline-block;
       text-align: right;
     }
     p{

@@ -5468,9 +5468,11 @@ ul.tabs {
     float: left;
     width: 56.25%;
     margin: 0 1.04167%;
-    float: right; }
-    @media (min-width: 65em) {
+    float: right;
+    display: none; }
+    @media (min-width: 70em) {
       .callout-posts .get-hired-guide {
+        display: inline-block;
         text-align: right; } }
     .callout-posts .get-hired-guide p {
       display: inline-block;
