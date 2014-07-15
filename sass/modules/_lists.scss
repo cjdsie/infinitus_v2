@@ -351,7 +351,20 @@ ul.large li, li p {
     img{
       width: 100%;
       @media(min-width: 50em) {
-        width: 80%;
+        width: 60%;
+      }
+    }
+  }
+}
+
+.blog-sidebar {
+  .podcast-list{
+    li{
+      img{
+        width: 100%;
+        @media(min-width: 50em) {
+          width: 80%;
+        }
       }
     }
   }
