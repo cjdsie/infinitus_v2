@@ -3762,6 +3762,10 @@ ul.large li, li p {
       margin-left: -30px;
       margin-right: 14px; }
 
+@media (min-width: 55em) {
+  .definition {
+    margin-left: 1.75em; } }
+
 /************************
 ******   Links    *******
 **** Version: 0.0.1 *****

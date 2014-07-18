@@ -418,3 +418,9 @@ ul.large li, li p {
      }
   }
 }
+
+.definition {
+  @media(min-width: 55em) {
+      margin-left: 1.75em;
+  }
+}
